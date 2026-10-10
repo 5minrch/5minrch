@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>5min Rch - Flat 2% OFF | Prepaid Mobile Recharge</title>
 
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="OYRsoz0eVDKzrzpMxnGLXN6f_8IRSdkIKu1vVhR-hEs" />
+
   <!-- Google tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YL5NBRZ541"></script>
   <script>
@@ -151,7 +154,6 @@
           <input type="number" id="customAmountInput" placeholder="Koi bhi amount likhein (e.g. 399)" oninput="onCustomAmountChange()" class="w-full bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:bg-white rounded-2xl py-3 pl-9 pr-4 text-sm font-bold mono text-slate-900 outline-none transition">
         </div>
         
-        <!-- EXCLUSIVE OFFER HIGHLIGHT BOX -->
         <div class="p-2.5 rounded-xl bg-emerald-50/80 border border-emerald-200 flex items-start gap-2">
           <i class="fa-solid fa-gift text-emerald-600 text-xs mt-0.5 shrink-0"></i>
           <p class="text-[10px] text-emerald-900 font-medium leading-snug">
@@ -1223,26 +1225,4 @@
       const val = document.getElementById('settingWaInput').value.trim();
       if (val.length >= 10) {
         SUPPORT_WA = val;
-        localStorage.setItem('flash_support_phone', SUPPORT_WA);
-        updateWaButton();
-        showToast('WhatsApp updated!');
-      } else {
-        showToast('Invalid phone number!', true);
-      }
-    }
-
-    function savePinSetting() {
-      const val = document.getElementById('settingPinInput').value.trim();
-      if (/^\d{4}$/.test(val)) {
-        ADMIN_PIN = val;
-        localStorage.setItem('flash_admin_pin', ADMIN_PIN);
-        showToast('Admin PIN updated!');
-      } else {
-        showToast('PIN must be 4 digits!', true);
-      }
-    }
-
-    window.onload = initStore;
-  </script>
-</body>
-</html>
+        localStorage.setItem('flash_support
