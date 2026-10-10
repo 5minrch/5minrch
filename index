@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>5min Rch - Flat 2% OFF | Prepaid Mobile Recharge</title>
+
+  <!-- SEO & Structured Data -->
+  <meta name="title" content="5min Rch - Flat 2% OFF on Jio, Airtel, Vi Prepaid Recharge">
+  <meta name="description" content="Get flat 2.0% instant discount on mobile recharges. Zero convenience fee, direct UPI payment, fast 5-minute dispatch. 100% refund guarantee.">
+  <meta name="keywords" content="mobile recharge discount, flat 2 percent off, jio discount recharge, airtel recharge offer, vi recharge cashback, cheap mobile recharge">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Save Flat 2.0% on Every Prepaid Recharge | 5min Rch">
+  <meta property="og:description" content="Zero platform fee. Direct UPI payments for Jio, Airtel, and Vi. Fast 5-min dispatch.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "5min Rch",
+    "description": "Prepaid mobile recharge facilitation platform offering flat 2% discount.",
+    "priceRange": "₹19 - ₹2999"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .plan-card-active {
+      border-color: #059669 !important;
+      background-color: #ecfdf5 !important;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.12);
+    }
+    .sheet-up { transform: translateY(0%) !important; }
+    @keyframes pinShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+    .shake-error { animation: pinShake 0.35s ease-in-out; }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 min-h-screen flex justify-center selection:bg-emerald-500 selection:text-white">
+
+  <!-- ================= MOBILE APP WRAPPER ================= -->
+  <div class="w-full max-w-md bg-white min-h-screen flex flex-col justify-between shadow-2xl relative pb-28">
+
+    <!-- Top App Header -->
+    <header class="bg-white border-b border-slate-100 sticky top-0 z-30 px-4 py-3 flex justify-between items-center shadow-xs">
+      <div onclick="handleSecretAdminTrigger()" class="flex items-center gap-2.5 cursor-pointer select-none">
+        <div class="h-9 w-9 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black text-base shadow-sm">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div>
+          <h1 class="font-extrabold text-base leading-tight tracking-tight text-slate-900">5min <span class="text-emerald-600">Rch</span></h1>
+          <p class="text-[10px] text-emerald-600 font-bold flex items-center gap-1">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Instant Dispatch
+          </p>
+        </div>
+      </div>
+
+      <div class="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold flex items-center gap-1">
+        <i class="fa-solid fa-tag"></i> Flat 2% OFF
+      </div>
+    </header>
+
+    <!-- Main Booking Form -->
+    <main class="p-4 space-y-4 flex-1">
+
+      <!-- 1. Mobile Number Field -->
+      <div class="space-y-1.5">
+        <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Mobile Number</label>
+        <div class="relative flex items-center">
+          <div class="absolute left-3.5 flex items-center gap-1 text-slate-500 font-bold text-sm">
+            <span>+91</span>
+          </div>
+          <input type="tel" id="mobileInput" maxlength="10" placeholder="10-digit number dalein" oninput="handleMobileInput(this.value)" class="w-full bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pl-14 pr-24 text-base font-bold mono text-slate-900 outline-none transition shadow-xs">
+
+          <!-- Auto SIM Badge -->
+          <div id="operatorBadge" class="absolute right-3 px-2 py-1 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold flex items-center gap-1.5 transition">
+            <span class="h-2 w-2 rounded-full bg-blue-500"></span>
+            <span id="operatorText">Jio</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Carrier Switcher Chips -->
+      <div class="grid grid-cols-3 gap-2">
+        <button type="button" onclick="selectOperator('Jio')" class="op-chip py-2 px-3 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center gap-1.5 text-xs font-bold transition" data-op="Jio">
+          <span class="h-2.5 w-2.5 rounded-full bg-blue-500"></span> Jio
+        </button>
+        <button type="button" onclick="selectOperator('Airtel')" class="op-chip py-2 px-3 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center gap-1.5 text-xs font-bold transition" data-op="Airtel">
+          <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span> Airtel
+        </button>
+        <button type="button" onclick="selectOperator('Vi')" class="op-chip py-2 px-3 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center gap-1.5 text-xs font-bold transition" data-op="Vi">
+          <span class="h-2.5 w-2.5 rounded-full bg-amber-500"></span> Vi
+        </button>
+      </div>
+
+      <!-- 3. Popular Plans Carousel -->
+      <div class="space-y-2 pt-1">
+        <div class="flex justify-between items-center px-0.5">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Popular Plans</span>
+          <span class="text-[10px] text-emerald-600 font-bold">Auto 2% Discounted</span>
+        </div>
+        <div id="planScrollContainer" class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1"></div>
+      </div>
+
+      <!-- 4. Custom Amount Input -->
+      <div class="space-y-1.5 pt-1">
+        <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Ya Koi Bhi Plan Amount Likhein</label>
+        <div class="relative">
+          <span class="absolute left-4 top-3 text-slate-400 font-bold mono text-sm">₹</span>
+          <input type="number" id="customAmountInput" placeholder="Official plan MRP dalein (e.g. 299)" oninput="onCustomAmountChange()" class="w-full bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:bg-white rounded-2xl py-3 pl-9 pr-4 text-sm font-bold mono text-slate-900 outline-none transition">
+        </div>
+      </div>
+
+      <!-- 5. Plan Accuracy Warning Note -->
+      <div class="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 flex items-start gap-2.5 text-left">
+        <i class="fa-solid fa-triangle-exclamation text-amber-600 text-sm mt-0.5 shrink-0"></i>
+        <div class="text-[11px] text-amber-900 leading-snug">
+          <p class="font-bold">Zaroori Soochana:</p>
+          <p class="text-amber-800 mt-0.5">
+            Kripya apne MyJio / Airtel Thanks / Vi App me check karke hi exact plan amount dalein. Galat amount hone par recharge process nahi hoga.
+          </p>
+        </div>
+      </div>
+
+      <!-- 6. 100% Refund Guarantee Shield -->
+      <div class="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-100 flex items-center gap-3">
+        <div class="h-8 w-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 text-sm shadow-xs">
+          <i class="fa-solid fa-shield-check"></i>
+        </div>
+        <div class="text-[11px] leading-tight text-emerald-950">
+          <p class="font-bold">100% Money-Back Guarantee</p>
+          <p class="text-emerald-700 mt-0.5">Agar 5 minute me recharge dispatch nahi hua, toh pura paisa turant aapke UPI par refund kar diya jayega.</p>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ================= FIXED BOTTOM PAY BAR ================= -->
+    <div class="fixed bottom-0 inset-x-0 max-w-md mx-auto bg-white border-t border-slate-200/80 p-3.5 z-40 flex items-center justify-between gap-3 shadow-lg">
+      <div>
+        <div class="flex items-center gap-1.5">
+          <span class="text-lg font-black text-slate-900 mono leading-none" id="bottomFinalPrice">₹293.02</span>
+          <span class="text-[10px] line-through text-slate-400 mono" id="bottomOriginalPrice">₹299</span>
+        </div>
+        <p class="text-[10px] text-emerald-600 font-bold mt-0.5">
+          <i class="fa-solid fa-tag mr-0.5"></i> Bachat: <span id="bottomSavings">₹5.98</span>
+        </p>
+      </div>
+
+      <button type="button" onclick="openPaymentSheet()" class="flex-1 py-3.5 px-5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-extrabold rounded-2xl text-sm shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-2">
+        <span>Proceed to Pay</span>
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </button>
+    </div>
+
+    <!-- WhatsApp Support Bubble -->
+    <a id="waBubble" href="#" target="_blank" class="fixed bottom-20 right-4 z-30 h-11 w-11 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg flex items-center justify-center text-lg active:scale-95 transition" aria-label="Support">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer with Secret Admin Long-Press -->
+    <footer class="text-center py-3 px-4 border-t border-slate-100 bg-white">
+      <p id="footerSecretTrigger" class="text-[10px] text-slate-400 select-none cursor-pointer">
+        5min Rch &bull; Independent Retail Facilitator &bull; Fast Dispatch
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- ================= PAYMENT BOTTOM SHEET ================= -->
+  <div id="sheetBackdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-200" onclick="closePaymentSheet()"></div>
+
+  <div id="paymentSheet" class="fixed bottom-0 inset-x-0 max-w-md mx-auto bg-white rounded-t-[32px] p-5 z-50 translate-y-full transition-transform duration-300 ease-out space-y-4 shadow-2xl border-t border-slate-100">
+    <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto -mt-1"></div>
+
+    <div class="flex justify-between items-center">
+      <div>
+        <h3 class="font-extrabold text-base text-slate-900">Direct UPI Checkout</h3>
+        <p class="text-[11px] text-slate-500">Zero convenience fee &bull; Flat 2% Discount applied</p>
+      </div>
+      <button onclick="closePaymentSheet()" class="h-7 w-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:text-slate-800">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+    </div>
+
+    <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex justify-between items-center">
+      <div>
+        <span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Payable Amount</span>
+        <div id="sheetPayableAmount" class="font-black text-xl text-emerald-600 mono">₹293.02</div>
+      </div>
+      <div class="text-right">
+        <span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">UPI ID</span>
+        <div id="sheetUpiDisplay" class="text-xs mono font-bold text-slate-800 select-all">payee@upi</div>
+      </div>
+    </div>
+
+    <!-- UPI App Links -->
+    <div class="space-y-1.5">
+      <p class="text-[11px] font-bold text-slate-500 uppercase">Step 1: Kisi bhi app se payment karein</p>
+      <div class="grid grid-cols-2 gap-2">
+        <a id="phonePeLink" href="#" class="py-2.5 px-3 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+          <i class="fa-solid fa-mobile-screen"></i> PhonePe
+        </a>
+        <a id="gPayLink" href="#" class="py-2.5 px-3 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+          <i class="fa-brands fa-google-pay text-base"></i> GPay
+        </a>
+        <a id="paytmLink" href="#" class="py-2.5 px-3 rounded-xl bg-sky-50 border border-sky-200 text-sky-700 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+          <i class="fa-solid fa-wallet"></i> Paytm
+        </a>
+        <a id="otherUpiLink" href="#" class="py-2.5 px-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center gap-1.5 transition">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Other UPI
+        </a>
+      </div>
+    </div>
+
+    <!-- QR Code Section -->
+    <details class="bg-slate-50 rounded-xl border border-slate-200 p-2 text-xs">
+      <summary class="font-bold text-slate-600 cursor-pointer list-none flex justify-between items-center px-1">
+        <span><i class="fa-solid fa-qrcode text-emerald-600 mr-1.5"></i> QR Code scan karein</span>
+        <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+      </summary>
+      <div class="pt-2 text-center">
+        <div id="sheetQrContainer" class="inline-block p-1 bg-white border border-slate-200 rounded-lg shadow-xs"></div>
+      </div>
+    </details>
+
+    <!-- UTR Input -->
+    <div class="space-y-1.5">
+      <label class="text-[11px] font-bold text-slate-700">Step 2: 12-Digit UTR / Ref No. dalein</label>
+      <input type="text" id="utrField" maxlength="12" placeholder="Receipt se dekh kar 12-digit number dalein" class="w-full bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white rounded-xl p-3 text-sm font-bold mono outline-none">
+    </div>
+
+    <button onclick="submitOrder()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-extrabold rounded-xl text-sm transition shadow-md shadow-emerald-600/20">
+      Submit & Dispatch Recharge
+    </button>
+  </div>
+
+  <!-- ================= STYLISH PIN MODAL ================= -->
+  <div id="pinModalBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div id="pinBoxCard" class="w-full max-w-xs bg-[#0f172a] border border-white/10 rounded-3xl p-6 text-center space-y-5 shadow-2xl">
+      <div class="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto text-xl">
+        <i class="fa-solid fa-fingerprint"></i>
+      </div>
+      <div>
+        <h3 class="text-white font-black text-lg">Merchant Access</h3>
+        <p class="text-slate-400 text-xs mt-0.5">Enter 4-Digit Security PIN</p>
+      </div>
+
+      <!-- Dots Indicator -->
+      <div class="flex justify-center gap-3 py-1">
+        <div id="pinDot0" class="h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors"></div>
+        <div id="pinDot1" class="h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors"></div>
+        <div id="pinDot2" class="h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors"></div>
+        <div id="pinDot3" class="h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors"></div>
+      </div>
+
+      <!-- Dialpad -->
+      <div class="grid grid-cols-3 gap-2 pt-2">
+        <button onclick="pressPinKey('1')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">1</button>
+        <button onclick="pressPinKey('2')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">2</button>
+        <button onclick="pressPinKey('3')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">3</button>
+        <button onclick="pressPinKey('4')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">4</button>
+        <button onclick="pressPinKey('5')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">5</button>
+        <button onclick="pressPinKey('6')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">6</button>
+        <button onclick="pressPinKey('7')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">7</button>
+        <button onclick="pressPinKey('8')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">8</button>
+        <button onclick="pressPinKey('9')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">9</button>
+        <button onclick="closePinModal()" class="py-3 rounded-2xl text-slate-500 hover:text-slate-300 text-xs font-bold uppercase">Cancel</button>
+        <button onclick="pressPinKey('0')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">0</button>
+        <button onclick="deletePinKey()" class="py-3 rounded-2xl text-slate-400 hover:text-white text-base"><i class="fa-solid fa-delete-left"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MERCHANT HQ (ADMIN DESK) ================= -->
+  <div id="adminModal" class="hidden fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex justify-center items-start overflow-y-auto p-3 sm:p-6">
+    <div class="w-full max-w-lg bg-[#0e1626] border border-white/10 rounded-3xl shadow-2xl text-slate-200 overflow-hidden my-auto space-y-4">
+
+      <!-- Executive Top Bar -->
+      <div class="bg-gradient-to-r from-slate-900 to-[#141e33] p-5 border-b border-white/5 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg shadow-inner">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="font-black text-white text-base tracking-tight">Merchant HQ</h2>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-bold uppercase tracking-wider">LIVE</span>
+            </div>
+            <p class="text-[11px] text-slate-400">Order Dispatch & Control Desk</p>
+          </div>
+        </div>
+
+        <button onclick="closeAdminDesk()" class="h-9 w-9 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- KPI Metrics -->
+      <div class="grid grid-cols-3 gap-2.5 px-5">
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3">
+          <div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-1">
+            <i class="fa-solid fa-wallet text-emerald-400"></i> Revenue
+          </div>
+          <div id="adminTotalRevenue" class="text-base font-black text-white mono mt-1">₹0</div>
+          <div class="text-[9px] text-slate-500 mt-0.5">Total collection</div>
+        </div>
+
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3">
+          <div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-1">
+            <i class="fa-solid fa-coins text-amber-400"></i> Est. Profit
+          </div>
+          <div id="adminTotalProfit" class="text-base font-black text-amber-400 mono mt-1">₹0</div>
+          <div class="text-[9px] text-slate-500 mt-0.5">Net margin</div>
+        </div>
+
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3">
+          <div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-1">
+            <i class="fa-solid fa-receipt text-blue-400"></i> Orders
+          </div>
+          <div id="adminOrderCount" class="text-base font-black text-blue-400 mono mt-1">0</div>
+          <div class="text-[9px] text-slate-500 mt-0.5">Total count</div>
+        </div>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex gap-2 px-5 border-b border-white/5 pb-3">
+        <button onclick="switchAdminTab('orders')" id="tabBtnOrders" class="px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-list-check"></i> Orders Queue
+        </button>
+        <button onclick="switchAdminTab('settings')" id="tabBtnSettings" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition">
+          <i class="fa-solid fa-sliders"></i> Store Settings
+        </button>
+      </div>
+
+      <!-- Tab 1: Orders Queue -->
+      <div id="tabContentOrders" class="px-5 pb-5 space-y-3">
+        <div class="flex justify-between items-center text-xs">
+          <span class="text-slate-400 font-bold uppercase tracking-wider text-[10px]">Recent Transactions</span>
+          <button onclick="clearAllOrders()" class="text-rose-400 hover:text-rose-300 text-[10px] font-bold"><i class="fa-solid fa-trash-can mr-1"></i> Clear History</button>
+        </div>
+        <div id="ordersCardsContainer" class="space-y-2.5 max-h-[360px] overflow-y-auto no-scrollbar pr-0.5"></div>
+      </div>
+
+      <!-- Tab 2: Interactive Settings -->
+      <div id="tabContentSettings" class="hidden px-5 pb-5 space-y-4">
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-2">
+          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex justify-between">
+            <span>Receiving UPI ID</span>
+            <span class="text-emerald-400">Direct Bank</span>
+          </label>
+          <div class="flex gap-2">
+            <input type="text" id="settingUpiInput" class="flex-1 bg-slate-950/60 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white outline-none focus:border-emerald-500">
+            <button onclick="saveUpiSetting()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold">Save</button>
+          </div>
+          <p class="text-[10px] text-slate-500">Isi UPI ID par sabhi apps aur QR code payment bhejenge.</p>
+        </div>
+
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-2">
+          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex justify-between">
+            <span>WhatsApp Support Phone</span>
+            <span class="text-emerald-400">91 Prefix</span>
+          </label>
+          <div class="flex gap-2">
+            <input type="text" id="settingWaInput" class="flex-1 bg-slate-950/60 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white outline-none focus:border-emerald-500">
+            <button onclick="saveWaSetting()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold">Save</button>
+          </div>
+          <p class="text-[10px] text-slate-500">Customer help button isi number par open hoga.</p>
+        </div>
+
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-2">
+          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Change Admin PIN (4 Digits)</label>
+          <div class="flex gap-2">
+            <input type="password" id="settingPinInput" maxlength="4" placeholder="e.g. 1234" class="w-28 bg-slate-950/60 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white text-center outline-none focus:border-emerald-500">
+            <button onclick="savePinSetting()" class="px-3 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-bold">Update PIN</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastNotification" class="fixed top-5 inset-x-0 mx-auto max-w-xs bg-slate-900 border border-white/10 text-white text-xs font-bold py-2.5 px-4 rounded-2xl shadow-2xl flex items-center gap-2.5 -translate-y-20 opacity-0 transition-all duration-300 pointer-events-none z-50">
+    <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+    <span id="toastMsg">Notification message</span>
+  </div>
+
+  <!-- ================= LOGIC ENGINE ================= -->
+  <script>
+    let ACTIVE_UPI = localStorage.getItem('flash_upi_id') || 'yourname@okhdfcbank';
+    let SUPPORT_WA = localStorage.getItem('flash_support_phone') || '919876543210';
+    let ADMIN_PIN = localStorage.getItem('flash_admin_pin') || '1234';
+
+    const TG_BOT = '8633314298:AAExWjKQautkhNj_D1HHoaTubRaDm0uD1ks';
+    const TG_CHAT = '514213737';
+
+    const CARRIER_PLANS = {
+      Jio: [
+        { mrp: 199, val: '18 Days', desc: '1.5GB/Day' },
+        { mrp: 299, val: '28 Days', desc: '1.5GB/Day' },
+        { mrp: 349, val: '28 Days', desc: '2GB/D + 5G' },
+        { mrp: 899, val: '84 Days', desc: '2GB/D + 5G' }
+      ],
+      Airtel: [
+        { mrp: 199, val: '28 Days', desc: '2GB Total' },
+        { mrp: 349, val: '28 Days', desc: '1.5GB/Day' },
+        { mrp: 409, val: '28 Days', desc: '2.5GB/D + 5G' },
+        { mrp: 979, val: '84 Days', desc: '2GB/D + 5G' }
+      ],
+      Vi: [
+        { mrp: 199, val: '18 Days', desc: '1GB/Day' },
+        { mrp: 349, val: '28 Days', desc: '1.5GB/Day' },
+        { mrp: 409, val: '28 Days', desc: '2GB/Day' },
+        { mrp: 859, val: '84 Days', desc: '1.5GB/Day' }
+      ]
+    };
+
+    let activeOp = 'Jio';
+    let selectedMrp = 299;
+    let ordersList = JSON.parse(localStorage.getItem('flash_orders')) || [];
+    let tapCounter = 0, tapTimer = null;
+    let currentEnteredPin = '';
+
+    function showToast(msg, isError = false) {
+      const toast = document.getElementById('toastNotification');
+      const icon = document.getElementById('toastIcon');
+      document.getElementById('toastMsg').textContent = msg;
+      
+      icon.className = isError ? 'fa-solid fa-circle-exclamation text-rose-400 text-sm' : 'fa-solid fa-circle-check text-emerald-400 text-sm';
+      toast.classList.remove('-translate-y-20', 'opacity-0');
+      
+      setTimeout(() => {
+        toast.classList.add('-translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    function initStore() {
+      selectOperator('Jio');
+      selectPackMrp(299);
+      document.getElementById('sheetUpiDisplay').textContent = ACTIVE_UPI;
+      updateWaButton();
+      checkUrlHashAdmin();
+      setupLongPressTrigger();
+    }
+
+    function checkUrlHashAdmin() {
+      if (window.location.hash === '#admin') openPinModal();
+    }
+
+    function setupLongPressTrigger() {
+      let timer;
+      const el = document.getElementById('footerSecretTrigger');
+      el.addEventListener('touchstart', () => {
+        timer = setTimeout(() => openPinModal(), 1500);
+      });
+      el.addEventListener('touchend', () => clearTimeout(timer));
+    }
+
+    function updateWaButton() {
+      document.getElementById('waBubble').href = `https://wa.me/${SUPPORT_WA}?text=${encodeURIComponent('Hi, mujhe recharge me help chahiye.')}`;
+    }
+
+    function selectOperator(op) {
+      activeOp = op;
+      document.querySelectorAll('.op-chip').forEach(btn => {
+        if (btn.dataset.op === op) {
+          btn.classList.add('border-emerald-600', 'bg-emerald-50', 'text-emerald-800');
+        } else {
+          btn.classList.remove('border-emerald-600', 'bg-emerald-50', 'text-emerald-800');
+        }
+      });
+
+      const badge = document.getElementById('operatorBadge');
+      const badgeText = document.getElementById('operatorText');
+      badgeText.textContent = op;
+
+      if (op === 'Jio') {
+        badge.className = 'absolute right-3 px-2 py-1 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold flex items-center gap-1.5';
+      } else if (op === 'Airtel') {
+        badge.className = 'absolute right-3 px-2 py-1 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold flex items-center gap-1.5';
+      } else {
+        badge.className = 'absolute right-3 px-2 py-1 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold flex items-center gap-1.5';
+      }
+
+      renderCarousel();
+    }
+
+    function renderCarousel() {
+      const container = document.getElementById('planScrollContainer');
+      container.innerHTML = CARRIER_PLANS[activeOp].map(p => `
+        <button type="button" onclick="selectPackMrp(${p.mrp})" class="shrink-0 w-32 p-3 rounded-2xl border border-slate-200 bg-slate-50 text-left transition ${selectedMrp === p.mrp ? 'plan-card-active' : ''}">
+          <div class="text-sm font-black text-slate-900 mono">₹${p.mrp}</div>
+          <div class="text-[11px] font-bold text-slate-600 mt-1">${p.val}</div>
+          <div class="text-[10px] text-slate-400 truncate">${p.desc}</div>
+        </button>
+      `).join('');
+    }
+
+    function selectPackMrp(mrp) {
+      selectedMrp = mrp;
+      document.getElementById('customAmountInput').value = mrp;
+      renderCarousel();
+      updateBill();
+    }
+
+    function onCustomAmountChange() {
+      const val = parseFloat(document.getElementById('customAmountInput').value);
+      selectedMrp = (!isNaN(val) && val > 0) ? val : 0;
+      updateBill();
+    }
+
+    function updateBill() {
+      const mrp = selectedMrp || 0;
+      const discount = (mrp * 0.02);
+      const net = (mrp > 0) ? Math.max(1, (mrp - discount)).toFixed(2) : '0.00';
+
+      document.getElementById('bottomOriginalPrice').textContent = `₹${mrp}`;
+      document.getElementById('bottomSavings').textContent = `₹${discount.toFixed(2)}`;
+      document.getElementById('bottomFinalPrice').textContent = `₹${net}`;
+      document.getElementById('sheetPayableAmount').textContent = `₹${net}`;
+    }
+
+    function handleMobileInput(val) {
+      if (val.length >= 4) {
+        const p = val.substring(0, 4);
+        if (['9811', '9810', '9845', '9871'].includes(p)) selectOperator('Airtel');
+        else if (['9820', '9892', '9839'].includes(p)) selectOperator('Vi');
+        else selectOperator('Jio');
+      }
+    }
+
+    function openPaymentSheet() {
+      const num = document.getElementById('mobileInput').value.trim();
+      if (num.length !== 10) return showToast('10-digit number dalein!', true);
+      if (selectedMrp <= 0) return showToast('Valid plan amount dalein!', true);
+
+      const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
+      const note = `RCH-${num}`;
+      const upiUrl = `upi://pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+      document.getElementById('phonePeLink').href = `phonepe://pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
+      document.getElementById('gPayLink').href = `tez://upi/pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
+      document.getElementById('paytmLink').href = `paytmmp://pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
+      document.getElementById('otherUpiLink').href = upiUrl;
+
+      const qr = document.getElementById('sheetQrContainer');
+      qr.innerHTML = '';
+      new QRCode(qr, { text: upiUrl, width: 130, height: 130 });
+
+      document.getElementById('sheetBackdrop').classList.remove('opacity-0', 'pointer-events-none');
+      document.getElementById('paymentSheet').classList.add('sheet-up');
+    }
+
+    function closePaymentSheet() {
+      document.getElementById('sheetBackdrop').classList.add('opacity-0', 'pointer-events-none');
+      document.getElementById('paymentSheet').classList.remove('sheet-up');
+    }
+
+    async function submitOrder() {
+      const utr = document.getElementById('utrField').value.trim();
+      if (!/^\d{12}$/.test(utr)) return showToast('12-digit UTR number dalein.', true);
+
+      const num = document.getElementById('mobileInput').value.trim();
+      const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
+
+      const order = {
+        id: 'ORD' + Date.now().toString().slice(-4),
+        mobile: num,
+        carrier: activeOp,
+        mrp: selectedMrp,
+        net: net,
+        utr: utr,
+        status: 'PENDING',
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      ordersList.unshift(order);
+      localStorage.setItem('flash_orders', JSON.stringify(ordersList));
+
+      const msg = `🔔 *NEW RECHARGE ORDER!*\n📱 Mobile: \`${order.mobile}\` (${order.carrier})\n💰 MRP: Rs.${order.mrp}\n✅ Paid: Rs.${order.net}\n🔢 UTR: \`${order.utr}\`\n⏰ Time: ${order.time}`;
+      try {
+        fetch(`https://api.telegram.org/bot${TG_BOT}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: TG_CHAT, text: msg, parse_mode: 'Markdown' })
+        });
+      } catch (e) {}
+
+      closePaymentSheet();
+      showToast('Order Placed! 5 min me recharge ho jayega.');
+    }
+
+    // ================= PIN MODAL CONTROLLER =================
+    function handleSecretAdminTrigger() {
+      tapCounter++;
+      clearTimeout(tapTimer);
+      if (tapCounter >= 3) {
+        tapCounter = 0;
+        openPinModal();
+      } else {
+        tapTimer = setTimeout(() => { tapCounter = 0; }, 1000);
+      }
+    }
+
+    function openPinModal() {
+      currentEnteredPin = '';
+      updatePinDots();
+      document.getElementById('pinModalBackdrop').classList.remove('hidden');
+    }
+
+    function closePinModal() {
+      document.getElementById('pinModalBackdrop').classList.add('hidden');
+    }
+
+    function pressPinKey(k) {
+      if (currentEnteredPin.length < 4) {
+        currentEnteredPin += k;
+        updatePinDots();
+        if (currentEnteredPin.length === 4) verifyPin();
+      }
+    }
+
+    function deletePinKey() {
+      currentEnteredPin = currentEnteredPin.slice(0, -1);
+      updatePinDots();
+    }
+
+    function updatePinDots() {
+      for (let i = 0; i < 4; i++) {
+        const dot = document.getElementById(`pinDot${i}`);
+        if (i < currentEnteredPin.length) {
+          dot.className = 'h-3.5 w-3.5 rounded-full bg-emerald-400 border border-emerald-400 transition-colors';
+        } else {
+          dot.className = 'h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors';
+        }
+      }
+    }
+
+    function verifyPin() {
+      if (currentEnteredPin === ADMIN_PIN) {
+        closePinModal();
+        openAdminDesk();
+      } else {
+        const card = document.getElementById('pinBoxCard');
+        card.classList.add('shake-error');
+        setTimeout(() => {
+          card.classList.remove('shake-error');
+          currentEnteredPin = '';
+          updatePinDots();
+        }, 400);
+      }
+    }
+
+    function openAdminDesk() {
+      document.getElementById('settingUpiInput').value = ACTIVE_UPI;
+      document.getElementById('settingWaInput').value = SUPPORT_WA;
+      document.getElementById('adminModal').classList.remove('hidden');
+      renderAdminDesk();
+    }
+
+    function closeAdminDesk() {
+      document.getElementById('adminModal').classList.add('hidden');
+    }
+
+    function switchAdminTab(tab) {
+      if (tab === 'orders') {
+        document.getElementById('tabContentOrders').classList.remove('hidden');
+        document.getElementById('tabContentSettings').classList.add('hidden');
+        document.getElementById('tabBtnOrders').className = 'px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition';
+        document.getElementById('tabBtnSettings').className = 'px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition';
+      } else {
+        document.getElementById('tabContentOrders').classList.add('hidden');
+        document.getElementById('tabContentSettings').classList.remove('hidden');
+        document.getElementById('tabBtnOrders').className = 'px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition';
+        document.getElementById('tabBtnSettings').className = 'px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition';
+      }
+    }
+
+    function renderAdminDesk() {
+      const totalRev = ordersList.reduce((sum, o) => sum + parseFloat(o.net || 0), 0);
+      const estProfit = ordersList.reduce((sum, o) => sum + (parseFloat(o.mrp || 0) * 0.01), 0);
+
+      document.getElementById('adminTotalRevenue').textContent = `₹${totalRev.toFixed(0)}`;
+      document.getElementById('adminTotalProfit').textContent = `₹${estProfit.toFixed(0)}`;
+      document.getElementById('adminOrderCount').textContent = ordersList.length;
+
+      const container = document.getElementById('ordersCardsContainer');
+      if (ordersList.length === 0) {
+        container.innerHTML = `
+          <div class="py-12 text-center text-slate-500">
+            <i class="fa-solid fa-inbox text-3xl mb-2 text-slate-600"></i>
+            <p class="text-xs">Abhi koi naya order nahi aaya hai.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = ordersList.map((o, index) => `
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3.5 space-y-2.5 transition hover:border-white/10">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="font-extrabold text-white text-sm mono">${o.mobile}</span>
+                <span class="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase ${o.carrier === 'Jio' ? 'bg-blue-500/20 text-blue-400' : (o.carrier === 'Airtel' ? 'bg-rose-500/20 text-rose-400' : 'bg-amber-500/20 text-amber-400')}">${o.carrier}</span>
+              </div>
+              <p class="text-[10px] text-slate-400 mt-0.5">Time: ${o.time || 'Today'} &bull; Pack: <b class="text-white">₹${o.mrp}</b></p>
+            </div>
+            <div class="text-right">
+              <span class="text-emerald-400 font-extrabold mono text-base">₹${o.net}</span>
+              <span class="block text-[9px] font-bold ${o.status === 'DONE' ? 'text-emerald-400' : 'text-amber-400'}">${o.status || 'PENDING'}</span>
+            </div>
+          </div>
+
+          <div class="bg-black/30 p-2 rounded-xl flex justify-between items-center text-[11px] mono">
+            <span class="text-slate-400">UTR: <span class="text-amber-300 font-bold select-all">${o.utr}</span></span>
+            <button onclick="navigator.clipboard.writeText('${o.utr}'); showToast('UTR Copied!');" class="text-slate-400 hover:text-white text-xs px-2 py-0.5 bg-white/5 rounded">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 pt-1 text-[11px]">
+            <button onclick="navigator.clipboard.writeText('${o.mobile}'); showToast('Number Copied!');" class="py-1.5 px-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold flex items-center justify-center gap-1 transition">
+              <i class="fa-solid fa-copy"></i> Copy No.
+            </button>
+            <button onclick="toggleOrderStatus(${index})" class="py-1.5 px-2 rounded-xl ${o.status === 'DONE' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-300'} font-bold flex items-center justify-center gap-1 transition">
+              <i class="fa-solid fa-check"></i> ${o.status === 'DONE' ? 'Done' : 'Mark Done'}
+            </button>
+            <button onclick="sendWaReceipt('${o.mobile}', '${o.mrp}')" class="py-1.5 px-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center justify-center gap-1 transition">
+              <i class="fa-brands fa-whatsapp"></i> Receipt
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleOrderStatus(index) {
+      ordersList[index].status = ordersList[index].status === 'DONE' ? 'PENDING' : 'DONE';
+      localStorage.setItem('flash_orders', JSON.stringify(ordersList));
+      renderAdminDesk();
+    }
+
+    function sendWaReceipt(mobile, mrp) {
+      const msg = encodeURIComponent(`Namaste! Aapka mobile ${mobile} par Rs.${mrp} ka prepaid recharge successfully complete ho gaya hai. 5min Rch use karne ke liye dhanyawad! Agli baar bhi 2% bachat ke liye link save rakhein.`);
+      window.open(`https://wa.me/91${mobile}?text=${msg}`, '_blank');
+    }
+
+    function clearAllOrders() {
+      ordersList = [];
+      localStorage.removeItem('flash_orders');
+      renderAdminDesk();
+      showToast('Order history cleared.');
+    }
+
+    function saveUpiSetting() {
+      const val = document.getElementById('settingUpiInput').value.trim();
+      if (val && val.includes('@')) {
+        ACTIVE_UPI = val;
+        localStorage.setItem('flash_upi_id', ACTIVE_UPI);
+        document.getElementById('sheetUpiDisplay').textContent = ACTIVE_UPI;
+        showToast('UPI ID saved!');
+      } else {
+        showToast('Invalid UPI ID!', true);
+      }
+    }
+
+    function saveWaSetting() {
+      const val = document.getElementById('settingWaInput').value.trim();
+      if (val.length >= 10) {
+        SUPPORT_WA = val;
+        localStorage.setItem('flash_support_phone', SUPPORT_WA);
+        updateWaButton();
+        showToast('WhatsApp updated!');
+      } else {
+        showToast('Invalid phone number!', true);
+      }
+    }
+
+    function savePinSetting() {
+      const val = document.getElementById('settingPinInput').value.trim();
+      if (/^\d{4}$/.test(val)) {
+        ADMIN_PIN = val;
+        localStorage.setItem('flash_admin_pin', ADMIN_PIN);
+        showToast('Admin PIN updated!');
+      } else {
+        showToast('PIN must be 4 digits!', true);
+      }
+    }
+
+    window.onload = initStore;
+  </script>
+</body>
+</html>
