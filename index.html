@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>5min Rch - Flat 2% OFF | Prepaid Mobile Recharge</title>
 
+  <!-- Google tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YL5NBRZ541"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YL5NBRZ541');
+  </script>
+
   <meta name="title" content="5min Rch - Flat 2% OFF on Jio, Airtel, Vi Prepaid Recharge">
   <meta name="description" content="Get flat 2.0% instant discount on mobile recharges. Zero convenience fee, direct UPI payment, fast 5-minute dispatch. 100% refund guarantee.">
   <meta name="keywords" content="mobile recharge discount, flat 2 percent off, jio discount recharge, airtel recharge offer, vi recharge cashback, cheap mobile recharge">
   <meta name="robots" content="index, follow">
-
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Save Flat 2.0% on Every Prepaid Recharge | 5min Rch">
-  <meta property="og:description" content="Zero platform fee. Direct UPI payments for Jio, Airtel, and Vi. Fast 5-min dispatch.">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -122,7 +128,7 @@
       <!-- 3. Plan Category Filter Pills -->
       <div class="space-y-2 pt-1">
         <div class="flex justify-between items-center px-0.5">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Official Plans (Latest)</span>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Available Plans</span>
           <span class="text-[10px] text-emerald-600 font-bold">2% Flat Discount</span>
         </div>
 
@@ -134,16 +140,23 @@
           <button onclick="filterPlanCategory('ANNUAL')" class="cat-pill px-3 py-1.5 rounded-lg text-[11px] font-bold bg-slate-100 text-slate-600 whitespace-nowrap transition" data-cat="ANNUAL">Annual 365D</button>
         </div>
 
-        <!-- Plans Horizontal Scroll Cards -->
         <div id="planScrollContainer" class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1.5 pt-0.5"></div>
       </div>
 
-      <!-- 4. Custom Amount Input -->
-      <div class="space-y-1.5 pt-1">
+      <!-- 4. Custom Amount Input with Special Offer Callout -->
+      <div class="space-y-2 pt-1">
         <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Ya Custom MRP Dalein</label>
         <div class="relative">
           <span class="absolute left-4 top-3 text-slate-400 font-bold mono text-sm">₹</span>
-          <input type="number" id="customAmountInput" placeholder="Koi bhi amount likhein (e.g. 349)" oninput="onCustomAmountChange()" class="w-full bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:bg-white rounded-2xl py-3 pl-9 pr-4 text-sm font-bold mono text-slate-900 outline-none transition">
+          <input type="number" id="customAmountInput" placeholder="Koi bhi amount likhein (e.g. 399)" oninput="onCustomAmountChange()" class="w-full bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:bg-white rounded-2xl py-3 pl-9 pr-4 text-sm font-bold mono text-slate-900 outline-none transition">
+        </div>
+        
+        <!-- EXCLUSIVE OFFER HIGHLIGHT BOX -->
+        <div class="p-2.5 rounded-xl bg-emerald-50/80 border border-emerald-200 flex items-start gap-2">
+          <i class="fa-solid fa-gift text-emerald-600 text-xs mt-0.5 shrink-0"></i>
+          <p class="text-[10px] text-emerald-900 font-medium leading-snug">
+            <b>Special Offer Tip:</b> Agar aapke number par koi exclusive/special offer chal raha hai, toh seedha Custom Amount box mein wahi MRP likhein aur uspe bhi flat <b>2% extra discount</b> paayein!
+          </p>
         </div>
       </div>
 
@@ -153,7 +166,7 @@
         <div class="text-[11px] text-amber-900 leading-snug">
           <p class="font-bold">Zaroori Soochana:</p>
           <p class="text-amber-800 mt-0.5">
-            Kripya apne SIM app (MyJio / Airtel Thanks / Vi App) me pack check karke hi exact MRP chunein. Galat amount hone par recharge ruk sakta hai.
+            Kripya apne SIM app (MyJio / Airtel Thanks / Vi App) me pack check karke hi exact MRP chunein.
           </p>
         </div>
       </div>
@@ -268,7 +281,7 @@
     </button>
   </div>
 
-  <!-- PIN MODAL -->
+  <!-- CLEAN PIN MODAL -->
   <div id="pinModalBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[70] flex items-center justify-center p-4 hidden">
     <div id="pinBoxCard" class="w-full max-w-xs bg-[#0f172a] border border-white/10 rounded-3xl p-6 text-center space-y-5 shadow-2xl">
       <div class="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto text-xl">
@@ -276,7 +289,7 @@
       </div>
       <div>
         <h3 class="text-white font-black text-lg">Merchant Access</h3>
-        <p class="text-slate-400 text-xs mt-0.5">PIN enter karein</p>
+        <p class="text-slate-400 text-xs mt-0.5">Enter 4-Digit Security PIN</p>
       </div>
 
       <div class="flex justify-center gap-3 py-1">
@@ -303,7 +316,7 @@
     </div>
   </div>
 
-  <!-- MERCHANT HQ -->
+  <!-- MERCHANT HQ (ADMIN DESK) -->
   <div id="adminModal" class="hidden fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[70] flex justify-center items-start overflow-y-auto p-3 sm:p-6">
     <div class="w-full max-w-lg bg-[#0e1626] border border-white/10 rounded-3xl shadow-2xl text-slate-200 overflow-hidden my-auto space-y-4">
 
@@ -315,9 +328,9 @@
           <div>
             <div class="flex items-center gap-2">
               <h2 class="font-black text-white text-base tracking-tight">Merchant HQ</h2>
-              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-bold uppercase tracking-wider">SECURE</span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-bold uppercase tracking-wider">LIVE</span>
             </div>
-            <p class="text-[11px] text-slate-400">Order Dispatch & Security Logs Desk</p>
+            <p class="text-[11px] text-slate-400">Order Dispatch & Plan Manager</p>
           </div>
         </div>
 
@@ -326,6 +339,7 @@
         </button>
       </div>
 
+      <!-- KPI Metrics -->
       <div class="grid grid-cols-3 gap-2.5 px-5">
         <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3">
           <div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-1">
@@ -352,15 +366,19 @@
         </div>
       </div>
 
-      <div class="flex gap-2 px-5 border-b border-white/5 pb-3">
-        <button onclick="switchAdminTab('orders')" id="tabBtnOrders" class="px-3.5 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition">
+      <!-- Tab Buttons -->
+      <div class="flex gap-1.5 px-5 border-b border-white/5 pb-3 overflow-x-auto no-scrollbar">
+        <button onclick="switchAdminTab('orders')" id="tabBtnOrders" class="px-3 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap">
           <i class="fa-solid fa-list-check"></i> Orders
         </button>
-        <button onclick="switchAdminTab('settings')" id="tabBtnSettings" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition">
+        <button onclick="switchAdminTab('plans')" id="tabBtnPlans" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap">
+          <i class="fa-solid fa-tags"></i> Manage Plans
+        </button>
+        <button onclick="switchAdminTab('settings')" id="tabBtnSettings" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap">
           <i class="fa-solid fa-sliders"></i> Settings
         </button>
-        <button onclick="switchAdminTab('logs')" id="tabBtnLogs" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition">
-          <i class="fa-solid fa-shield-halved"></i> Login Logs
+        <button onclick="switchAdminTab('logs')" id="tabBtnLogs" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap">
+          <i class="fa-solid fa-shield-halved"></i> Logs
         </button>
       </div>
 
@@ -373,7 +391,81 @@
         <div id="ordersCardsContainer" class="space-y-2.5 max-h-[340px] overflow-y-auto no-scrollbar pr-0.5"></div>
       </div>
 
-      <!-- Tab 2: Settings -->
+      <!-- Tab 2: Plan Manager -->
+      <div id="tabContentPlans" class="hidden px-5 pb-5 space-y-4">
+        
+        <!-- Add / Edit Plan Card -->
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-3">
+          <div class="flex justify-between items-center">
+            <span id="planFormTitle" class="text-xs font-black text-emerald-400 uppercase tracking-wider">Add New Plan</span>
+            <button id="cancelEditBtn" onclick="cancelPlanEdit()" class="text-[10px] text-slate-400 hover:text-white hidden">Cancel Edit</button>
+          </div>
+          
+          <input type="hidden" id="editPlanIndex" value="-1">
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase">Operator</label>
+              <select id="planFormOp" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-2.5 py-2 text-xs font-bold text-white outline-none">
+                <option value="Jio">Jio</option>
+                <option value="Airtel">Airtel</option>
+                <option value="Vi">Vi</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase">Category</label>
+              <select id="planFormCat" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-2.5 py-2 text-xs font-bold text-white outline-none">
+                <option value="DATA">Data Add-on</option>
+                <option value="28D">28 Days Pack</option>
+                <option value="MID">56 - 84 Days</option>
+                <option value="ANNUAL">365 Days / Annual</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase">MRP (₹)</label>
+              <input type="number" id="planFormMrp" placeholder="e.g. 399" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white outline-none">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-400 uppercase">Validity</label>
+              <input type="text" id="planFormVal" placeholder="e.g. 28 Days" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white outline-none">
+            </div>
+          </div>
+
+          <div>
+            <label class="text-[10px] font-bold text-slate-400 uppercase">Description / Benefits</label>
+            <input type="text" id="planFormDesc" placeholder="e.g. 2.5GB/Day + True 5G Unltd" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white outline-none">
+          </div>
+
+          <button onclick="savePlanFromForm()" id="planSaveBtn" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-black transition">
+            + Add Plan to Site
+          </button>
+        </div>
+
+        <!-- Filter & Current Plans List -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="text-slate-400 font-bold uppercase tracking-wider text-[10px]">Active Plans List</span>
+            <div class="flex gap-2">
+              <select id="adminPlanFilterOp" onchange="renderAdminPlansList()" class="bg-white/5 border border-white/10 rounded-lg px-2 py-1 text-[10px] font-bold text-white outline-none">
+                <option value="Jio">Jio Plans</option>
+                <option value="Airtel">Airtel Plans</option>
+                <option value="Vi">Vi Plans</option>
+              </select>
+              <button onclick="resetDefaultPlans()" class="text-amber-400 hover:text-amber-300 text-[10px] font-bold">
+                <i class="fa-solid fa-rotate-left mr-0.5"></i> Reset
+              </button>
+            </div>
+          </div>
+
+          <div id="adminPlansContainer" class="space-y-2 max-h-[260px] overflow-y-auto no-scrollbar pr-0.5"></div>
+        </div>
+
+      </div>
+
+      <!-- Tab 3: Settings -->
       <div id="tabContentSettings" class="hidden px-5 pb-5 space-y-4">
         <div class="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-4 flex items-center justify-between">
           <div>
@@ -419,7 +511,7 @@
         </div>
       </div>
 
-      <!-- Tab 3: Login Logs -->
+      <!-- Tab 4: Login Logs -->
       <div id="tabContentLogs" class="hidden px-5 pb-5 space-y-3">
         <div class="flex justify-between items-center text-xs">
           <span class="text-slate-400 font-bold uppercase tracking-wider text-[10px]">Merchant Login Activity</span>
@@ -447,8 +539,7 @@
     const TG_BOT = '8633314298:AAExWjKQautkhNj_D1HHoaTubRaDm0uD1ks';
     const TG_CHAT = '514213737';
 
-    // 100% REVISED OFFICIAL PLANS LIST
-    const CARRIER_PLANS = {
+    const DEFAULT_PLANS = {
       Jio: [
         { mrp: 19, val: '1 Day', desc: '1GB Data Booster', cat: 'DATA' },
         { mrp: 29, val: '2 Days', desc: '2GB Data Booster', cat: 'DATA' },
@@ -470,8 +561,7 @@
         { mrp: 999, val: '98 Days', desc: '2GB/Day + True 5G Unltd', cat: 'MID' },
         { mrp: 1199, val: '84 Days', desc: '3GB/Day + True 5G Unltd', cat: 'MID' },
         { mrp: 1899, val: '336 Days', desc: '24GB Total Value Plan', cat: 'ANNUAL' },
-        { mrp: 3599, val: '365 Days', desc: '2.5GB/Day + True 5G Annual', cat: 'ANNUAL' },
-        { mrp: 3999, val: '365 Days', desc: '2.5GB/Day + FanCode/OTT 5G', cat: 'ANNUAL' }
+        { mrp: 3599, val: '365 Days', desc: '2.5GB/Day + True 5G Annual', cat: 'ANNUAL' }
       ],
       Airtel: [
         { mrp: 11, val: '1 Hour', desc: 'Unlimited Data (1 Hr)', cat: 'DATA' },
@@ -482,6 +572,7 @@
         { mrp: 199, val: '28 Days', desc: '2GB Total + Unlimited Call', cat: '28D' },
         { mrp: 299, val: '28 Days', desc: '1GB/Day + Unlimited Call', cat: '28D' },
         { mrp: 349, val: '28 Days', desc: '1.5GB/Day + Unlimited Call', cat: '28D' },
+        { mrp: 399, val: '28 Days', desc: '2.5GB/Day + Unlimited 5G', cat: '28D' },
         { mrp: 409, val: '28 Days', desc: '2.5GB/Day + Unlimited 5G', cat: '28D' },
         { mrp: 449, val: '28 Days', desc: '3GB/Day + Unlimited 5G', cat: '28D' },
         { mrp: 509, val: '84 Days', desc: '6GB Total Value Pack', cat: 'MID' },
@@ -489,10 +580,8 @@
         { mrp: 649, val: '56 Days', desc: '2GB/Day + Unlimited 5G', cat: 'MID' },
         { mrp: 859, val: '84 Days', desc: '1.5GB/Day + Unlimited Call', cat: 'MID' },
         { mrp: 979, val: '84 Days', desc: '2GB/Day + Unlimited 5G', cat: 'MID' },
-        { mrp: 1199, val: '84 Days', desc: '2.5GB/Day + Prime 5G', cat: 'MID' },
         { mrp: 1999, val: '365 Days', desc: '24GB Total Annual Pack', cat: 'ANNUAL' },
-        { mrp: 3599, val: '365 Days', desc: '2GB/Day + Unlimited 5G Annual', cat: 'ANNUAL' },
-        { mrp: 3999, val: '365 Days', desc: '2.5GB/Day + Disney+ Hotstar 5G', cat: 'ANNUAL' }
+        { mrp: 3599, val: '365 Days', desc: '2GB/Day + Unlimited 5G Annual', cat: 'ANNUAL' }
       ],
       Vi: [
         { mrp: 19, val: '1 Day', desc: '1GB Data Booster', cat: 'DATA' },
@@ -501,6 +590,8 @@
         { mrp: 199, val: '28 Days', desc: '2GB Total + Unlimited Call', cat: '28D' },
         { mrp: 299, val: '28 Days', desc: '1GB/Day + Unlimited Call', cat: '28D' },
         { mrp: 349, val: '28 Days', desc: '1.5GB/Day + Binge All Night', cat: '28D' },
+        { mrp: 365, val: '28 Days', desc: '2GB/Day + Half-Day Unltd (12am-12pm)', cat: '28D' },
+        { mrp: 399, val: '28 Days', desc: '2.5GB/Day + Hero Unltd (Night+Rollover)', cat: '28D' },
         { mrp: 409, val: '28 Days', desc: '2.5GB/Day + Weekend Rollover', cat: '28D' },
         { mrp: 449, val: '28 Days', desc: '3GB/Day + Hero Unlimited', cat: '28D' },
         { mrp: 509, val: '84 Days', desc: '6GB Total Value Pack', cat: 'MID' },
@@ -508,12 +599,12 @@
         { mrp: 649, val: '56 Days', desc: '2GB/Day + Weekend Rollover', cat: 'MID' },
         { mrp: 859, val: '84 Days', desc: '1.5GB/Day + Hero Unlimited', cat: 'MID' },
         { mrp: 979, val: '84 Days', desc: '2GB/Day + Binge All Night', cat: 'MID' },
-        { mrp: 1199, val: '84 Days', desc: '2.5GB/Day + Binge All Night', cat: 'MID' },
         { mrp: 1999, val: '365 Days', desc: '24GB Total Annual Pack', cat: 'ANNUAL' },
-        { mrp: 3499, val: '365 Days', desc: '1.5GB/Day + Binge All Night', cat: 'ANNUAL' },
-        { mrp: 3699, val: '365 Days', desc: '2GB/Day + OTT Annual Pack', cat: 'ANNUAL' }
+        { mrp: 3499, val: '365 Days', desc: '1.5GB/Day + Binge All Night', cat: 'ANNUAL' }
       ]
     };
+
+    let CARRIER_PLANS = JSON.parse(localStorage.getItem('flash_carrier_plans')) || DEFAULT_PLANS;
 
     let activeOp = 'Jio';
     let activeCat = 'ALL';
@@ -657,6 +748,7 @@
     function onCustomAmountChange() {
       const val = parseFloat(document.getElementById('customAmountInput').value);
       selectedMrp = (!isNaN(val) && val > 0) ? val : 0;
+      renderCarousel();
       updateBill();
     }
 
@@ -867,6 +959,7 @@
       document.getElementById('adminModal').classList.remove('hidden');
       applyMaintenanceState();
       renderAdminDesk();
+      renderAdminPlansList();
     }
 
     function closeAdminDesk() {
@@ -874,21 +967,135 @@
     }
 
     function switchAdminTab(tab) {
-      const tabs = ['orders', 'settings', 'logs'];
+      const tabs = ['orders', 'plans', 'settings', 'logs'];
       tabs.forEach(t => {
         const content = document.getElementById(`tabContent${t.charAt(0).toUpperCase() + t.slice(1)}`);
         const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
         if (t === tab) {
           content.classList.remove('hidden');
-          btn.className = 'px-3.5 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition';
+          btn.className = 'px-3 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap';
         } else {
           content.classList.add('hidden');
-          btn.className = 'px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition';
+          btn.className = 'px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap';
         }
       });
       if (tab === 'logs') renderLoginLogs();
+      if (tab === 'plans') renderAdminPlansList();
     }
 
+    // PLAN MANAGER LOGIC
+    function savePlanFromForm() {
+      const op = document.getElementById('planFormOp').value;
+      const cat = document.getElementById('planFormCat').value;
+      const mrp = parseFloat(document.getElementById('planFormMrp').value);
+      const val = document.getElementById('planFormVal').value.trim();
+      const desc = document.getElementById('planFormDesc').value.trim();
+      const editIndex = parseInt(document.getElementById('editPlanIndex').value);
+
+      if (isNaN(mrp) || mrp <= 0) return showToast('Valid MRP amount dalein!', true);
+      if (!val) return showToast('Validity likhein (e.g. 28 Days)!', true);
+      if (!desc) return showToast('Description likhein!', true);
+
+      if (!CARRIER_PLANS[op]) CARRIER_PLANS[op] = [];
+
+      const newPlanObj = { mrp, val, desc, cat };
+
+      if (editIndex >= 0) {
+        CARRIER_PLANS[op][editIndex] = newPlanObj;
+        showToast(`Plan ₹${mrp} updated successfully!`);
+      } else {
+        CARRIER_PLANS[op].push(newPlanObj);
+        CARRIER_PLANS[op].sort((a, b) => a.mrp - b.mrp);
+        showToast(`New Plan ₹${mrp} added to ${op}!`);
+      }
+
+      localStorage.setItem('flash_carrier_plans', JSON.stringify(CARRIER_PLANS));
+      cancelPlanEdit();
+      renderAdminPlansList();
+      renderCarousel();
+    }
+
+    function editPlan(op, index) {
+      const p = CARRIER_PLANS[op][index];
+      if (!p) return;
+
+      document.getElementById('planFormOp').value = op;
+      document.getElementById('planFormCat').value = p.cat || '28D';
+      document.getElementById('planFormMrp').value = p.mrp;
+      document.getElementById('planFormVal').value = p.val;
+      document.getElementById('planFormDesc').value = p.desc;
+      document.getElementById('editPlanIndex').value = index;
+
+      document.getElementById('planFormTitle').textContent = `Edit ${op} Plan (₹${p.mrp})`;
+      document.getElementById('planSaveBtn').textContent = 'Save Changes';
+      document.getElementById('cancelEditBtn').classList.remove('hidden');
+      document.getElementById('tabContentPlans').scrollTop = 0;
+    }
+
+    function deletePlan(op, index) {
+      if (confirm(`Kya aap ${op} ka ₹${CARRIER_PLANS[op][index].mrp} wala plan delete karna chahte hain?`)) {
+        CARRIER_PLANS[op].splice(index, 1);
+        localStorage.setItem('flash_carrier_plans', JSON.stringify(CARRIER_PLANS));
+        renderAdminPlansList();
+        renderCarousel();
+        showToast('Plan deleted!');
+      }
+    }
+
+    function cancelPlanEdit() {
+      document.getElementById('editPlanIndex').value = '-1';
+      document.getElementById('planFormMrp').value = '';
+      document.getElementById('planFormVal').value = '';
+      document.getElementById('planFormDesc').value = '';
+      document.getElementById('planFormTitle').textContent = 'Add New Plan';
+      document.getElementById('planSaveBtn').textContent = '+ Add Plan to Site';
+      document.getElementById('cancelEditBtn').classList.add('hidden');
+    }
+
+    function resetDefaultPlans() {
+      if (confirm('Kya aap sabhi operators ke plans ko wapas default official list par reset karna chahte hain?')) {
+        CARRIER_PLANS = JSON.parse(JSON.stringify(DEFAULT_PLANS));
+        localStorage.setItem('flash_carrier_plans', JSON.stringify(CARRIER_PLANS));
+        cancelPlanEdit();
+        renderAdminPlansList();
+        renderCarousel();
+        showToast('Plans reset to default!');
+      }
+    }
+
+    function renderAdminPlansList() {
+      const op = document.getElementById('adminPlanFilterOp').value;
+      const list = CARRIER_PLANS[op] || [];
+      const container = document.getElementById('adminPlansContainer');
+
+      if (list.length === 0) {
+        container.innerHTML = `<div class="p-4 text-center text-xs text-slate-500">Koi plan nahi hai. Upar se add karein!</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map((p, idx) => `
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3 flex justify-between items-center text-xs">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-black text-white mono text-sm">₹${p.mrp}</span>
+              <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">${p.val}</span>
+              <span class="text-[9px] text-slate-400 uppercase font-mono">${p.cat}</span>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-0.5 truncate max-w-[200px]">${p.desc}</p>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button onclick="editPlan('${op}', ${idx})" class="h-8 w-8 rounded-xl bg-white/5 hover:bg-white/10 text-blue-400 flex items-center justify-center transition">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button onclick="deletePlan('${op}', ${idx})" class="h-8 w-8 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 flex items-center justify-center transition">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // DASHBOARD & ORDERS LOGIC
     function renderAdminDesk() {
       const totalRev = ordersList.reduce((sum, o) => sum + parseFloat(o.net || 0), 0);
       const estProfit = ordersList.reduce((sum, o) => sum + (parseFloat(o.mrp || 0) * 0.01), 0);
