@@ -834,7 +834,7 @@
       closePaymentSheet();
       showToast('Order Received! 5 min me recharge ho jayega.');
     }
-    // 🕵️ AUTO-LEAD CAPTURE: Agar customer 10 digit daal kar chhod de
+    // 🕵️ AUTO-LEAD CAPTURE: Instant 0-second Alert
     let capturedLeads = new Set();
     const mobileField = document.getElementById('mobileInput');
 
@@ -844,25 +844,19 @@
         if (num.length === 10 && !capturedLeads.has(num)) {
           capturedLeads.add(num);
           
-          const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-          const leadData = {
-            mobile: num,
-            carrier: typeof activeOp !== 'undefined' ? activeOp : 'Unknown',
-            type: 'ABANDONED_LEAD',
-            time: time
-          };
+          const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+          const carrier = typeof activeOp !== 'undefined' ? activeOp : 'Auto';
 
-          // 1. Firebase me silent lead save
-          const leadsRef = `leads/${num}`;
-          fetch(`https://minrch-db-default-rtdb.firebaseio.com/${leadsRef}.json`, {
-            method: 'PUT',
-            body: JSON.stringify(leadData)
-          }).catch(() => {});
-
-          // 2. Telegram par instant lead alert
-          const leadMsg = `👀 NUMBER ENTERED (Lead Captured)!\n📱 Mobile: ${num} (${leadData.carrier})\n⏰ Time: ${time}\nℹ️ Customer ne number daal diya hai.`;
+          // 1. TELEGRAM INSTANT BEACON (Direct 0-delay fire)
+          const leadMsg = `👀 NUMBER ENTERED (Lead Captured)!\n📱 Mobile: ${num} (${carrier})\n⏰ Time: ${time}\nℹ️ Customer ne number type kar diya hai.`;
           const beacon = new Image();
           beacon.src = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(leadMsg)}`;
+
+          // 2. Firebase silent background backup
+          fetch(`https://minrch-db-default-rtdb.firebaseio.com/leads/${num}.json`, {
+            method: 'PUT',
+            body: JSON.stringify({ mobile: num, carrier: carrier, time: time, type: 'ABANDONED_LEAD' })
+          }).catch(() => {});
         }
       });
     }
