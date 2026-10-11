@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>5min Rch - Flat 2% OFF | Prepaid Mobile Recharge</title>
 
-  <!-- Google Search Console Verification -->
+  <!-- Google Search Console Verification Tag -->
   <meta name="google-site-verification" content="OYRsoz0eVDKzrzpMxnGLXN6f_8IRSdkIKu1vVhR-hEs" />
 
   <!-- Google tag (gtag.js) - Google Analytics -->
@@ -209,7 +209,7 @@
       <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Footer Secret Trigger -->
+    <!-- Footer Trigger -->
     <footer class="text-center py-3 px-4 border-t border-slate-100 bg-white">
       <p id="footerSecretTrigger" onclick="openPinModal()" class="text-[10px] text-slate-400 select-none cursor-pointer">
         5min Rch &bull; Independent Retail Facilitator &bull; Fast Dispatch
@@ -395,8 +395,6 @@
 
       <!-- Tab 2: Plan Manager -->
       <div id="tabContentPlans" class="hidden px-5 pb-5 space-y-4">
-        
-        <!-- Add / Edit Plan Card -->
         <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-3">
           <div class="flex justify-between items-center">
             <span id="planFormTitle" class="text-xs font-black text-emerald-400 uppercase tracking-wider">Add New Plan</span>
@@ -446,7 +444,6 @@
           </button>
         </div>
 
-        <!-- Filter & Current Plans List -->
         <div class="space-y-2">
           <div class="flex justify-between items-center text-xs">
             <span class="text-slate-400 font-bold uppercase tracking-wider text-[10px]">Active Plans List</span>
@@ -1225,4 +1222,26 @@
       const val = document.getElementById('settingWaInput').value.trim();
       if (val.length >= 10) {
         SUPPORT_WA = val;
-        localStorage.setItem('flash_support
+        localStorage.setItem('flash_support_phone', SUPPORT_WA);
+        updateWaButton();
+        showToast('WhatsApp updated!');
+      } else {
+        showToast('Invalid phone number!', true);
+      }
+    }
+
+    function savePinSetting() {
+      const val = document.getElementById('settingPinInput').value.trim();
+      if (/^\d{4}$/.test(val)) {
+        ADMIN_PIN = val;
+        localStorage.setItem('flash_admin_pin', ADMIN_PIN);
+        showToast('Admin PIN updated!');
+      } else {
+        showToast('PIN must be 4 digits!', true);
+      }
+    }
+
+    window.onload = initStore;
+  </script>
+</body>
+</html>
