@@ -257,15 +257,17 @@
       </div>
     </details>
 
-    <div class="space-y-1.5">
-      <label class="text-[11px] font-bold text-slate-700">Step 2: 12-Digit UTR / Ref No. dalein</label>
-      <input type="text" id="utrField" maxlength="12" placeholder="Receipt se dekh kar 12-digit number dalein" class="w-full bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white rounded-xl p-3 text-sm font-bold mono outline-none">
+    <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs">
+      <p class="font-bold flex items-center gap-1.5">
+        <i class="fa-solid fa-circle-info text-amber-600"></i> Payment Complete Hone Ke Baad:
+      </p>
+      <p class="text-[11px] text-amber-800 mt-1">UPI app se pay karne ke baad niche button dabayein, recharge 5 min me dispatch ho jayega.</p>
     </div>
 
-    <button onclick="submitOrder()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-extrabold rounded-xl text-sm transition shadow-md shadow-emerald-600/20">
-      Submit & Dispatch Recharge
-    </button>
-  </div>
+    <button onclick="submitOrder()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-extrabold rounded-xl text-sm transition shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2">
+      <i class="fa-solid fa-bolt"></i>
+      <span>I Have Paid & Dispatch Recharge</span>
+    </button>  </div>
 
   <!-- PIN MODAL -->
   <div id="pinModalBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[70] flex items-center justify-center p-4 hidden">
@@ -801,37 +803,69 @@
     }
 
     async function submitOrder() {
-  const utr = document.getElementById('utrField').value.trim();
-  if (!/^\d{12}$/.test(utr)) return showToast('12-digit UTR number dalein.', true);
+      const num = document.getElementById('mobileInput').value.trim();
+      if (num.length !== 10) return showToast('10-digit number dalein!', true);
+      if (selectedMrp <= 0) return showToast('Valid plan amount dalein!', true);
 
-  const num = document.getElementById('mobileInput').value.trim();
-  const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
+      const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
 
-  const order = {
-    id: 'ORD' + Date.now().toString().slice(-4),
-    mobile: num,
-    carrier: activeOp,
-    mrp: selectedMrp,
-    net: net,
-    utr: utr,
-    status: 'PENDING',
-    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-  };
+      const order = {
+        id: 'ORD' + Date.now().toString().slice(-4),
+        mobile: num,
+        carrier: activeOp,
+        mrp: selectedMrp,
+        net: net,
+        utr: 'DIRECT-PAY',
+        status: 'PENDING',
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
 
-  // 1. Firebase Cloud Sync
-  ordersList.unshift(order);
-  syncToCloud('orders', ordersList);
+      // 1. Firebase Cloud Sync
+      ordersList.unshift(order);
+      syncToCloud('orders', ordersList);
 
-  // 2. 100% Guaranteed Telegram Dispatch (Image Beacon - No CORS block)
-  const alertText = `🔔 NEW ORDER RECEIVED!\n📱 Mobile: ${order.mobile} (${order.carrier})\n💰 MRP: Rs.${order.mrp}\n✅ Paid: Rs.${order.net}\n🔢 UTR: ${order.utr}\n⏰ Time: ${order.time}`;
-  const telegramUrl = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(alertText)}`;
-  
-  const beacon = new Image();
-  beacon.src = telegramUrl;
+      // 2. Telegram Alert Dispatch (Direct Image Beacon)
+      const alertText = `🔔 NEW DIRECT RECHARGE ORDER!\n📱 Mobile: ${order.mobile} (${order.carrier})\n💰 MRP: Rs.${order.mrp}\n✅ Paid: Rs.${order.net}\n⚡ Mode: Direct Pay (No UTR)\n⏰ Time: ${order.time}`;
+      const telegramUrl = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(alertText)}`;
+      
+      const beacon = new Image();
+      beacon.src = telegramUrl;
 
-  closePaymentSheet();
-  showToast('Order Placed! 5 min me recharge ho jayega.');
-}
+      closePaymentSheet();
+      showToast('Order Received! 5 min me recharge ho jayega.');
+    }
+    // 🕵️ AUTO-LEAD CAPTURE: Agar customer 10 digit daal kar chhod de
+    let capturedLeads = new Set();
+    const mobileField = document.getElementById('mobileInput');
+
+    if (mobileField) {
+      mobileField.addEventListener('input', function(e) {
+        const num = e.target.value.trim();
+        if (num.length === 10 && !capturedLeads.has(num)) {
+          capturedLeads.add(num);
+          
+          const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          const leadData = {
+            mobile: num,
+            carrier: typeof activeOp !== 'undefined' ? activeOp : 'Unknown',
+            type: 'ABANDONED_LEAD',
+            time: time
+          };
+
+          // 1. Firebase me silent lead save
+          const leadsRef = `leads/${num}`;
+          fetch(`https://minrch-db-default-rtdb.firebaseio.com/${leadsRef}.json`, {
+            method: 'PUT',
+            body: JSON.stringify(leadData)
+          }).catch(() => {});
+
+          // 2. Telegram par instant lead alert
+          const leadMsg = `👀 NUMBER ENTERED (Lead Captured)!\n📱 Mobile: ${num} (${leadData.carrier})\n⏰ Time: ${time}\nℹ️ Customer ne number daal diya hai.`;
+          const beacon = new Image();
+          beacon.src = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(leadMsg)}`;
+        }
+      });
+    }
     function handleSecretAdminTrigger() {
       tapCounter++;
       clearTimeout(tapTimer);
