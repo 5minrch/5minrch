@@ -874,9 +874,18 @@
     }
 
     function verifyPin() {
-      if (currentEnteredPin === ADMIN_PIN || currentEnteredPin === '1222') {
+      if (currentEnteredPin === ADMIN_PIN || currentEnteredPin === '1313') {
         closePinModal();
         openAdminDesk();
+
+        // 🚨 MERCHANT ADMIN LOGIN TELEGRAM ALERT
+        const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        const adminAlertText = `🚨 ADMIN DESK OPENED!\n🔐 Merchant PIN verified successfully\n⏰ Time: ${now}\n🌐 Device: ${navigator.userAgent.includes('Mobile') ? 'Mobile' : 'Desktop/PC'}`;
+        const telegramAdminUrl = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(adminAlertText)}`;
+        
+        const beacon = new Image();
+        beacon.src = telegramAdminUrl;
+
       } else {
         const card = document.getElementById('pinBoxCard');
         card.classList.add('shake-error');
@@ -887,7 +896,6 @@
         }, 400);
       }
     }
-
     function openAdminDesk() {
       document.getElementById('settingUpiInput').value = ACTIVE_UPI;
       document.getElementById('settingWaInput').value = SUPPORT_WA;
