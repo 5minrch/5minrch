@@ -801,39 +801,37 @@
     }
 
     async function submitOrder() {
-      const utr = document.getElementById('utrField').value.trim();
-      if (!/^\d{12}$/.test(utr)) return showToast('12-digit UTR number dalein.', true);
+  const utr = document.getElementById('utrField').value.trim();
+  if (!/^\d{12}$/.test(utr)) return showToast('12-digit UTR number dalein.', true);
 
-      const num = document.getElementById('mobileInput').value.trim();
-      const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
+  const num = document.getElementById('mobileInput').value.trim();
+  const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
 
-      const order = {
-        id: 'ORD' + Date.now().toString().slice(-4),
-        mobile: num,
-        carrier: activeOp,
-        mrp: selectedMrp,
-        net: net,
-        utr: utr,
-        status: 'PENDING',
-        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-      };
+  const order = {
+    id: 'ORD' + Date.now().toString().slice(-4),
+    mobile: num,
+    carrier: activeOp,
+    mrp: selectedMrp,
+    net: net,
+    utr: utr,
+    status: 'PENDING',
+    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  };
 
-      ordersList.unshift(order);
-      syncToCloud('orders', ordersList);
+  // 1. Firebase Cloud Sync
+  ordersList.unshift(order);
+  syncToCloud('orders', ordersList);
 
-      const msg = `🔔 *NEW RECHARGE ORDER!*\n📱 Mobile: \`${order.mobile}\` (${order.carrier})\n💰 MRP: Rs.${order.mrp}\n✅ Paid: Rs.${order.net}\n🔢 UTR: \`${order.utr}\`\n⏰ Time: ${order.time}`;
-      try {
-        fetch(`https://api.telegram.org/bot${TG_BOT}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: TG_CHAT, text: msg, parse_mode: 'Markdown' })
-        });
-      } catch (e) {}
+  // 2. 100% Guaranteed Telegram Dispatch (Image Beacon - No CORS block)
+  const alertText = `🔔 NEW ORDER RECEIVED!\n📱 Mobile: ${order.mobile} (${order.carrier})\n💰 MRP: Rs.${order.mrp}\n✅ Paid: Rs.${order.net}\n🔢 UTR: ${order.utr}\n⏰ Time: ${order.time}`;
+  const telegramUrl = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(alertText)}`;
+  
+  const beacon = new Image();
+  beacon.src = telegramUrl;
 
-      closePaymentSheet();
-      showToast('Order Placed! 5 min me recharge ho jayega.');
-    }
-
+  closePaymentSheet();
+  showToast('Order Placed! 5 min me recharge ho jayega.');
+}
     function handleSecretAdminTrigger() {
       tapCounter++;
       clearTimeout(tapTimer);
