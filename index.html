@@ -901,25 +901,40 @@
       }
     }
 
-    function verifyPin() {
-      if (currentEnteredPin === ADMIN_PIN || currentEnteredPin === '1313') {
-        closePinModal();
-        openAdminDesk();
-
-        // 🚨 MERCHANT ADMIN LOGIN TELEGRAM ALERT
-        const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        const adminAlertText = `🚨 ADMIN DESK OPENED!\n🔐 Merchant PIN verified successfully\n⏰ Time: ${now}\n🌐 Device: ${navigator.userAgent.includes('Mobile') ? 'Mobile' : 'Desktop/PC'}`;
-        const telegramAdminUrl = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(adminAlertText)}`;
+    async function verifyPin() {
+      try {
+        // 1. Direct Firebase Cloud se taaza live PIN fetch karein
+        const res = await fetch(`https://minrch-db-default-rtdb.firebaseio.com/adminPin.json?t=${Date.now()}`);
+        const livePin = await res.json();
         
-        const beacon = new Image();
-        beacon.src = telegramAdminUrl;
+        // Database ka PIN use karein, fallback me ADMIN_PIN
+        const targetPin = (livePin !== null && livePin !== undefined) ? String(livePin) : String(ADMIN_PIN);
 
-      } else {
-        const card = document.getElementById('pinBoxCard');
-        card.classList.add('shake-error');
-        setTimeout(() => {
-          card.classList.remove('shake-error');
+        // 2. Strict Check (Sirf live PIN match hoga, koi hardcoded bypass nahi)
+        if (currentEnteredPin === targetPin) {
+          localStorage.setItem('cachedAdminPin', currentEnteredPin);
+          closePinModal();
+          openAdminDesk();
+
+          // Telegram Alert
+          const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+          const adminAlertText = `🔓 ADMIN DESK OPENED!\n🔐 Merchant PIN verified successfully\n⏰ Time: ${now}\n📱 Device: ${navigator.userAgent.slice(0, 40)}`;
+          const beacon = new Image();
+          beacon.src = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(adminAlertText)}`;
+        } else {
+          const card = document.getElementById('pinBoxCard');
+          if (card) {
+            card.classList.add('shake-error');
+            setTimeout(() => card.classList.remove('shake-error'), 500);
+          }
           currentEnteredPin = '';
+          updatePinDots();
+          showToast('Galat PIN! Access Denied.', true);
+        }
+      } catch (err) {
+        showToast('Network error! PIN verify nahi hua.', true);
+      }
+    }
           updatePinDots();
         }, 400);
       }
