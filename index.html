@@ -932,13 +932,12 @@
           showToast('Galat PIN! Access Denied.', true);
         }
       } catch (err) {
-        showToast('Network error! PIN verify nahi hua.', true);
-      }
-          updatePinDots();
-        }, 400);
-      }
+      showToast('Network error! PIN verify nahi hua.', true);
     }
-    function openAdminDesk() {
+    updatePinDots();
+  }
+
+  function openAdminDesk() {
       document.getElementById('settingUpiInput').value = ACTIVE_UPI;
       document.getElementById('settingWaInput').value = SUPPORT_WA;
       document.getElementById('adminModal').classList.remove('hidden');
