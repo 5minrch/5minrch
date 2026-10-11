@@ -1179,7 +1179,111 @@
       }
     }
 
+    // --- 🔔 LIVE SOCIAL PROOF TICKER ---
+    const recentActivities = [
+      { name: "Rahul S.", city: "Delhi", amt: "₹299", op: "Jio" },
+      { name: "Vikram P.", city: "Patiala", amt: "₹749", op: "Airtel" },
+      { name: "Aman K.", city: "Ludhiana", amt: "₹199", op: "Vi" },
+      { name: "Preet G.", city: "Bathinda", amt: "₹349", op: "Jio" },
+      { name: "Sunil R.", city: "Chandigarh", amt: "₹859", op: "Airtel" }
+    ];
+
+    function showRandomActivity() {
+      const toast = document.getElementById('recentActivityToast');
+      const text = document.getElementById('activityText');
+      if (!toast || !text) return;
+
+      const act = recentActivities[Math.floor(Math.random() * recentActivities.length)];
+      text.textContent = `${act.name} (${act.city}) recharged ${act.amt}`;
+
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      }, 4500);
+    }
+
+    setInterval(showRandomActivity, 16000);
+    setTimeout(showRandomActivity, 3000);
+
+    // --- ⚡ 5-MINUTE LIVE COUNTDOWN SCREEN ---
+    function launchTrackingScreen(mobile, carrier, mrp) {
+      const trackMobile = document.getElementById('trackMobile');
+      const trackCarrier = document.getElementById('trackCarrier');
+      const trackAmount = document.getElementById('trackAmount');
+      if (trackMobile) trackMobile.textContent = mobile;
+      if (trackCarrier) trackCarrier.textContent = carrier;
+      if (trackAmount) trackAmount.textContent = '₹' + mrp;
+
+      const modal = document.getElementById('trackingModal');
+      const timerDisplay = document.getElementById('dispatchTimer');
+      const prog = document.getElementById('trackingProgress');
+      if (modal) modal.classList.remove('hidden');
+
+      let totalSec = 299;
+      const interval = setInterval(() => {
+        if (totalSec <= 0) {
+          clearInterval(interval);
+          if (timerDisplay) timerDisplay.textContent = "SUCCESS";
+          if (prog) prog.style.width = "100%";
+          return;
+        }
+        totalSec--;
+        const m = String(Math.floor(totalSec / 60)).padStart(2, '0');
+        const s = String(totalSec % 60).padStart(2, '0');
+        if (timerDisplay) timerDisplay.textContent = `${m}:${s}`;
+        const pct = Math.min(100, Math.floor(((299 - totalSec) / 299) * 100));
+        if (prog) prog.style.width = pct + '%';
+      }, 1000);
+    }
     window.onload = initStore;
-  </script>
+  </script> 
+  <!-- 🔔 1. LIVE SOCIAL PROOF POPUP -->
+<div id="recentActivityToast" class="fixed bottom-24 left-4 z-40 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl rounded-2xl p-3 flex items-center gap-3 transition-all duration-500 translate-y-24 opacity-0 pointer-events-none max-w-[280px]">
+  <div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 text-base font-bold">
+    <i class="fa-solid fa-bolt"></i>
+  </div>
+  <div class="overflow-hidden">
+    <p id="activityText" class="text-xs font-bold text-slate-800 leading-tight truncate">Rahul from Punjab recharged ₹299</p>
+    <p class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1 font-semibold">
+      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Just now • Live
+    </p>
+  </div>
+</div>
+
+<!-- ⚡ 2. LIVE 5-MINUTE DISPATCH TRACKING MODAL -->
+<div id="trackingModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[90] flex items-center justify-center p-4 hidden">
+  <div class="w-full max-w-sm bg-white rounded-3xl p-6 text-center space-y-5 shadow-2xl relative border border-slate-100">
+    <div class="relative mx-auto w-16 h-16">
+      <div class="absolute inset-0 bg-emerald-500/20 rounded-full animate-ping"></div>
+      <div class="relative w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-emerald-600/30">
+        <i class="fa-solid fa-tower-broadcast animate-bounce"></i>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="font-extrabold text-xl text-slate-900">Recharge in Progress</h3>
+      <p class="text-xs text-slate-500 mt-1">Telecom Gateway Connected</p>
+    </div>
+
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Estimated Dispatch Time</span>
+      <div id="dispatchTimer" class="text-3xl font-black text-emerald-600 tracking-wider mono mt-1">04:59</div>
+      <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mt-3">
+        <div id="trackingProgress" class="bg-emerald-600 h-full w-[15%] transition-all duration-1000"></div>
+      </div>
+    </div>
+
+    <div class="text-left text-xs bg-slate-50/50 rounded-xl p-3 space-y-1.5 border border-slate-100 text-slate-600 font-medium">
+      <div class="flex justify-between"><span>Number:</span><strong id="trackMobile" class="text-slate-800">--</strong></div>
+      <div class="flex justify-between"><span>Operator:</span><strong id="trackCarrier" class="text-slate-800">--</strong></div>
+      <div class="flex justify-between"><span>Plan MRP:</span><strong id="trackAmount" class="text-slate-800">₹--</strong></div>
+      <div class="flex justify-between text-emerald-700 font-bold"><span>Status:</span><span>Processing</span></div>
+    </div>
+
+    <button onclick="document.getElementById('trackingModal').classList.add('hidden')" class="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition">
+      Close Window
+    </button>
+  </div>
+</div>
 </body>
 </html>
