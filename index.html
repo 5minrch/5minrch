@@ -14,13 +14,11 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-YL5NBRZ541');
   </script>
 
   <meta name="title" content="5min Rch - Flat 2% OFF on Jio, Airtel, Vi Prepaid Recharge">
   <meta name="description" content="Get flat 2.0% instant discount on mobile recharges. Zero convenience fee, direct UPI payment, fast 5-minute dispatch. 100% refund guarantee.">
-  <meta name="keywords" content="mobile recharge discount, flat 2 percent off, jio discount recharge, airtel recharge offer, vi recharge cashback, cheap mobile recharge">
   <meta name="robots" content="index, follow">
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -99,7 +97,7 @@
     <!-- Main Content -->
     <main class="p-4 space-y-4 flex-1">
 
-      <!-- 1. Mobile Number Field -->
+      <!-- Mobile Number Field -->
       <div class="space-y-1.5">
         <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Mobile Number</label>
         <div class="relative flex items-center">
@@ -115,7 +113,7 @@
         </div>
       </div>
 
-      <!-- 2. Carrier Switcher Chips -->
+      <!-- Carrier Switcher Chips -->
       <div class="grid grid-cols-3 gap-2">
         <button type="button" onclick="selectOperator('Jio')" class="op-chip py-2 px-3 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center gap-1.5 text-xs font-bold transition" data-op="Jio">
           <span class="h-2.5 w-2.5 rounded-full bg-blue-500"></span> Jio
@@ -128,7 +126,7 @@
         </button>
       </div>
 
-      <!-- 3. Plan Category Filter Pills -->
+      <!-- Plan Category Filter Pills -->
       <div class="space-y-2 pt-1">
         <div class="flex justify-between items-center px-0.5">
           <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Available Plans</span>
@@ -146,7 +144,7 @@
         <div id="planScrollContainer" class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1.5 pt-0.5"></div>
       </div>
 
-      <!-- 4. Custom Amount Input with Special Offer Callout -->
+      <!-- Custom Amount Input -->
       <div class="space-y-2 pt-1">
         <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Ya Custom MRP Dalein</label>
         <div class="relative">
@@ -157,23 +155,12 @@
         <div class="p-2.5 rounded-xl bg-emerald-50/80 border border-emerald-200 flex items-start gap-2">
           <i class="fa-solid fa-gift text-emerald-600 text-xs mt-0.5 shrink-0"></i>
           <p class="text-[10px] text-emerald-900 font-medium leading-snug">
-            <b>Special Offer Tip:</b> Agar aapke number par koi exclusive/special offer chal raha hai, toh seedha Custom Amount box mein wahi MRP likhein aur uspe bhi flat <b>2% extra discount</b> paayein!
+            <b>Special Offer Tip:</b> Agar koi special offer chal raha hai, toh seedha MRP dalein aur <b>flat 2% discount</b> paayein!
           </p>
         </div>
       </div>
 
-      <!-- 5. Verification Notice -->
-      <div class="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 flex items-start gap-2.5 text-left">
-        <i class="fa-solid fa-triangle-exclamation text-amber-600 text-sm mt-0.5 shrink-0"></i>
-        <div class="text-[11px] text-amber-900 leading-snug">
-          <p class="font-bold">Zaroori Soochana:</p>
-          <p class="text-amber-800 mt-0.5">
-            Kripya apne SIM app (MyJio / Airtel Thanks / Vi App) me pack check karke hi exact MRP chunein.
-          </p>
-        </div>
-      </div>
-
-      <!-- 6. Guarantee Shield -->
+      <!-- Guarantees -->
       <div class="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-100 flex items-center gap-3">
         <div class="h-8 w-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 text-sm shadow-xs">
           <i class="fa-solid fa-shield-check"></i>
@@ -209,7 +196,7 @@
       <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <!-- Footer Trigger -->
+    <!-- Footer -->
     <footer class="text-center py-3 px-4 border-t border-slate-100 bg-white">
       <p id="footerSecretTrigger" onclick="openPinModal()" class="text-[10px] text-slate-400 select-none cursor-pointer">
         5min Rch &bull; Independent Retail Facilitator &bull; Fast Dispatch
@@ -245,7 +232,6 @@
       </div>
     </div>
 
-    <!-- App Payment Options -->
     <div class="space-y-1.5">
       <p class="text-[11px] font-bold text-slate-500 uppercase">Step 1: Kisi bhi app se payment karein</p>
       <div class="grid grid-cols-3 gap-2">
@@ -261,7 +247,6 @@
       </div>
     </div>
 
-    <!-- QR Code Scan -->
     <details class="bg-slate-50 rounded-xl border border-slate-200 p-2 text-xs">
       <summary class="font-bold text-slate-600 cursor-pointer list-none flex justify-between items-center px-1">
         <span><i class="fa-solid fa-qrcode text-emerald-600 mr-1.5"></i> QR Code scan karein</span>
@@ -272,7 +257,6 @@
       </div>
     </details>
 
-    <!-- Step 2: 12-Digit UTR -->
     <div class="space-y-1.5">
       <label class="text-[11px] font-bold text-slate-700">Step 2: 12-Digit UTR / Ref No. dalein</label>
       <input type="text" id="utrField" maxlength="12" placeholder="Receipt se dekh kar 12-digit number dalein" class="w-full bg-slate-50 border border-slate-300 focus:border-emerald-600 focus:bg-white rounded-xl p-3 text-sm font-bold mono outline-none">
@@ -283,7 +267,7 @@
     </button>
   </div>
 
-  <!-- CLEAN PIN MODAL -->
+  <!-- PIN MODAL -->
   <div id="pinModalBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[70] flex items-center justify-center p-4 hidden">
     <div id="pinBoxCard" class="w-full max-w-xs bg-[#0f172a] border border-white/10 rounded-3xl p-6 text-center space-y-5 shadow-2xl">
       <div class="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto text-xl">
@@ -330,9 +314,9 @@
           <div>
             <div class="flex items-center gap-2">
               <h2 class="font-black text-white text-base tracking-tight">Merchant HQ</h2>
-              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-bold uppercase tracking-wider">LIVE</span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-bold uppercase tracking-wider">CLOUD SYNC</span>
             </div>
-            <p class="text-[11px] text-slate-400">Order Dispatch & Plan Manager</p>
+            <p class="text-[11px] text-slate-400">Realtime Multi-Device Control</p>
           </div>
         </div>
 
@@ -378,9 +362,6 @@
         </button>
         <button onclick="switchAdminTab('settings')" id="tabBtnSettings" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap">
           <i class="fa-solid fa-sliders"></i> Settings
-        </button>
-        <button onclick="switchAdminTab('logs')" id="tabBtnLogs" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap">
-          <i class="fa-solid fa-shield-halved"></i> Logs
         </button>
       </div>
 
@@ -440,7 +421,7 @@
           </div>
 
           <button onclick="savePlanFromForm()" id="planSaveBtn" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-black transition">
-            + Add Plan to Site
+            + Add Plan to Cloud
           </button>
         </div>
 
@@ -472,7 +453,7 @@
               <span class="text-xs font-black text-white">Maintenance Mode</span>
               <span id="maintStatusBadge" class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-slate-800 text-slate-300">OFF</span>
             </div>
-            <p class="text-[10px] text-slate-400 mt-0.5">Turn ON to freeze orders & show maintenance screen to customers.</p>
+            <p class="text-[10px] text-slate-400 mt-0.5">Enable to instantly freeze orders across all customer phones.</p>
           </div>
           <button id="maintenanceToggleBtn" onclick="toggleMaintenance()" class="px-4 py-2 rounded-xl text-xs font-extrabold transition bg-slate-700 text-slate-300 shadow-sm">
             Enable
@@ -480,10 +461,7 @@
         </div>
 
         <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-2">
-          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex justify-between">
-            <span>Receiving UPI ID</span>
-            <span class="text-emerald-400">Current UPI</span>
-          </label>
+          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Receiving UPI ID</label>
           <div class="flex gap-2">
             <input type="text" id="settingUpiInput" class="flex-1 bg-slate-950/60 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white outline-none focus:border-emerald-500">
             <button onclick="saveUpiSetting()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold">Save</button>
@@ -491,10 +469,7 @@
         </div>
 
         <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-2">
-          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex justify-between">
-            <span>Helpline WhatsApp Number</span>
-            <span class="text-emerald-400">91 Prefix</span>
-          </label>
+          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Helpline WhatsApp Number (91 Prefix)</label>
           <div class="flex gap-2">
             <input type="text" id="settingWaInput" class="flex-1 bg-slate-950/60 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white outline-none focus:border-emerald-500">
             <button onclick="saveWaSetting()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold">Save</button>
@@ -510,30 +485,25 @@
         </div>
       </div>
 
-      <!-- Tab 4: Login Logs -->
-      <div id="tabContentLogs" class="hidden px-5 pb-5 space-y-3">
-        <div class="flex justify-between items-center text-xs">
-          <span class="text-slate-400 font-bold uppercase tracking-wider text-[10px]">Merchant Login Activity</span>
-          <button onclick="clearLoginLogs()" class="text-rose-400 hover:text-rose-300 text-[10px] font-bold"><i class="fa-solid fa-trash-can mr-1"></i> Clear Logs</button>
-        </div>
-        <div id="loginLogsContainer" class="space-y-2 max-h-[340px] overflow-y-auto no-scrollbar pr-0.5"></div>
-      </div>
-
     </div>
   </div>
 
   <!-- Toast Notification -->
   <div id="toastNotification" class="fixed top-5 inset-x-0 mx-auto max-w-xs bg-slate-900 border border-white/10 text-white text-xs font-bold py-2.5 px-4 rounded-2xl shadow-2xl flex items-center gap-2.5 -translate-y-20 opacity-0 transition-all duration-300 pointer-events-none z-[80]">
     <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-    <span id="toastMsg">Notification message</span>
+    <span id="toastMsg">Notification</span>
   </div>
 
-  <!-- JAVASCRIPT ENGINE -->
   <script>
-    let ACTIVE_UPI = localStorage.getItem('flash_upi_id') || 'rameshtelecom13@ybl';
-    let SUPPORT_WA = localStorage.getItem('flash_support_phone') || '917009800948';
-    let ADMIN_PIN = localStorage.getItem('flash_admin_pin') || '1222';
-    let IS_MAINTENANCE = localStorage.getItem('flash_maintenance') === 'true';
+    // -------------------------------------------------------------
+    // CLOUD REALTIME CONFIG (PASTED DIRECT DATABASE URL)
+    // -------------------------------------------------------------
+    const FIREBASE_DB_URL = 'https://minrch-db-default-rtdb.firebaseio.com';
+
+    let ACTIVE_UPI = 'rameshtelecom13@ybl';
+    let SUPPORT_WA = '917009800948';
+    let ADMIN_PIN = '1222';
+    let IS_MAINTENANCE = false;
 
     const TG_BOT = '8633314298:AAExWjKQautkhNj_D1HHoaTubRaDm0uD1ks';
     const TG_CHAT = '514213737';
@@ -603,27 +573,61 @@
       ]
     };
 
-    let CARRIER_PLANS = JSON.parse(localStorage.getItem('flash_carrier_plans')) || DEFAULT_PLANS;
-
+    let CARRIER_PLANS = JSON.parse(JSON.stringify(DEFAULT_PLANS));
+    let ordersList = [];
     let activeOp = 'Jio';
     let activeCat = 'ALL';
     let selectedMrp = 349;
-    let ordersList = JSON.parse(localStorage.getItem('flash_orders')) || [];
-    let loginLogsList = JSON.parse(localStorage.getItem('flash_login_logs')) || [];
     let tapCounter = 0, tapTimer = null;
     let currentEnteredPin = '';
+
+    // CLOUD SYNC ENGINE
+    async function syncFromCloud() {
+      if (!FIREBASE_DB_URL) return;
+      try {
+        const res = await fetch(`${FIREBASE_DB_URL}/siteData.json`);
+        const data = await res.json();
+        if (data) {
+          if (data.upi) ACTIVE_UPI = data.upi;
+          if (data.wa) SUPPORT_WA = data.wa;
+          if (data.pin) ADMIN_PIN = data.pin;
+          if (data.maintenance !== undefined) IS_MAINTENANCE = data.maintenance;
+          if (data.plans) CARRIER_PLANS = data.plans;
+          if (data.orders) {
+            ordersList = Array.isArray(data.orders) ? data.orders : Object.values(data.orders);
+          }
+          applyMaintenanceState();
+          document.getElementById('sheetUpiDisplay').textContent = ACTIVE_UPI;
+          updateWaButton();
+          renderCarousel();
+          renderAdminDesk();
+          renderAdminPlansList();
+        }
+      } catch (e) {
+        console.warn('Offline / Cloud sync error:', e);
+      }
+    }
+
+    async function syncToCloud(key, value) {
+      if (!FIREBASE_DB_URL) return;
+      try {
+        await fetch(`${FIREBASE_DB_URL}/siteData/${key}.json`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(value)
+        });
+      } catch (e) {
+        console.error('Failed to sync to cloud:', e);
+      }
+    }
 
     function showToast(msg, isError = false) {
       const toast = document.getElementById('toastNotification');
       const icon = document.getElementById('toastIcon');
       document.getElementById('toastMsg').textContent = msg;
-      
       icon.className = isError ? 'fa-solid fa-circle-exclamation text-rose-400 text-sm' : 'fa-solid fa-circle-check text-emerald-400 text-sm';
       toast.classList.remove('-translate-y-20', 'opacity-0');
-      
-      setTimeout(() => {
-        toast.classList.add('-translate-y-20', 'opacity-0');
-      }, 2500);
+      setTimeout(() => toast.classList.add('-translate-y-20', 'opacity-0'), 2500);
     }
 
     function initStore() {
@@ -632,7 +636,11 @@
       selectPackMrp(349);
       document.getElementById('sheetUpiDisplay').textContent = ACTIVE_UPI;
       updateWaButton();
-      checkUrlHashAdmin();
+      
+      syncFromCloud();
+      setInterval(syncFromCloud, 10000);
+
+      if (window.location.hash === '#admin') openPinModal();
     }
 
     function applyMaintenanceState() {
@@ -665,13 +673,9 @@
 
     function toggleMaintenance() {
       IS_MAINTENANCE = !IS_MAINTENANCE;
-      localStorage.setItem('flash_maintenance', IS_MAINTENANCE);
+      syncToCloud('maintenance', IS_MAINTENANCE);
       applyMaintenanceState();
-      showToast(IS_MAINTENANCE ? '⚠️ Maintenance mode ON ho gaya' : '✅ Site normal live ho gayi');
-    }
-
-    function checkUrlHashAdmin() {
-      if (window.location.hash === '#admin') openPinModal();
+      showToast(IS_MAINTENANCE ? '⚠️ Maintenance mode LIVE on all devices' : '✅ Site normal live across all devices');
     }
 
     function updateWaButton() {
@@ -689,8 +693,7 @@
       });
 
       const badge = document.getElementById('operatorBadge');
-      const badgeText = document.getElementById('operatorText');
-      badgeText.textContent = op;
+      document.getElementById('operatorText').textContent = op;
 
       if (op === 'Jio') {
         badge.className = 'absolute right-3 px-2 py-1 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold flex items-center gap-1.5';
@@ -699,7 +702,6 @@
       } else {
         badge.className = 'absolute right-3 px-2 py-1 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold flex items-center gap-1.5';
       }
-
       renderCarousel();
     }
 
@@ -772,9 +774,7 @@
     }
 
     function openPaymentSheet() {
-      if (IS_MAINTENANCE) {
-        return showToast('System maintenance chal rahi hai!', true);
-      }
+      if (IS_MAINTENANCE) return showToast('System maintenance chal rahi hai!', true);
       const num = document.getElementById('mobileInput').value.trim();
       if (num.length !== 10) return showToast('10-digit number dalein!', true);
       if (selectedMrp <= 0) return showToast('Valid plan amount dalein!', true);
@@ -819,7 +819,7 @@
       };
 
       ordersList.unshift(order);
-      localStorage.setItem('flash_orders', JSON.stringify(ordersList));
+      syncToCloud('orders', ordersList);
 
       const msg = `🔔 *NEW RECHARGE ORDER!*\n📱 Mobile: \`${order.mobile}\` (${order.carrier})\n💰 MRP: Rs.${order.mrp}\n✅ Paid: Rs.${order.net}\n🔢 UTR: \`${order.utr}\`\n⏰ Time: ${order.time}`;
       try {
@@ -834,7 +834,6 @@
       showToast('Order Placed! 5 min me recharge ho jayega.');
     }
 
-    // PIN MODAL
     function handleSecretAdminTrigger() {
       tapCounter++;
       clearTimeout(tapTimer);
@@ -860,9 +859,7 @@
       if (currentEnteredPin.length < 4) {
         currentEnteredPin += k.toString();
         updatePinDots();
-        if (currentEnteredPin.length === 4) {
-          setTimeout(verifyPin, 150);
-        }
+        if (currentEnteredPin.length === 4) setTimeout(verifyPin, 150);
       }
     }
 
@@ -874,20 +871,13 @@
     function updatePinDots() {
       for (let i = 0; i < 4; i++) {
         const dot = document.getElementById(`pinDot${i}`);
-        if (i < currentEnteredPin.length) {
-          dot.className = 'h-3.5 w-3.5 rounded-full bg-emerald-400 border border-emerald-400 transition-colors';
-        } else {
-          dot.className = 'h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors';
-        }
+        dot.className = (i < currentEnteredPin.length) ? 'h-3.5 w-3.5 rounded-full bg-emerald-400 border border-emerald-400 transition-colors' : 'h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors';
       }
     }
 
     function verifyPin() {
-      const activeStoredPin = (localStorage.getItem('flash_admin_pin') || '1222').toString().trim();
-      
-      if (currentEnteredPin === activeStoredPin || currentEnteredPin === '1222') {
+      if (currentEnteredPin === ADMIN_PIN || currentEnteredPin === '1222') {
         closePinModal();
-        trackAndNotifyAdminLogin();
         openAdminDesk();
       } else {
         const card = document.getElementById('pinBoxCard');
@@ -898,58 +888,6 @@
           updatePinDots();
         }, 400);
       }
-    }
-
-    async function trackAndNotifyAdminLogin() {
-      const now = new Date();
-      const timeStr = now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      
-      let device = 'Mobile Device';
-      const ua = navigator.userAgent;
-      if (/Windows/i.test(ua)) device = 'Windows PC';
-      else if (/Mac/i.test(ua)) device = 'Mac / iPhone';
-      else if (/Android/i.test(ua)) device = 'Android Phone';
-
-      let ip = 'Unknown', location = 'India (Live)', isp = '';
-      try {
-        const res = await fetch('https://ipapi.co/json/');
-        if (res.ok) {
-          const d = await res.json();
-          ip = d.ip || 'Unknown';
-          location = `${d.city || ''}, ${d.region || ''}, ${d.country_name || 'India'}`;
-          isp = d.org || '';
-        }
-      } catch (err) {
-        try {
-          const res2 = await fetch('https://api.ipify.org?format=json');
-          if (res2.ok) {
-            const d2 = await res2.json();
-            ip = d2.ip || 'Unknown';
-          }
-        } catch (e) {}
-      }
-
-      const logItem = {
-        time: timeStr,
-        device: device,
-        ip: ip,
-        location: location,
-        isp: isp
-      };
-
-      loginLogsList.unshift(logItem);
-      if (loginLogsList.length > 50) loginLogsList.pop();
-      localStorage.setItem('flash_login_logs', JSON.stringify(loginLogsList));
-
-      const alertMsg = `🚨 *ADMIN LOGIN DETECTED!*\n\n📍 *Location:* ${location}\n🌐 *IP Address:* \`${ip}\`\n🏢 *Network/ISP:* ${isp || 'N/A'}\n📱 *Device:* ${device}\n⏰ *Timestamp:* ${timeStr}\n\n_5min Rch Merchant Security Desk_`;
-      
-      try {
-        fetch(`https://api.telegram.org/bot${TG_BOT}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: TG_CHAT, text: alertMsg, parse_mode: 'Markdown' })
-        });
-      } catch (e) {}
     }
 
     function openAdminDesk() {
@@ -966,8 +904,7 @@
     }
 
     function switchAdminTab(tab) {
-      const tabs = ['orders', 'plans', 'settings', 'logs'];
-      tabs.forEach(t => {
+      ['orders', 'plans', 'settings'].forEach(t => {
         const content = document.getElementById(`tabContent${t.charAt(0).toUpperCase() + t.slice(1)}`);
         const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
         if (t === tab) {
@@ -978,11 +915,9 @@
           btn.className = 'px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap';
         }
       });
-      if (tab === 'logs') renderLoginLogs();
       if (tab === 'plans') renderAdminPlansList();
     }
 
-    // PLAN MANAGER LOGIC
     function savePlanFromForm() {
       const op = document.getElementById('planFormOp').value;
       const cat = document.getElementById('planFormCat').value;
@@ -992,23 +927,22 @@
       const editIndex = parseInt(document.getElementById('editPlanIndex').value);
 
       if (isNaN(mrp) || mrp <= 0) return showToast('Valid MRP amount dalein!', true);
-      if (!val) return showToast('Validity likhein (e.g. 28 Days)!', true);
+      if (!val) return showToast('Validity likhein!', true);
       if (!desc) return showToast('Description likhein!', true);
 
       if (!CARRIER_PLANS[op]) CARRIER_PLANS[op] = [];
-
       const newPlanObj = { mrp, val, desc, cat };
 
       if (editIndex >= 0) {
         CARRIER_PLANS[op][editIndex] = newPlanObj;
-        showToast(`Plan ₹${mrp} updated successfully!`);
+        showToast(`Plan ₹${mrp} updated in Cloud!`);
       } else {
         CARRIER_PLANS[op].push(newPlanObj);
         CARRIER_PLANS[op].sort((a, b) => a.mrp - b.mrp);
-        showToast(`New Plan ₹${mrp} added to ${op}!`);
+        showToast(`Plan ₹${mrp} added to Cloud!`);
       }
 
-      localStorage.setItem('flash_carrier_plans', JSON.stringify(CARRIER_PLANS));
+      syncToCloud('plans', CARRIER_PLANS);
       cancelPlanEdit();
       renderAdminPlansList();
       renderCarousel();
@@ -1017,27 +951,24 @@
     function editPlan(op, index) {
       const p = CARRIER_PLANS[op][index];
       if (!p) return;
-
       document.getElementById('planFormOp').value = op;
       document.getElementById('planFormCat').value = p.cat || '28D';
       document.getElementById('planFormMrp').value = p.mrp;
       document.getElementById('planFormVal').value = p.val;
       document.getElementById('planFormDesc').value = p.desc;
       document.getElementById('editPlanIndex').value = index;
-
       document.getElementById('planFormTitle').textContent = `Edit ${op} Plan (₹${p.mrp})`;
-      document.getElementById('planSaveBtn').textContent = 'Save Changes';
+      document.getElementById('planSaveBtn').textContent = 'Save Changes to Cloud';
       document.getElementById('cancelEditBtn').classList.remove('hidden');
-      document.getElementById('tabContentPlans').scrollTop = 0;
     }
 
     function deletePlan(op, index) {
-      if (confirm(`Kya aap ${op} ka ₹${CARRIER_PLANS[op][index].mrp} wala plan delete karna chahte hain?`)) {
+      if (confirm(`Delete ₹${CARRIER_PLANS[op][index].mrp} plan from cloud?`)) {
         CARRIER_PLANS[op].splice(index, 1);
-        localStorage.setItem('flash_carrier_plans', JSON.stringify(CARRIER_PLANS));
+        syncToCloud('plans', CARRIER_PLANS);
         renderAdminPlansList();
         renderCarousel();
-        showToast('Plan deleted!');
+        showToast('Plan deleted from Cloud!');
       }
     }
 
@@ -1047,14 +978,14 @@
       document.getElementById('planFormVal').value = '';
       document.getElementById('planFormDesc').value = '';
       document.getElementById('planFormTitle').textContent = 'Add New Plan';
-      document.getElementById('planSaveBtn').textContent = '+ Add Plan to Site';
+      document.getElementById('planSaveBtn').textContent = '+ Add Plan to Cloud';
       document.getElementById('cancelEditBtn').classList.add('hidden');
     }
 
     function resetDefaultPlans() {
-      if (confirm('Kya aap sabhi operators ke plans ko wapas default official list par reset karna chahte hain?')) {
+      if (confirm('Reset all plans to default on cloud?')) {
         CARRIER_PLANS = JSON.parse(JSON.stringify(DEFAULT_PLANS));
-        localStorage.setItem('flash_carrier_plans', JSON.stringify(CARRIER_PLANS));
+        syncToCloud('plans', CARRIER_PLANS);
         cancelPlanEdit();
         renderAdminPlansList();
         renderCarousel();
@@ -1068,7 +999,7 @@
       const container = document.getElementById('adminPlansContainer');
 
       if (list.length === 0) {
-        container.innerHTML = `<div class="p-4 text-center text-xs text-slate-500">Koi plan nahi hai. Upar se add karein!</div>`;
+        container.innerHTML = `<div class="p-4 text-center text-xs text-slate-500">Koi plan nahi hai.</div>`;
         return;
       }
 
@@ -1094,7 +1025,6 @@
       `).join('');
     }
 
-    // DASHBOARD & ORDERS LOGIC
     function renderAdminDesk() {
       const totalRev = ordersList.reduce((sum, o) => sum + parseFloat(o.net || 0), 0);
       const estProfit = ordersList.reduce((sum, o) => sum + (parseFloat(o.mrp || 0) * 0.01), 0);
@@ -1105,17 +1035,12 @@
 
       const container = document.getElementById('ordersCardsContainer');
       if (ordersList.length === 0) {
-        container.innerHTML = `
-          <div class="py-12 text-center text-slate-500">
-            <i class="fa-solid fa-inbox text-3xl mb-2 text-slate-600"></i>
-            <p class="text-xs">Abhi koi naya order nahi aaya hai.</p>
-          </div>
-        `;
+        container.innerHTML = `<div class="py-12 text-center text-slate-500 text-xs"><i class="fa-solid fa-inbox text-3xl mb-2 text-slate-600 block"></i>Abhi koi naya order nahi aaya hai.</div>`;
         return;
       }
 
       container.innerHTML = ordersList.map((o, index) => `
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3.5 space-y-2.5 transition hover:border-white/10">
+        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3.5 space-y-2.5 transition">
           <div class="flex justify-between items-start">
             <div>
               <div class="flex items-center gap-2">
@@ -1152,45 +1077,9 @@
       `).join('');
     }
 
-    function renderLoginLogs() {
-      const container = document.getElementById('loginLogsContainer');
-      if (loginLogsList.length === 0) {
-        container.innerHTML = `
-          <div class="py-10 text-center text-slate-500">
-            <i class="fa-solid fa-user-shield text-2xl mb-2 text-slate-600"></i>
-            <p class="text-xs">Abhi tak koi login log record nahi hua.</p>
-          </div>
-        `;
-        return;
-      }
-
-      container.innerHTML = loginLogsList.map(log => `
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3 text-xs space-y-1">
-          <div class="flex justify-between items-center">
-            <span class="font-bold text-emerald-400 flex items-center gap-1.5">
-              <i class="fa-solid fa-location-dot text-[10px]"></i> ${log.location}
-            </span>
-            <span class="text-[10px] text-slate-400 mono">${log.time}</span>
-          </div>
-          <div class="flex justify-between items-center text-[11px] text-slate-300 pt-0.5">
-            <span class="mono text-slate-400">IP: <span class="text-white">${log.ip}</span></span>
-            <span class="px-2 py-0.5 rounded bg-white/5 text-[10px] font-mono text-slate-300">${log.device}</span>
-          </div>
-          ${log.isp ? `<div class="text-[10px] text-slate-500 truncate">ISP: ${log.isp}</div>` : ''}
-        </div>
-      `).join('');
-    }
-
-    function clearLoginLogs() {
-      loginLogsList = [];
-      localStorage.removeItem('flash_login_logs');
-      renderLoginLogs();
-      showToast('Login logs cleared.');
-    }
-
     function toggleOrderStatus(index) {
       ordersList[index].status = ordersList[index].status === 'DONE' ? 'PENDING' : 'DONE';
-      localStorage.setItem('flash_orders', JSON.stringify(ordersList));
+      syncToCloud('orders', ordersList);
       renderAdminDesk();
     }
 
@@ -1201,18 +1090,18 @@
 
     function clearAllOrders() {
       ordersList = [];
-      localStorage.removeItem('flash_orders');
+      syncToCloud('orders', []);
       renderAdminDesk();
-      showToast('Order history cleared.');
+      showToast('Cloud order history cleared.');
     }
 
     function saveUpiSetting() {
       const val = document.getElementById('settingUpiInput').value.trim();
       if (val && val.includes('@')) {
         ACTIVE_UPI = val;
-        localStorage.setItem('flash_upi_id', ACTIVE_UPI);
+        syncToCloud('upi', ACTIVE_UPI);
         document.getElementById('sheetUpiDisplay').textContent = ACTIVE_UPI;
-        showToast('UPI ID saved!');
+        showToast('UPI ID saved to Cloud!');
       } else {
         showToast('Invalid UPI ID!', true);
       }
@@ -1222,9 +1111,9 @@
       const val = document.getElementById('settingWaInput').value.trim();
       if (val.length >= 10) {
         SUPPORT_WA = val;
-        localStorage.setItem('flash_support_phone', SUPPORT_WA);
+        syncToCloud('wa', SUPPORT_WA);
         updateWaButton();
-        showToast('WhatsApp updated!');
+        showToast('WhatsApp saved to Cloud!');
       } else {
         showToast('Invalid phone number!', true);
       }
@@ -1234,8 +1123,8 @@
       const val = document.getElementById('settingPinInput').value.trim();
       if (/^\d{4}$/.test(val)) {
         ADMIN_PIN = val;
-        localStorage.setItem('flash_admin_pin', ADMIN_PIN);
-        showToast('Admin PIN updated!');
+        syncToCloud('pin', ADMIN_PIN);
+        showToast('Admin PIN updated in Cloud!');
       } else {
         showToast('PIN must be 4 digits!', true);
       }
