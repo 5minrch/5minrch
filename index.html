@@ -1233,10 +1233,12 @@
         if (timerDisplay) timerDisplay.textContent = `${m}:${s}`;
         const pct = Math.min(100, Math.floor(((299 - totalSec) / 299) * 100));
         if (prog) prog.style.width = pct + '%';
-      }, 1000);
-    }
-    window.onload = initStore;
-  </script> 
+    }, 1000);
+  }
+  }
+
+  window.onload = initStore;
+</script>
   <!-- 🔔 1. LIVE SOCIAL PROOF POPUP -->
 <div id="recentActivityToast" class="fixed bottom-24 left-4 z-40 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl rounded-2xl p-3 flex items-center gap-3 transition-all duration-500 translate-y-24 opacity-0 pointer-events-none max-w-[280px]">
   <div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 text-base font-bold">
