@@ -82,18 +82,17 @@
       </div>
 
       <div class="mt-6 text-center text-[10px] text-slate-500 font-mono">
-        Secured by Firebase Realtime Engine
+        Secured by Firebase Realtime Engine & Telegram Beacon
       </div>
     </div>
   </div>
 
-  <!-- ==================== 2. FULL ENTERPRISE CONSOLE ==================== -->
+  <!-- ==================== 2. MASTER COMMAND CONSOLE ==================== -->
   <div id="adminDesk" class="hidden min-h-screen flex flex-row w-full">
     
     <!-- LEFT SIDEBAR -->
     <aside class="w-64 bg-surface-850 border-r border-slate-800 flex flex-col justify-between flex-shrink-0">
       <div>
-        <!-- Brand Header -->
         <div class="p-5 border-b border-slate-800 flex items-center justify-between">
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center font-black text-slate-950 text-sm shadow-md">
@@ -101,12 +100,11 @@
             </div>
             <div>
               <h1 class="text-xs font-black uppercase tracking-wider text-white">5min Rch Console</h1>
-              <p class="text-[10px] text-slate-400 font-mono">v4.8 • Core Ops</p>
+              <p class="text-[10px] text-slate-400 font-mono">v5.2 • Telegram Active</p>
             </div>
           </div>
         </div>
 
-        <!-- Navigation Menu Tabs -->
         <nav class="p-3 space-y-1.5 text-xs font-semibold">
           <div class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500 font-mono">Operations</div>
           
@@ -114,6 +112,11 @@
             <i class="fa-solid fa-list-check w-4"></i> 
             <span>Live Order Queue</span>
             <span class="ml-auto bg-brand-500 text-slate-950 text-[10px] font-black px-1.5 py-0.2 rounded-full" id="sidePendingBadge">0</span>
+          </button>
+
+          <button onclick="switchView('liveSiteCmsView')" id="nav-liveSiteCmsView" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-surface-800 transition text-left">
+            <i class="fa-solid fa-pen-ruler w-4"></i> 
+            <span>Live Site Controller</span>
           </button>
 
           <button onclick="switchView('analyticsView')" id="nav-analyticsView" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-surface-800 transition text-left">
@@ -136,14 +139,9 @@
             <i class="fa-solid fa-globe w-4"></i> Public Storefront
             <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-[10px]"></i>
           </a>
-          <a href="https://console.firebase.google.com" target="_blank" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-surface-800 transition">
-            <i class="fa-solid fa-fire w-4"></i> Firebase Database
-            <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-[10px]"></i>
-          </a>
         </nav>
       </div>
 
-      <!-- User / Logout -->
       <div class="p-4 border-t border-slate-800 bg-surface-900/50">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-2.5">
@@ -152,7 +150,7 @@
             </div>
             <div>
               <p class="text-xs font-bold text-white leading-tight">Master Admin</p>
-              <p class="text-[10px] text-brand-500 font-mono">Authenticated</p>
+              <p class="text-[10px] text-brand-500 font-mono">Telegram: Synced</p>
             </div>
           </div>
           <button onclick="logoutAdmin()" class="p-2 text-slate-400 hover:text-rose-400 rounded-lg hover:bg-surface-800 transition" title="Logout">
@@ -162,7 +160,7 @@
       </div>
     </aside>
 
-    <!-- MAIN APP WRAPPER -->
+    <!-- MAIN APP AREA -->
     <div class="flex-1 flex flex-col min-w-0">
       
       <!-- TOP GLOBAL BAR -->
@@ -177,6 +175,9 @@
         </div>
 
         <div class="flex items-center gap-3">
+          <button onclick="testTelegramAlert()" class="px-3 py-1.5 rounded-lg border border-slate-700 bg-surface-800 text-sky-400 hover:bg-slate-700 text-xs font-bold transition flex items-center gap-1.5">
+            <i class="fa-brands fa-telegram"></i> <span>Test TG Alert</span>
+          </button>
           <button onclick="toggleAudio()" id="audioBtn" class="px-3 py-1.5 rounded-lg border border-slate-700 bg-surface-800 text-slate-300 text-xs font-semibold hover:bg-slate-700 transition flex items-center gap-2">
             <i class="fa-solid fa-volume-high"></i> <span>Sound: ON</span>
           </button>
@@ -186,12 +187,11 @@
         </div>
       </header>
 
-      <!-- DYNAMIC ROUTER VIEW CONTAINER -->
+      <!-- DYNAMIC TABS -->
       <main class="p-6 space-y-6 flex-1 overflow-y-auto custom-scrollbar">
 
-        <!-- ================= VIEW 1: LIVE ORDERS (DEFAULT) ================= -->
+        <!-- TAB 1: LIVE ORDERS QUEUE -->
         <div id="view-ordersView" class="space-y-6">
-          <!-- Metric Cards -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="bg-surface-850 border border-slate-800 p-5 rounded-2xl">
               <div class="flex justify-between items-start">
@@ -302,7 +302,67 @@
           </div>
         </div>
 
-        <!-- ================= VIEW 2: ANALYTICS & VELOCITY ================= -->
+        <!-- TAB 2: LIVE STORE CONTROLLER -->
+        <div id="view-liveSiteCmsView" class="hidden space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <div>
+              <h2 class="text-base font-black text-white font-mono uppercase">Live Storefront Remote Control</h2>
+              <p class="text-xs text-slate-400">Yahan se jo bhi change karoge, bina refresh kiye customer ki screen par instant live ho jayega!</p>
+            </div>
+            <button onclick="saveAllSiteSettings()" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-slate-950 font-black text-xs rounded-xl shadow-lg shadow-brand-500/20 active:scale-95 transition">
+              <i class="fa-solid fa-cloud-arrow-up mr-1.5"></i> Publish Changes Instantly
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="bg-surface-850 border border-slate-800 p-6 rounded-2xl space-y-4">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono flex items-center justify-between">
+                <span>Top Announcement Bar & Discount</span>
+                <i class="fa-solid fa-bullhorn text-brand-400"></i>
+              </h3>
+
+              <div>
+                <label class="text-[11px] font-bold text-slate-400 uppercase font-mono block mb-1">Notice / Offer Banner Text</label>
+                <input type="text" id="cmsNoticeText" class="w-full bg-surface-900 border border-slate-700 px-3.5 py-2.5 rounded-xl text-xs text-white outline-none focus:border-brand-500 font-mono" value="Flat 2% Instant Discount on All Prepaid Plans | Fast 5-Min Activation ⚡">
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="text-[11px] font-bold text-slate-400 uppercase font-mono block mb-1">Discount Rate (%)</label>
+                  <input type="number" id="cmsDiscountRate" class="w-full bg-surface-900 border border-slate-700 px-3.5 py-2.5 rounded-xl text-xs text-white outline-none focus:border-brand-500 font-mono" value="2">
+                </div>
+                <div>
+                  <label class="text-[11px] font-bold text-slate-400 uppercase font-mono block mb-1">Support WhatsApp</label>
+                  <input type="text" id="cmsSupportWa" class="w-full bg-surface-900 border border-slate-700 px-3.5 py-2.5 rounded-xl text-xs text-white outline-none focus:border-brand-500 font-mono" value="917009800948">
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-surface-850 border border-slate-800 p-6 rounded-2xl space-y-4">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono flex items-center justify-between">
+                <span>Payment Routing & Site Lock</span>
+                <i class="fa-solid fa-money-bill-transfer text-emerald-400"></i>
+              </h3>
+
+              <div>
+                <label class="text-[11px] font-bold text-slate-400 uppercase font-mono block mb-1">Active Store UPI VPA</label>
+                <input type="text" id="cmsUpiVpa" class="w-full bg-surface-900 border border-slate-700 px-3.5 py-2.5 rounded-xl text-xs text-white outline-none focus:border-brand-500 font-mono font-bold" value="rameshtelecom13@ybl">
+              </div>
+
+              <div class="p-4 bg-surface-900 border border-slate-800 rounded-xl flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono block">Emergency Maintenance State</span>
+                  <p id="cmsStoreStatusText" class="text-xs font-bold text-brand-400">Live (Orders Open)</p>
+                </div>
+                <button onclick="toggleMaintenance()" class="px-4 py-2 bg-surface-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold rounded-xl transition">
+                  Toggle Lock
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: ANALYTICS -->
         <div id="view-analyticsView" class="hidden space-y-6">
           <div class="flex items-center justify-between border-b border-slate-800 pb-4">
             <div>
@@ -312,13 +372,12 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <!-- Operator Breakdown Card -->
             <div class="bg-surface-850 border border-slate-800 p-5 rounded-2xl">
               <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono mb-4 flex items-center justify-between">
                 <span>Carrier Share</span>
                 <i class="fa-solid fa-tower-broadcast text-brand-500"></i>
               </h3>
-              <div class="space-y-4" id="carrierShareContainer">
+              <div class="space-y-4">
                 <div>
                   <div class="flex justify-between text-xs mb-1 font-bold">
                     <span>JIO</span> <span id="jioPercent">0%</span>
@@ -346,7 +405,6 @@
               </div>
             </div>
 
-            <!-- Ticket Size KPI -->
             <div class="bg-surface-850 border border-slate-800 p-5 rounded-2xl">
               <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono mb-4 flex items-center justify-between">
                 <span>Average Order Value</span>
@@ -355,13 +413,9 @@
               <div class="mt-4">
                 <div class="text-3xl font-black text-white font-mono" id="aovMetric">₹0</div>
                 <p class="text-xs text-slate-400 mt-2">Avg customer spend per recharge</p>
-                <div class="mt-6 p-3 bg-surface-900 rounded-xl border border-slate-800 text-[11px] text-slate-300">
-                  <i class="fa-solid fa-bolt text-brand-500 mr-1.5"></i> High margin data packs driving 60%+ volume.
-                </div>
               </div>
             </div>
 
-            <!-- Conversion & Speed -->
             <div class="bg-surface-850 border border-slate-800 p-5 rounded-2xl">
               <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono mb-4 flex items-center justify-between">
                 <span>Fulfillment Rate</span>
@@ -370,69 +424,20 @@
               <div class="mt-4">
                 <div class="text-3xl font-black text-brand-400 font-mono" id="fulfillmentRate">100%</div>
                 <p class="text-xs text-slate-400 mt-2">Orders fulfilled within 5-minute SLA</p>
-                <div class="mt-6 p-3 bg-surface-900 rounded-xl border border-slate-800 text-[11px] text-slate-300">
-                  <i class="fa-solid fa-circle-check text-emerald-400 mr-1.5"></i> Zero payment disputes registered.
-                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ================= VIEW 3: GATEWAY & SETTINGS ================= -->
+        <!-- TAB 4: GATEWAY & SETTINGS -->
         <div id="view-gatewayView" class="hidden space-y-6">
-          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-            <div>
-              <h2 class="text-base font-black text-white font-mono uppercase">Payment Gateway & Routing Configurations</h2>
-              <p class="text-xs text-slate-400">Manage real-time destination UPI address and store maintenance states</p>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div class="bg-surface-850 border border-slate-800 p-6 rounded-2xl space-y-4">
-              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">
-                Store Destination UPI Address
-              </h3>
-              <p class="text-xs text-slate-400">
-                All QR codes and UPI links generated on the storefront directly pay to this VPA address.
-              </p>
-              <div class="space-y-3 pt-2">
-                <div class="relative">
-                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500 font-mono text-xs">VPA:</span>
-                  <input type="text" id="settingUpiInput" class="w-full bg-surface-900 border border-slate-700 pl-14 pr-3.5 py-3 rounded-xl text-sm font-mono font-bold text-white outline-none focus:border-brand-500" value="rameshtelecom13@ybl">
-                </div>
-                <button onclick="updateUpiCloud()" class="w-full py-3 bg-brand-600 hover:bg-brand-500 active:scale-95 text-slate-950 font-black text-xs rounded-xl transition shadow-md shadow-brand-500/20">
-                  Commit UPI Changes to Firebase
-                </button>
-              </div>
-            </div>
-
-            <div class="bg-surface-850 border border-slate-800 p-6 rounded-2xl space-y-4 flex flex-col justify-between">
-              <div>
-                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">
-                  Storefront Maintenance Engine
-                </h3>
-                <p class="text-xs text-slate-400 mt-2">
-                  Toggle this to instantly close the website for customers when out of stock or during offline night hours.
-                </p>
-                <div class="mt-4 p-4 bg-surface-900 rounded-xl border border-slate-800 flex items-center justify-between">
-                  <div>
-                    <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 font-mono block">Current State</span>
-                    <p id="storeStatusText" class="text-sm font-black text-brand-400">Active (Accepting Customers)</p>
-                  </div>
-                  <button onclick="toggleMaintenance()" id="maintBtn" class="px-4 py-2 bg-surface-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold rounded-xl transition">
-                    Toggle Mode
-                  </button>
-                </div>
-              </div>
-
-              <div class="p-3 bg-brand-500/10 border border-brand-500/20 rounded-xl text-[11px] text-brand-400">
-                <i class="fa-solid fa-shield-halved mr-1.5"></i> Protection active: Prevents unfulfilled order spikes.
-              </div>
-            </div>
+          <div class="bg-surface-850 border border-slate-800 p-6 rounded-2xl space-y-3">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">Core Gateway Routing</h3>
+            <p class="text-xs text-slate-400">Use "Live Site Controller" tab for real-time publishing to all open customer browser windows.</p>
           </div>
         </div>
 
-        <!-- ================= VIEW 4: LIVE AUDIT LOGS ================= -->
+        <!-- TAB 5: AUDIT LOGS -->
         <div id="view-logsView" class="hidden space-y-6">
           <div class="flex items-center justify-between border-b border-slate-800 pb-4">
             <div>
@@ -447,7 +452,6 @@
           <div class="bg-surface-900 border border-slate-800 rounded-2xl p-4 font-mono text-xs overflow-y-auto max-h-[500px] space-y-2 custom-scrollbar" id="logsContainer">
             <div class="text-slate-500">[SYSTEM START] Terminal initialized on node AWS-MUM-CORE</div>
             <div class="text-brand-500">[AUTH] Master admin session authenticated via PIN authorization.</div>
-            <div class="text-blue-400">[SOCKET] Connected to Firebase Realtime Database at https://minrch-db-default-rtdb.firebaseio.com</div>
           </div>
         </div>
 
@@ -460,34 +464,55 @@
     <i class="fa-solid fa-circle-check"></i> <span id="toastMsg">Ready</span>
   </div>
 
-  <!-- CORE JAVASCRIPT -->
+  <!-- SCRIPT -->
   <script>
     const ADMIN_PIN = "1222";
     const FIREBASE_DB_URL = "https://minrch-db-default-rtdb.firebaseio.com";
+    
+    // Telegram Bot Integration
+    const TG_BOT = "8633314298:AAExWjKQautkhNj_D1HHoaTubRaDm0uD1ks";
+    const TG_CHAT = "514213737";
+
+    function sendTelegramAlert(text) {
+      try {
+        const url = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(text)}`;
+        const beacon = new Image();
+        beacon.src = url;
+      } catch (e) {
+        console.error("TG alert failed", e);
+      }
+    }
+
+    function testTelegramAlert() {
+      const now = new Date().toLocaleTimeString();
+      sendTelegramAlert(`🧪 TEST ALERT from 5min Rch Admin Console!\n⚡ Status: System Connected & Live\n⏰ Time: ${now}`);
+      showToast("Telegram test alert sent!");
+      addLog("[TELEGRAM] Test beacon triggered");
+    }
     
     let currentEnteredPin = "";
     let rawOrders = [];
     let soundEnabled = true;
     let lastKnownOrderCount = 0;
 
-    // View Switching Logic (Router)
     function switchView(viewName) {
-      const views = ['ordersView', 'analyticsView', 'gatewayView', 'logsView'];
+      const views = ['ordersView', 'liveSiteCmsView', 'analyticsView', 'gatewayView', 'logsView'];
       views.forEach(v => {
         document.getElementById(`view-${v}`).classList.add('hidden');
         const nav = document.getElementById(`nav-${v}`);
-        nav.className = "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-surface-800 transition text-left";
+        if (nav) nav.className = "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-surface-800 transition text-left";
       });
 
       document.getElementById(`view-${viewName}`).classList.remove('hidden');
       const activeNav = document.getElementById(`nav-${viewName}`);
-      activeNav.className = "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-brand-500/15 text-brand-400 font-bold border border-brand-500/30 transition text-left";
+      if (activeNav) activeNav.className = "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl bg-brand-500/15 text-brand-400 font-bold border border-brand-500/30 transition text-left";
       
       addLog(`[VIEW] Switched context to: ${viewName}`);
     }
 
     function addLog(msg) {
       const container = document.getElementById('logsContainer');
+      if (!container) return;
       const div = document.createElement('div');
       const time = new Date().toLocaleTimeString();
       div.className = "text-slate-300";
@@ -500,7 +525,6 @@
       document.getElementById('logsContainer').innerHTML = `<div class="text-slate-500">[LOGS CLEARED] Listening for new stream events...</div>`;
     }
 
-    // Audio Chime
     function playChime() {
       if (!soundEnabled) return;
       try {
@@ -573,7 +597,13 @@
         document.getElementById('adminDesk').classList.remove('hidden');
         showToast("Authenticated as Master Admin");
         addLog("[AUTH SUCCESS] Access granted to terminal");
+
+        // Telegram Auth Alert
+        const now = new Date().toLocaleTimeString();
+        sendTelegramAlert(`🔐 ADMIN CONSOLE OPENED\n✅ PIN Verified: Master Admin Logged In\n⏰ Time: ${now}`);
+
         loadOrders();
+        loadSiteCmsSettings();
         setInterval(() => loadOrders(false), 4000);
       } else {
         showToast("Access Denied: Invalid Security Key", true);
@@ -613,6 +643,9 @@
           const newOrder = entries[0];
           showToast(`⚡ Order Placed: ₹${newOrder.payable || newOrder.mrp} (${newOrder.mobile})`);
           addLog(`[NEW ORDER] Incoming order ₹${newOrder.payable || newOrder.mrp} for ${newOrder.mobile}`);
+          
+          // Telegram Order Alert
+          sendTelegramAlert(`⚡ NEW RECHARGE ORDER DETECTED!\n📱 Mobile: ${newOrder.mobile} (${newOrder.operator || 'Telecom'})\n💰 Plan MRP: ₹${newOrder.mrp}\n💳 Paid: ₹${newOrder.payable || newOrder.mrp}\n⏰ Time: ${newOrder.time || 'Just now'}`);
         }
         lastKnownOrderCount = entries.length;
 
@@ -760,11 +793,11 @@
                 ` : ''}
 
                 ${isDone ? `
-                  <button onclick="setOrderStatus('${o.id}', 'Pending')" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-surface-800 text-slate-400 hover:bg-slate-700 transition border border-slate-700">
+                  <button onclick="setOrderStatus('${o.id}', 'Pending', '${o.mobile}', '${amount}')" class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-surface-800 text-slate-400 hover:bg-slate-700 transition border border-slate-700">
                     Revert
                   </button>
                 ` : `
-                  <button onclick="setOrderStatus('${o.id}', 'Completed')" class="px-3.5 py-1.5 rounded-xl text-xs font-black bg-brand-600 hover:bg-brand-500 text-slate-950 shadow-md shadow-brand-500/20 active:scale-95 transition flex items-center gap-1.5">
+                  <button onclick="setOrderStatus('${o.id}', 'Completed', '${o.mobile}', '${amount}')" class="px-3.5 py-1.5 rounded-xl text-xs font-black bg-brand-600 hover:bg-brand-500 text-slate-950 shadow-md shadow-brand-500/20 active:scale-95 transition flex items-center gap-1.5">
                     <i class="fa-solid fa-check"></i> Dispatch
                   </button>
                 `}
@@ -775,7 +808,7 @@
       }).join('');
     }
 
-    async function setOrderStatus(id, newStatus) {
+    async function setOrderStatus(id, newStatus, mobile, amount) {
       try {
         await fetch(`${FIREBASE_DB_URL}/orders/${id}/status.json`, {
           method: 'PUT',
@@ -783,24 +816,58 @@
         });
         showToast(`Order marked ${newStatus}`);
         addLog(`[STATUS CHANGE] Order ${id} changed to ${newStatus}`);
+
+        if (newStatus === 'Completed') {
+          sendTelegramAlert(`✅ RECHARGE DISPATCHED (Completed)!\n📱 Mobile: ${mobile}\n💰 Amount: ₹${amount}\n⚡ Status: 100% Fulfilled`);
+        }
+
         loadOrders(false);
       } catch (e) {
         showToast("Status change failed", true);
       }
     }
 
-    async function updateUpiCloud() {
-      const upi = document.getElementById('settingUpiInput').value.trim();
-      if (!upi) return;
+    // CMS REMOTE CONTROLLER LOGIC
+    async function loadSiteCmsSettings() {
       try {
-        await fetch(`${FIREBASE_DB_URL}/settings/upi.json`, {
-          method: 'PUT',
-          body: JSON.stringify(upi)
-        });
-        showToast("Gateway UPI address successfully updated");
-        addLog(`[GATEWAY UPDATE] New VPA committed: ${upi}`);
+        const res = await fetch(`${FIREBASE_DB_URL}/settings.json`);
+        const data = await res.json();
+        if (data) {
+          if (data.notice) document.getElementById('cmsNoticeText').value = data.notice;
+          if (data.discount) document.getElementById('cmsDiscountRate').value = data.discount;
+          if (data.supportWa) document.getElementById('cmsSupportWa').value = data.supportWa;
+          if (data.upi) document.getElementById('cmsUpiVpa').value = data.upi;
+          
+          const isMaint = !!data.maintenance;
+          document.getElementById('cmsStoreStatusText').textContent = isMaint ? "Locked (Maintenance Active)" : "Live (Orders Open)";
+          document.getElementById('cmsStoreStatusText').className = isMaint ? "text-xs font-bold text-rose-400" : "text-xs font-bold text-brand-400";
+        }
       } catch (e) {
-        showToast("Failed to update gateway", true);
+        console.error("CMS load error", e);
+      }
+    }
+
+    async function saveAllSiteSettings() {
+      const payload = {
+        notice: document.getElementById('cmsNoticeText').value.trim(),
+        discount: parseFloat(document.getElementById('cmsDiscountRate').value) || 2,
+        supportWa: document.getElementById('cmsSupportWa').value.trim(),
+        upi: document.getElementById('cmsUpiVpa').value.trim(),
+        lastUpdated: Date.now()
+      };
+
+      try {
+        await fetch(`${FIREBASE_DB_URL}/settings.json`, {
+          method: 'PATCH',
+          body: JSON.stringify(payload)
+        });
+        showToast("Site config published! Customer windows updated instantly.");
+        addLog(`[CMS PUBLISHED] Live parameters broadcasted to customers.`);
+        
+        // Telegram broadcast alert
+        sendTelegramAlert(`📢 STORE SETTINGS PUBLISHED!\n💳 UPI VPA: ${payload.upi}\n🏷️ Discount: ${payload.discount}%\n💬 WhatsApp: ${payload.supportWa}\n📝 Notice: ${payload.notice}`);
+      } catch (e) {
+        showToast("Failed to publish settings", true);
       }
     }
 
@@ -813,10 +880,12 @@
           method: 'PUT',
           body: JSON.stringify(next)
         });
-        document.getElementById('storeStatusText').textContent = next ? "Maintenance Mode Active" : "Active (Accepting Customers)";
-        document.getElementById('storeStatusText').className = next ? "text-sm font-black text-rose-400" : "text-sm font-black text-brand-400";
-        showToast(next ? "Store visibility paused" : "Store storefront live");
-        addLog(`[STORE MODE] Maintenance mode switched to: ${next}`);
+        document.getElementById('cmsStoreStatusText').textContent = next ? "Locked (Maintenance Active)" : "Live (Orders Open)";
+        document.getElementById('cmsStoreStatusText').className = next ? "text-xs font-bold text-rose-400" : "text-xs font-bold text-brand-400";
+        showToast(next ? "Store visibility locked" : "Store published live");
+        addLog(`[STORE MODE] Maintenance mode broadcasted: ${next}`);
+
+        sendTelegramAlert(`🚨 STORE MAINTENANCE STATE CHANGED!\nMode: ${next ? '🔒 Locked (Maintenance Active)' : '🟢 LIVE (Orders Open)'}`);
       } catch (e) {
         showToast("Failed to update status", true);
       }
