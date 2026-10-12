@@ -1283,6 +1283,67 @@
       Close Window
     </button>
   </div>
-</div>
+</div> 
+  <script>
+// ================= LIVE REMOTE CONTROLLER SYNC =================
+const RTDB_STREAM = 'https://minrch-db-default-rtdb.firebaseio.com/settings.json';
+
+async function fetchLiveStoreSettings() {
+  try {
+    const res = await fetch(RTDB_STREAM);
+    const data = await res.json();
+    if (data) applyStoreRemoteUpdate(data);
+  } catch (e) {}
+}
+
+function initLiveStoreBroadcast() {
+  fetchLiveStoreSettings();
+  if (!!window.EventSource) {
+    const source = new EventSource(RTDB_STREAM);
+    source.addEventListener('put', function(e) {
+      try {
+        const payload = JSON.parse(e.data);
+        if (payload && payload.data) {
+          applyStoreRemoteUpdate(payload.data);
+        }
+      } catch (err) {}
+    });
+  }
+}
+
+function applyStoreRemoteUpdate(cfg) {
+  if (cfg.upi && typeof ACTIVE_UPI !== 'undefined') {
+    ACTIVE_UPI = cfg.upi;
+  }
+  if (cfg.supportWa && typeof SUPPORT_WA !== 'undefined') {
+    SUPPORT_WA = cfg.supportWa;
+  }
+  if (cfg.notice) {
+    const noticeEl = document.getElementById('topBannerText') || document.querySelector('.promo-banner');
+    if (noticeEl) noticeEl.textContent = cfg.notice;
+  }
+  if (cfg.maintenance === true) {
+    let lockModal = document.getElementById('maintLockOverlay');
+    if (!lockModal) {
+      lockModal = document.createElement('div');
+      lockModal.id = 'maintLockOverlay';
+      lockModal.className = 'fixed inset-0 z-[9999] bg-slate-950 flex flex-col items-center justify-center text-center p-6 text-white';
+      lockModal.innerHTML = `
+        <div class="w-16 h-16 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mb-4 border border-amber-500/30">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+        </div>
+        <h2 class="text-xl font-bold mb-2">Temporarily Under Maintenance</h2>
+        <p class="text-xs text-slate-400 max-w-sm">We are updating plans and payment routes. Back online shortly.</p>
+      `;
+      document.body.appendChild(lockModal);
+    }
+  } else {
+    const lockModal = document.getElementById('maintLockOverlay');
+    if (lockModal) lockModal.remove();
+  }
+}
+
+initLiveStoreBroadcast();
+</script>
 </body>
 </html>
