@@ -504,7 +504,7 @@
 
     let ACTIVE_UPI = 'rameshtelecom13@ybl';
     let SUPPORT_WA = '917009800948';
-    let ADMIN_PIN = '1222';
+    let ADMIN_PIN = 'null';
     let IS_MAINTENANCE = false;
 
     const TG_BOT = '8633314298:AAExWjKQautkhNj_D1HHoaTubRaDm0uD1ks';
@@ -937,7 +937,8 @@
     updatePinDots();
   }
 
-  function openAdminDesk() {
+  function openAdminDesk() { 
+    return;
       document.getElementById('settingUpiInput').value = ACTIVE_UPI;
       document.getElementById('settingWaInput').value = SUPPORT_WA;
       document.getElementById('adminModal').classList.remove('hidden');
