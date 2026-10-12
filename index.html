@@ -523,28 +523,47 @@
       }
     }
 
-    function openPaymentSheet() {
-      if (IS_MAINTENANCE) return showToast('System maintenance chal rahi hai!', true);
-      const num = document.getElementById('mobileInput').value.trim();
-      if (num.length !== 10) return showToast('10-digit number dalein!', true);
-      if (selectedMrp <= 0) return showToast('Valid plan amount dalein!', true);
+   async function openPaymentSheet() {
+  if (IS_MAINTENANCE) return showToast('System maintenance chal rahi hai!', true);
+  const num = document.getElementById('mobileInput').value.trim();
+  if (num.length !== 10) return showToast('10-digit number dalein!', true);
+  if (selectedMrp <= 0) return showToast('Valid plan amount dalein!', true);
 
-      const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
-      const note = `RCH-${num}`;
-      const upiUrl = `upi://pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
+  const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '').trim();
+  const orderId = 'ORD' + Date.now();
 
-      document.getElementById('phonePeLink').href = `phonepe://pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
-      document.getElementById('gPayLink').href = `tez://upi/pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
-      document.getElementById('otherUpiLink').href = upiUrl;
+  showToast('Connecting Gateway...', false);
 
-      const qr = document.getElementById('sheetQrContainer');
-      qr.innerHTML = '';
-      new QRCode(qr, { text: upiUrl, width: 130, height: 130 });
+  try {
+    const res = await fetch('https://api.ekqr.in/api/create_order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        key: '929075c6-514e-4b33-9ad2-3fbb94572c30', // Yahan UPIGateway se mili API Key paste karein
+        client_txn_id: orderId,
+        amount: net,
+        p_info: 'Mobile Recharge',
+        customer_name: 'Customer',
+        customer_email: 'customer@gmail.com',
+        customer_mobile: num,
+        redirect_url: 'https://www.5minrch.shop/index.html?status=success&orderId=' + orderId,
+        udf1: '5minrch'
+      })
+    });
 
-      document.getElementById('sheetBackdrop').classList.remove('opacity-0', 'pointer-events-none');
-      document.getElementById('paymentSheet').classList.add('sheet-up');
+    const data = await res.json();
+
+    if (data.status === true && data.data && data.data.payment_url) {
+      // Direct payment page par redirect karein (GPay / PhonePe / QR sab automated rahega)
+      window.location.href = data.data.payment_url;
+    } else {
+      showToast(data.msg || 'Gateway error!', true);
     }
-
+  } catch (err) {
+    console.error(err);
+    showToast('Payment initiate nahi ho paya!', true);
+  }
+}
     function closePaymentSheet() {
       document.getElementById('sheetBackdrop').classList.add('opacity-0', 'pointer-events-none');
       document.getElementById('paymentSheet').classList.remove('sheet-up');
