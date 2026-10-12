@@ -667,6 +667,32 @@
         const pct = Math.min(100, Math.floor(((299 - totalSec) / 299) * 100));
         if (prog) prog.style.width = pct + '%';
       }, 1000);
+      // --- REAL-TIME DISPATCH LISTENER ---
+    const checkStatusInterval = setInterval(async () => {
+      try {
+        const res = await fetch(`${FIREBASE_DB_URL}/orders.json`);
+        const orders = await res.json();
+        if (!orders) return;
+
+        const matchedOrder = Object.values(orders).reverse().find(o => String(o.mobile) === String(mobile));
+        if (matchedOrder && matchedOrder.status === 'Completed') {
+          clearInterval(interval);
+          clearInterval(checkStatusInterval);
+          if (timerDisplay) {
+            timerDisplay.textContent = "DISPATCHED";
+            timerDisplay.style.color = "#10b981";
+          }
+          if (prog) {
+            prog.style.width = "100%";
+            prog.style.backgroundColor = "#10b981";
+          }
+          const statusBadge = document.getElementById('trackStatus') || document.querySelector('.tracking-status');
+          if (statusBadge) statusBadge.textContent = "Recharge Successful ✅";
+        }
+      } catch (e) {
+        console.error("Status check error:", e);
+      }
+    }, 3000);
     }
 
     window.onload = initStore;
