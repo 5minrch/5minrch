@@ -41,12 +41,6 @@
       box-shadow: 0 4px 14px rgba(16, 185, 129, 0.18);
     }
     .sheet-up { transform: translateY(0%) !important; }
-    @keyframes pinShake {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-8px); }
-      40%, 80% { transform: translateX(8px); }
-    }
-    .shake-error { animation: pinShake 0.35s ease-in-out; }
   </style>
 </head>
 <body class="bg-slate-100 text-slate-900 min-h-screen flex justify-center selection:bg-emerald-500 selection:text-white">
@@ -67,9 +61,6 @@
     <div class="mt-5 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
       <i class="fa-regular fa-clock text-amber-400 mr-1.5"></i> Estimated time: 15–30 Mins
     </div>
-    <button onclick="openPinModal()" class="mt-8 text-[11px] text-slate-500 hover:text-slate-300 flex items-center gap-1.5 transition">
-      <i class="fa-solid fa-lock text-[10px]"></i> Merchant Access
-    </button>
   </div>
 
   <!-- APP WRAPPER -->
@@ -77,7 +68,7 @@
 
     <!-- Header -->
     <header class="bg-white border-b border-slate-100 sticky top-0 z-30 px-4 py-3 flex justify-between items-center shadow-xs">
-      <div onclick="handleSecretAdminTrigger()" class="flex items-center gap-2.5 cursor-pointer select-none">
+      <div class="flex items-center gap-2.5 select-none">
         <div class="h-9 w-9 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black text-base shadow-sm">
           <i class="fa-solid fa-bolt"></i>
         </div>
@@ -89,8 +80,8 @@
         </div>
       </div>
 
-      <div class="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold flex items-center gap-1">
-        <i class="fa-solid fa-tag"></i> Flat 2% OFF
+      <div id="topBannerBadge" class="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold flex items-center gap-1">
+        <i class="fa-solid fa-tag"></i> <span id="topBannerText">Flat 2% OFF</span>
       </div>
     </header>
 
@@ -130,7 +121,7 @@
       <div class="space-y-2 pt-1">
         <div class="flex justify-between items-center px-0.5">
           <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Available Plans</span>
-          <span class="text-[10px] text-emerald-600 font-bold">2% Flat Discount</span>
+          <span class="text-[10px] text-emerald-600 font-bold" id="discountSubtitle">2% Flat Discount</span>
         </div>
 
         <div class="flex gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="categoryFilterContainer">
@@ -198,7 +189,7 @@
 
     <!-- Footer -->
     <footer class="text-center py-3 px-4 border-t border-slate-100 bg-white">
-      <p id="footerSecretTrigger" onclick="openPinModal()" class="text-[10px] text-slate-400 select-none cursor-pointer">
+      <p class="text-[10px] text-slate-400 select-none">
         5min Rch &bull; Independent Retail Facilitator &bull; Fast Dispatch
       </p>
     </footer>
@@ -267,227 +258,7 @@
     <button onclick="submitOrder()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-extrabold rounded-xl text-sm transition shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2">
       <i class="fa-solid fa-bolt"></i>
       <span>I Have Paid & Dispatch Recharge</span>
-    </button>  </div>
-
-  <!-- PIN MODAL -->
-  <div id="pinModalBackdrop" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[70] flex items-center justify-center p-4 hidden">
-    <div id="pinBoxCard" class="w-full max-w-xs bg-[#0f172a] border border-white/10 rounded-3xl p-6 text-center space-y-5 shadow-2xl">
-      <div class="h-12 w-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mx-auto text-xl">
-        <i class="fa-solid fa-fingerprint"></i>
-      </div>
-      <div>
-        <h3 class="text-white font-black text-lg">Merchant Access</h3>
-        <p class="text-slate-400 text-xs mt-0.5">Enter 4-Digit Security PIN</p>
-      </div>
-
-      <div class="flex justify-center gap-3 py-1">
-        <div id="pinDot0" class="h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors"></div>
-        <div id="pinDot1" class="h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors"></div>
-        <div id="pinDot2" class="h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors"></div>
-        <div id="pinDot3" class="h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors"></div>
-      </div>
-
-      <div class="grid grid-cols-3 gap-2 pt-2">
-        <button type="button" onclick="pressPinKey('1')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">1</button>
-        <button type="button" onclick="pressPinKey('2')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">2</button>
-        <button type="button" onclick="pressPinKey('3')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">3</button>
-        <button type="button" onclick="pressPinKey('4')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">4</button>
-        <button type="button" onclick="pressPinKey('5')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">5</button>
-        <button type="button" onclick="pressPinKey('6')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">6</button>
-        <button type="button" onclick="pressPinKey('7')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">7</button>
-        <button type="button" onclick="pressPinKey('8')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">8</button>
-        <button type="button" onclick="pressPinKey('9')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">9</button>
-        <button type="button" onclick="closePinModal()" class="py-3 rounded-2xl text-slate-500 hover:text-slate-300 text-xs font-bold uppercase">Cancel</button>
-        <button type="button" onclick="pressPinKey('0')" class="py-3 rounded-2xl bg-white/5 hover:bg-white/10 active:bg-emerald-500/20 text-white font-bold mono text-lg">0</button>
-        <button type="button" onclick="deletePinKey()" class="py-3 rounded-2xl text-slate-400 hover:text-white text-base"><i class="fa-solid fa-delete-left"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MERCHANT HQ (ADMIN DESK) -->
-  <div id="adminModal" class="hidden fixed inset-0 bg-slate-950/90 backdrop-blur-md z-[70] flex justify-center items-start overflow-y-auto p-3 sm:p-6">
-    <div class="w-full max-w-lg bg-[#0e1626] border border-white/10 rounded-3xl shadow-2xl text-slate-200 overflow-hidden my-auto space-y-4">
-
-      <div class="bg-gradient-to-r from-slate-900 to-[#141e33] p-5 border-b border-white/5 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-          <div class="h-10 w-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg shadow-inner">
-            <i class="fa-solid fa-chart-pie"></i>
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <h2 class="font-black text-white text-base tracking-tight">Merchant HQ</h2>
-              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] font-bold uppercase tracking-wider">CLOUD SYNC</span>
-            </div>
-            <p class="text-[11px] text-slate-400">Realtime Multi-Device Control</p>
-          </div>
-        </div>
-
-        <button onclick="closeAdminDesk()" class="h-9 w-9 rounded-2xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <!-- KPI Metrics -->
-      <div class="grid grid-cols-3 gap-2.5 px-5">
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3">
-          <div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-1">
-            <i class="fa-solid fa-wallet text-emerald-400"></i> Revenue
-          </div>
-          <div id="adminTotalRevenue" class="text-base font-black text-white mono mt-1">₹0</div>
-          <div class="text-[9px] text-slate-500 mt-0.5">Total collection</div>
-        </div>
-
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3">
-          <div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-1">
-            <i class="fa-solid fa-coins text-amber-400"></i> Est. Profit
-          </div>
-          <div id="adminTotalProfit" class="text-base font-black text-amber-400 mono mt-1">₹0</div>
-          <div class="text-[9px] text-slate-500 mt-0.5">Net margin</div>
-        </div>
-
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3">
-          <div class="text-[10px] uppercase font-bold text-slate-400 flex items-center gap-1">
-            <i class="fa-solid fa-receipt text-blue-400"></i> Orders
-          </div>
-          <div id="adminOrderCount" class="text-base font-black text-blue-400 mono mt-1">0</div>
-          <div class="text-[9px] text-slate-500 mt-0.5">Total count</div>
-        </div>
-      </div>
-
-      <!-- Tab Buttons -->
-      <div class="flex gap-1.5 px-5 border-b border-white/5 pb-3 overflow-x-auto no-scrollbar">
-        <button onclick="switchAdminTab('orders')" id="tabBtnOrders" class="px-3 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap">
-          <i class="fa-solid fa-list-check"></i> Orders
-        </button>
-        <button onclick="switchAdminTab('plans')" id="tabBtnPlans" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap">
-          <i class="fa-solid fa-tags"></i> Manage Plans
-        </button>
-        <button onclick="switchAdminTab('settings')" id="tabBtnSettings" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap">
-          <i class="fa-solid fa-sliders"></i> Settings
-        </button>
-      </div>
-
-      <!-- Tab 1: Orders -->
-      <div id="tabContentOrders" class="px-5 pb-5 space-y-3">
-        <div class="flex justify-between items-center text-xs">
-          <span class="text-slate-400 font-bold uppercase tracking-wider text-[10px]">Recent Transactions</span>
-          <button onclick="clearAllOrders()" class="text-rose-400 hover:text-rose-300 text-[10px] font-bold"><i class="fa-solid fa-trash-can mr-1"></i> Clear History</button>
-        </div>
-        <div id="ordersCardsContainer" class="space-y-2.5 max-h-[340px] overflow-y-auto no-scrollbar pr-0.5"></div>
-      </div>
-
-      <!-- Tab 2: Plan Manager -->
-      <div id="tabContentPlans" class="hidden px-5 pb-5 space-y-4">
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-3">
-          <div class="flex justify-between items-center">
-            <span id="planFormTitle" class="text-xs font-black text-emerald-400 uppercase tracking-wider">Add New Plan</span>
-            <button id="cancelEditBtn" onclick="cancelPlanEdit()" class="text-[10px] text-slate-400 hover:text-white hidden">Cancel Edit</button>
-          </div>
-          
-          <input type="hidden" id="editPlanIndex" value="-1">
-
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <label class="text-[10px] font-bold text-slate-400 uppercase">Operator</label>
-              <select id="planFormOp" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-2.5 py-2 text-xs font-bold text-white outline-none">
-                <option value="Jio">Jio</option>
-                <option value="Airtel">Airtel</option>
-                <option value="Vi">Vi</option>
-              </select>
-            </div>
-            <div>
-              <label class="text-[10px] font-bold text-slate-400 uppercase">Category</label>
-              <select id="planFormCat" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-2.5 py-2 text-xs font-bold text-white outline-none">
-                <option value="DATA">Data Add-on</option>
-                <option value="28D">28 Days Pack</option>
-                <option value="MID">56 - 84 Days</option>
-                <option value="ANNUAL">365 Days / Annual</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <label class="text-[10px] font-bold text-slate-400 uppercase">MRP (₹)</label>
-              <input type="number" id="planFormMrp" placeholder="e.g. 399" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white outline-none">
-            </div>
-            <div>
-              <label class="text-[10px] font-bold text-slate-400 uppercase">Validity</label>
-              <input type="text" id="planFormVal" placeholder="e.g. 28 Days" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white outline-none">
-            </div>
-          </div>
-
-          <div>
-            <label class="text-[10px] font-bold text-slate-400 uppercase">Description / Benefits</label>
-            <input type="text" id="planFormDesc" placeholder="e.g. 2.5GB/Day + True 5G Unltd" class="w-full mt-1 bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold text-white outline-none">
-          </div>
-
-          <button onclick="savePlanFromForm()" id="planSaveBtn" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-black transition">
-            + Add Plan to Cloud
-          </button>
-        </div>
-
-        <div class="space-y-2">
-          <div class="flex justify-between items-center text-xs">
-            <span class="text-slate-400 font-bold uppercase tracking-wider text-[10px]">Active Plans List</span>
-            <div class="flex gap-2">
-              <select id="adminPlanFilterOp" onchange="renderAdminPlansList()" class="bg-white/5 border border-white/10 rounded-lg px-2 py-1 text-[10px] font-bold text-white outline-none">
-                <option value="Jio">Jio Plans</option>
-                <option value="Airtel">Airtel Plans</option>
-                <option value="Vi">Vi Plans</option>
-              </select>
-              <button onclick="resetDefaultPlans()" class="text-amber-400 hover:text-amber-300 text-[10px] font-bold">
-                <i class="fa-solid fa-rotate-left mr-0.5"></i> Reset
-              </button>
-            </div>
-          </div>
-
-          <div id="adminPlansContainer" class="space-y-2 max-h-[260px] overflow-y-auto no-scrollbar pr-0.5"></div>
-        </div>
-
-      </div>
-
-      <!-- Tab 3: Settings -->
-      <div id="tabContentSettings" class="hidden px-5 pb-5 space-y-4">
-        <div class="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-4 flex items-center justify-between">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-black text-white">Maintenance Mode</span>
-              <span id="maintStatusBadge" class="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-slate-800 text-slate-300">OFF</span>
-            </div>
-            <p class="text-[10px] text-slate-400 mt-0.5">Enable to instantly freeze orders across all customer phones.</p>
-          </div>
-          <button id="maintenanceToggleBtn" onclick="toggleMaintenance()" class="px-4 py-2 rounded-xl text-xs font-extrabold transition bg-slate-700 text-slate-300 shadow-sm">
-            Enable
-          </button>
-        </div>
-
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-2">
-          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Receiving UPI ID</label>
-          <div class="flex gap-2">
-            <input type="text" id="settingUpiInput" class="flex-1 bg-slate-950/60 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white outline-none focus:border-emerald-500">
-            <button onclick="saveUpiSetting()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold">Save</button>
-          </div>
-        </div>
-
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-2">
-          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Helpline WhatsApp Number (91 Prefix)</label>
-          <div class="flex gap-2">
-            <input type="text" id="settingWaInput" class="flex-1 bg-slate-950/60 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white outline-none focus:border-emerald-500">
-            <button onclick="saveWaSetting()" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold">Save</button>
-          </div>
-        </div>
-
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-4 space-y-2">
-          <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Change Admin PIN (4 Digits)</label>
-          <div class="flex gap-2">
-            <input type="password" id="settingPinInput" maxlength="4" placeholder="1222" class="w-28 bg-slate-950/60 border border-white/10 rounded-xl px-3 py-2 text-xs font-bold mono text-white text-center outline-none focus:border-emerald-500">
-            <button onclick="savePinSetting()" class="px-3 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-bold">Update PIN</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    </button>
   </div>
 
   <!-- Toast Notification -->
@@ -496,15 +267,64 @@
     <span id="toastMsg">Notification</span>
   </div>
 
+  <!-- 🔔 1. LIVE SOCIAL PROOF POPUP -->
+  <div id="recentActivityToast" class="fixed bottom-24 left-4 z-40 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl rounded-2xl p-3 flex items-center gap-3 transition-all duration-500 translate-y-24 opacity-0 pointer-events-none max-w-[280px]">
+    <div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 text-base font-bold">
+      <i class="fa-solid fa-bolt"></i>
+    </div>
+    <div class="overflow-hidden">
+      <p id="activityText" class="text-xs font-bold text-slate-800 leading-tight truncate">Rahul from Punjab recharged ₹299</p>
+      <p class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1 font-semibold">
+        <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Just now • Live
+      </p>
+    </div>
+  </div>
+
+  <!-- ⚡ 2. LIVE 5-MINUTE DISPATCH TRACKING MODAL -->
+  <div id="trackingModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[90] flex items-center justify-center p-4 hidden">
+    <div class="w-full max-w-sm bg-white rounded-3xl p-6 text-center space-y-5 shadow-2xl relative border border-slate-100">
+      <div class="relative mx-auto w-16 h-16">
+        <div class="absolute inset-0 bg-emerald-500/20 rounded-full animate-ping"></div>
+        <div class="relative w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-emerald-600/30">
+          <i class="fa-solid fa-tower-broadcast animate-bounce"></i>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-extrabold text-xl text-slate-900">Recharge in Progress</h3>
+        <p class="text-xs text-slate-500 mt-1">Telecom Gateway Connected</p>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Estimated Dispatch Time</span>
+        <div id="dispatchTimer" class="text-3xl font-black text-emerald-600 tracking-wider mono mt-1">04:59</div>
+        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mt-3">
+          <div id="trackingProgress" class="bg-emerald-600 h-full w-[15%] transition-all duration-1000"></div>
+        </div>
+      </div>
+
+      <div class="text-left text-xs bg-slate-50/50 rounded-xl p-3 space-y-1.5 border border-slate-100 text-slate-600 font-medium">
+        <div class="flex justify-between"><span>Number:</span><strong id="trackMobile" class="text-slate-800">--</strong></div>
+        <div class="flex justify-between"><span>Operator:</span><strong id="trackCarrier" class="text-slate-800">--</strong></div>
+        <div class="flex justify-between"><span>Plan MRP:</span><strong id="trackAmount" class="text-slate-800">₹--</strong></div>
+        <div class="flex justify-between text-emerald-700 font-bold"><span>Status:</span><span>Processing</span></div>
+      </div>
+
+      <button onclick="document.getElementById('trackingModal').classList.add('hidden')" class="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition">
+        Close Window
+      </button>
+    </div>
+  </div>
+
   <script>
     // -------------------------------------------------------------
-    // CLOUD REALTIME CONFIG (PASTED DIRECT DATABASE URL)
+    // CONFIGURATION & GLOBAL STATE
     // -------------------------------------------------------------
     const FIREBASE_DB_URL = 'https://minrch-db-default-rtdb.firebaseio.com';
 
     let ACTIVE_UPI = 'rameshtelecom13@ybl';
     let SUPPORT_WA = '917009800948';
-    let ADMIN_PIN = 'null';
+    let DISCOUNT_RATE = 0.02;
     let IS_MAINTENANCE = false;
 
     const TG_BOT = '8633314298:AAExWjKQautkhNj_D1HHoaTubRaDm0uD1ks';
@@ -576,52 +396,9 @@
     };
 
     let CARRIER_PLANS = JSON.parse(JSON.stringify(DEFAULT_PLANS));
-    let ordersList = [];
     let activeOp = 'Jio';
     let activeCat = 'ALL';
     let selectedMrp = 349;
-    let tapCounter = 0, tapTimer = null;
-    let currentEnteredPin = '';
-
-    // CLOUD SYNC ENGINE
-    async function syncFromCloud() {
-      if (!FIREBASE_DB_URL) return;
-      try {
-        const res = await fetch(`${FIREBASE_DB_URL}/siteData.json`);
-        const data = await res.json();
-        if (data) {
-          if (data.upi) ACTIVE_UPI = data.upi;
-          if (data.wa) SUPPORT_WA = data.wa;
-          if (data.pin) ADMIN_PIN = data.pin;
-          if (data.maintenance !== undefined) IS_MAINTENANCE = data.maintenance;
-          if (data.plans) CARRIER_PLANS = data.plans;
-          if (data.orders) {
-            ordersList = Array.isArray(data.orders) ? data.orders : Object.values(data.orders);
-          }
-          applyMaintenanceState();
-          document.getElementById('sheetUpiDisplay').textContent = ACTIVE_UPI;
-          updateWaButton();
-          renderCarousel();
-          renderAdminDesk();
-          renderAdminPlansList();
-        }
-      } catch (e) {
-        console.warn('Offline / Cloud sync error:', e);
-      }
-    }
-
-    async function syncToCloud(key, value) {
-      if (!FIREBASE_DB_URL) return;
-      try {
-        await fetch(`${FIREBASE_DB_URL}/siteData/${key}.json`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(value)
-        });
-      } catch (e) {
-        console.error('Failed to sync to cloud:', e);
-      }
-    }
 
     function showToast(msg, isError = false) {
       const toast = document.getElementById('toastNotification');
@@ -638,46 +415,15 @@
       selectPackMrp(349);
       document.getElementById('sheetUpiDisplay').textContent = ACTIVE_UPI;
       updateWaButton();
-      
-      syncFromCloud();
-      setInterval(syncFromCloud, 10000);
-
-      if (window.location.hash === '#admin') openPinModal();
     }
 
     function applyMaintenanceState() {
       const screen = document.getElementById('maintenanceScreen');
-      const btn = document.getElementById('maintenanceToggleBtn');
-      const badge = document.getElementById('maintStatusBadge');
-
       if (IS_MAINTENANCE) {
         screen.classList.remove('hidden');
-        if (btn) {
-          btn.className = 'px-4 py-2 rounded-xl text-xs font-extrabold transition bg-rose-600 hover:bg-rose-500 text-white shadow-sm';
-          btn.textContent = 'Disable (Turn Off)';
-        }
-        if (badge) {
-          badge.className = 'px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-amber-500/20 text-amber-300';
-          badge.textContent = 'ACTIVE';
-        }
       } else {
         screen.classList.add('hidden');
-        if (btn) {
-          btn.className = 'px-4 py-2 rounded-xl text-xs font-extrabold transition bg-slate-700 hover:bg-slate-600 text-slate-200 shadow-sm';
-          btn.textContent = 'Enable (Turn On)';
-        }
-        if (badge) {
-          badge.className = 'px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase bg-slate-800 text-slate-400';
-          badge.textContent = 'OFF';
-        }
       }
-    }
-
-    function toggleMaintenance() {
-      IS_MAINTENANCE = !IS_MAINTENANCE;
-      syncToCloud('maintenance', IS_MAINTENANCE);
-      applyMaintenanceState();
-      showToast(IS_MAINTENANCE ? '⚠️ Maintenance mode LIVE on all devices' : '✅ Site normal live across all devices');
     }
 
     function updateWaButton() {
@@ -729,11 +475,13 @@
         return;
       }
 
+      const discPct = Math.round(DISCOUNT_RATE * 100);
+
       container.innerHTML = filtered.map(p => `
         <button type="button" onclick="selectPackMrp(${p.mrp})" class="shrink-0 w-32 p-3 rounded-2xl border border-slate-200 bg-slate-50 text-left transition ${selectedMrp === p.mrp ? 'plan-card-active' : ''}">
           <div class="flex items-center justify-between">
             <span class="text-sm font-black text-slate-900 mono">₹${p.mrp}</span>
-            <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1 rounded">-2%</span>
+            <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1 rounded">-${discPct}%</span>
           </div>
           <div class="text-[11px] font-bold text-slate-700 mt-1">${p.val}</div>
           <div class="text-[10px] text-slate-400 truncate mt-0.5" title="${p.desc}">${p.desc}</div>
@@ -757,7 +505,7 @@
 
     function updateBill() {
       const mrp = selectedMrp || 0;
-      const discount = (mrp * 0.02);
+      const discount = (mrp * DISCOUNT_RATE);
       const net = (mrp > 0) ? Math.max(1, (mrp - discount)).toFixed(2) : '0.00';
 
       document.getElementById('bottomOriginalPrice').textContent = `₹${mrp}`;
@@ -809,31 +557,36 @@
 
       const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
 
+      const orderId = 'ORD' + Date.now().toString().slice(-4);
       const order = {
-        id: 'ORD' + Date.now().toString().slice(-4),
+        id: orderId,
         mobile: num,
-        carrier: activeOp,
+        operator: activeOp,
         mrp: selectedMrp,
-        net: net,
-        utr: 'DIRECT-PAY',
-        status: 'PENDING',
+        payable: net,
+        status: 'Pending',
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
 
-      // 1. Firebase Cloud Sync
-      ordersList.unshift(order);
-      syncToCloud('orders', ordersList);
+      // 1. Save directly into Firebase orders queue for Admin Ops
+      fetch(`${FIREBASE_DB_URL}/orders/${orderId}.json`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order)
+      }).catch(() => {});
 
-      // 2. Telegram Alert Dispatch (Direct Image Beacon)
-      const alertText = `🔔 NEW DIRECT RECHARGE ORDER!\n📱 Mobile: ${order.mobile} (${order.carrier})\n💰 MRP: Rs.${order.mrp}\n✅ Paid: Rs.${order.net}\n⚡ Mode: Direct Pay (No UTR)\n⏰ Time: ${order.time}`;
+      // 2. Telegram Alert Dispatch (Instant Beacon)
+      const alertText = `🔔 NEW DIRECT RECHARGE ORDER!\n📱 Mobile: ${order.mobile} (${order.operator})\n💰 MRP: Rs.${order.mrp}\n✅ Paid: Rs.${order.payable}\n⚡ Mode: Direct Pay\n⏰ Time: ${order.time}`;
       const telegramUrl = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(alertText)}`;
       
       const beacon = new Image();
       beacon.src = telegramUrl;
 
       closePaymentSheet();
-      showToast('Order Received! 5 min me recharge ho jayega.');
+      showToast('Order Received! Dispatch started.');
+      launchTrackingScreen(order.mobile, order.operator, order.mrp);
     }
+
     // 🕵️ AUTO-LEAD CAPTURE: Instant 0-second Alert
     let capturedLeads = new Set();
     const mobileField = document.getElementById('mobileInput');
@@ -847,335 +600,16 @@
           const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
           const carrier = typeof activeOp !== 'undefined' ? activeOp : 'Auto';
 
-          // 1. TELEGRAM INSTANT BEACON (Direct 0-delay fire)
           const leadMsg = `👀 NUMBER ENTERED (Lead Captured)!\n📱 Mobile: ${num} (${carrier})\n⏰ Time: ${time}\nℹ️ Customer ne number type kar diya hai.`;
           const beacon = new Image();
           beacon.src = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(leadMsg)}`;
 
-          // 2. Firebase silent background backup
-          fetch(`https://minrch-db-default-rtdb.firebaseio.com/leads/${num}.json`, {
+          fetch(`${FIREBASE_DB_URL}/leads/${num}.json`, {
             method: 'PUT',
             body: JSON.stringify({ mobile: num, carrier: carrier, time: time, type: 'ABANDONED_LEAD' })
           }).catch(() => {});
         }
       });
-    }
-    function handleSecretAdminTrigger() {
-      tapCounter++;
-      clearTimeout(tapTimer);
-      if (tapCounter >= 3) {
-        tapCounter = 0;
-        openPinModal();
-      } else {
-        tapTimer = setTimeout(() => { tapCounter = 0; }, 800);
-      }
-    }
-
-    function openPinModal() {
-      currentEnteredPin = '';
-      updatePinDots();
-      document.getElementById('pinModalBackdrop').classList.remove('hidden');
-    }
-
-    function closePinModal() {
-      document.getElementById('pinModalBackdrop').classList.add('hidden');
-    }
-
-    function pressPinKey(k) {
-      if (currentEnteredPin.length < 4) {
-        currentEnteredPin += k.toString();
-        updatePinDots();
-        if (currentEnteredPin.length === 4) setTimeout(verifyPin, 150);
-      }
-    }
-
-    function deletePinKey() {
-      currentEnteredPin = currentEnteredPin.slice(0, -1);
-      updatePinDots();
-    }
-
-    function updatePinDots() {
-      for (let i = 0; i < 4; i++) {
-        const dot = document.getElementById(`pinDot${i}`);
-        dot.className = (i < currentEnteredPin.length) ? 'h-3.5 w-3.5 rounded-full bg-emerald-400 border border-emerald-400 transition-colors' : 'h-3.5 w-3.5 rounded-full border border-slate-600 transition-colors';
-      }
-    }
-
-    async function verifyPin() {
-      try {
-        // 1. Direct Firebase Cloud se taaza live PIN fetch karein
-        const res = await fetch(`https://minrch-db-default-rtdb.firebaseio.com/adminPin.json?t=${Date.now()}`);
-        const livePin = await res.json();
-        
-        // Database ka PIN use karein, fallback me ADMIN_PIN
-        const targetPin = (livePin !== null && livePin !== undefined) ? String(livePin) : String(ADMIN_PIN);
-
-        // 2. Strict Check (Sirf live PIN match hoga, koi hardcoded bypass nahi)
-        if (currentEnteredPin === targetPin) {
-          localStorage.setItem('cachedAdminPin', currentEnteredPin);
-          closePinModal();
-          openAdminDesk();
-
-          // Telegram Alert
-          const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-          const adminAlertText = `🔓 ADMIN DESK OPENED!\n🔐 Merchant PIN verified successfully\n⏰ Time: ${now}\n📱 Device: ${navigator.userAgent.slice(0, 40)}`;
-          const beacon = new Image();
-          beacon.src = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(adminAlertText)}`;
-        } else {
-          const card = document.getElementById('pinBoxCard');
-          if (card) {
-            card.classList.add('shake-error');
-            setTimeout(() => card.classList.remove('shake-error'), 500);
-          }
-          currentEnteredPin = '';
-          updatePinDots();
-          showToast('Galat PIN! Access Denied.', true);
-        }
-      } catch (err) {
-      showToast('Network error! PIN verify nahi hua.', true);
-    }
-    updatePinDots();
-  }
-
-  function openAdminDesk() { 
-    return;
-      document.getElementById('settingUpiInput').value = ACTIVE_UPI;
-      document.getElementById('settingWaInput').value = SUPPORT_WA;
-      document.getElementById('adminModal').classList.remove('hidden');
-      applyMaintenanceState();
-      renderAdminDesk();
-      renderAdminPlansList();
-    }
-
-    function closeAdminDesk() {
-      document.getElementById('adminModal').classList.add('hidden');
-    }
-
-    function switchAdminTab(tab) {
-      ['orders', 'plans', 'settings'].forEach(t => {
-        const content = document.getElementById(`tabContent${t.charAt(0).toUpperCase() + t.slice(1)}`);
-        const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
-        if (t === tab) {
-          content.classList.remove('hidden');
-          btn.className = 'px-3 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap';
-        } else {
-          content.classList.add('hidden');
-          btn.className = 'px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold text-xs flex items-center gap-1.5 transition whitespace-nowrap';
-        }
-      });
-      if (tab === 'plans') renderAdminPlansList();
-    }
-
-    function savePlanFromForm() {
-      const op = document.getElementById('planFormOp').value;
-      const cat = document.getElementById('planFormCat').value;
-      const mrp = parseFloat(document.getElementById('planFormMrp').value);
-      const val = document.getElementById('planFormVal').value.trim();
-      const desc = document.getElementById('planFormDesc').value.trim();
-      const editIndex = parseInt(document.getElementById('editPlanIndex').value);
-
-      if (isNaN(mrp) || mrp <= 0) return showToast('Valid MRP amount dalein!', true);
-      if (!val) return showToast('Validity likhein!', true);
-      if (!desc) return showToast('Description likhein!', true);
-
-      if (!CARRIER_PLANS[op]) CARRIER_PLANS[op] = [];
-      const newPlanObj = { mrp, val, desc, cat };
-
-      if (editIndex >= 0) {
-        CARRIER_PLANS[op][editIndex] = newPlanObj;
-        showToast(`Plan ₹${mrp} updated in Cloud!`);
-      } else {
-        CARRIER_PLANS[op].push(newPlanObj);
-        CARRIER_PLANS[op].sort((a, b) => a.mrp - b.mrp);
-        showToast(`Plan ₹${mrp} added to Cloud!`);
-      }
-
-      syncToCloud('plans', CARRIER_PLANS);
-      cancelPlanEdit();
-      renderAdminPlansList();
-      renderCarousel();
-    }
-
-    function editPlan(op, index) {
-      const p = CARRIER_PLANS[op][index];
-      if (!p) return;
-      document.getElementById('planFormOp').value = op;
-      document.getElementById('planFormCat').value = p.cat || '28D';
-      document.getElementById('planFormMrp').value = p.mrp;
-      document.getElementById('planFormVal').value = p.val;
-      document.getElementById('planFormDesc').value = p.desc;
-      document.getElementById('editPlanIndex').value = index;
-      document.getElementById('planFormTitle').textContent = `Edit ${op} Plan (₹${p.mrp})`;
-      document.getElementById('planSaveBtn').textContent = 'Save Changes to Cloud';
-      document.getElementById('cancelEditBtn').classList.remove('hidden');
-    }
-
-    function deletePlan(op, index) {
-      if (confirm(`Delete ₹${CARRIER_PLANS[op][index].mrp} plan from cloud?`)) {
-        CARRIER_PLANS[op].splice(index, 1);
-        syncToCloud('plans', CARRIER_PLANS);
-        renderAdminPlansList();
-        renderCarousel();
-        showToast('Plan deleted from Cloud!');
-      }
-    }
-
-    function cancelPlanEdit() {
-      document.getElementById('editPlanIndex').value = '-1';
-      document.getElementById('planFormMrp').value = '';
-      document.getElementById('planFormVal').value = '';
-      document.getElementById('planFormDesc').value = '';
-      document.getElementById('planFormTitle').textContent = 'Add New Plan';
-      document.getElementById('planSaveBtn').textContent = '+ Add Plan to Cloud';
-      document.getElementById('cancelEditBtn').classList.add('hidden');
-    }
-
-    function resetDefaultPlans() {
-      if (confirm('Reset all plans to default on cloud?')) {
-        CARRIER_PLANS = JSON.parse(JSON.stringify(DEFAULT_PLANS));
-        syncToCloud('plans', CARRIER_PLANS);
-        cancelPlanEdit();
-        renderAdminPlansList();
-        renderCarousel();
-        showToast('Plans reset to default!');
-      }
-    }
-
-    function renderAdminPlansList() {
-      const op = document.getElementById('adminPlanFilterOp').value;
-      const list = CARRIER_PLANS[op] || [];
-      const container = document.getElementById('adminPlansContainer');
-
-      if (list.length === 0) {
-        container.innerHTML = `<div class="p-4 text-center text-xs text-slate-500">Koi plan nahi hai.</div>`;
-        return;
-      }
-
-      container.innerHTML = list.map((p, idx) => `
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3 flex justify-between items-center text-xs">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="font-black text-white mono text-sm">₹${p.mrp}</span>
-              <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">${p.val}</span>
-              <span class="text-[9px] text-slate-400 uppercase font-mono">${p.cat}</span>
-            </div>
-            <p class="text-[11px] text-slate-400 mt-0.5 truncate max-w-[200px]">${p.desc}</p>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <button onclick="editPlan('${op}', ${idx})" class="h-8 w-8 rounded-xl bg-white/5 hover:bg-white/10 text-blue-400 flex items-center justify-center transition">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </button>
-            <button onclick="deletePlan('${op}', ${idx})" class="h-8 w-8 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 flex items-center justify-center transition">
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function renderAdminDesk() {
-      const totalRev = ordersList.reduce((sum, o) => sum + parseFloat(o.net || 0), 0);
-      const estProfit = ordersList.reduce((sum, o) => sum + (parseFloat(o.mrp || 0) * 0.01), 0);
-
-      document.getElementById('adminTotalRevenue').textContent = `₹${totalRev.toFixed(0)}`;
-      document.getElementById('adminTotalProfit').textContent = `₹${estProfit.toFixed(0)}`;
-      document.getElementById('adminOrderCount').textContent = ordersList.length;
-
-      const container = document.getElementById('ordersCardsContainer');
-      if (ordersList.length === 0) {
-        container.innerHTML = `<div class="py-12 text-center text-slate-500 text-xs"><i class="fa-solid fa-inbox text-3xl mb-2 text-slate-600 block"></i>Abhi koi naya order nahi aaya hai.</div>`;
-        return;
-      }
-
-      container.innerHTML = ordersList.map((o, index) => `
-        <div class="bg-white/[0.03] border border-white/5 rounded-2xl p-3.5 space-y-2.5 transition">
-          <div class="flex justify-between items-start">
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="font-extrabold text-white text-sm mono">${o.mobile}</span>
-                <span class="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase ${o.carrier === 'Jio' ? 'bg-blue-500/20 text-blue-400' : (o.carrier === 'Airtel' ? 'bg-rose-500/20 text-rose-400' : 'bg-amber-500/20 text-amber-400')}">${o.carrier}</span>
-              </div>
-              <p class="text-[10px] text-slate-400 mt-0.5">Time: ${o.time || 'Today'} &bull; Pack: <b class="text-white">₹${o.mrp}</b></p>
-            </div>
-            <div class="text-right">
-              <span class="text-emerald-400 font-extrabold mono text-base">₹${o.net}</span>
-              <span class="block text-[9px] font-bold ${o.status === 'DONE' ? 'text-emerald-400' : 'text-amber-400'}">${o.status || 'PENDING'}</span>
-            </div>
-          </div>
-
-          <div class="bg-black/30 p-2 rounded-xl flex justify-between items-center text-[11px] mono">
-            <span class="text-slate-400">UTR: <span class="text-amber-300 font-bold select-all">${o.utr}</span></span>
-            <button onclick="navigator.clipboard.writeText('${o.utr}'); showToast('UTR Copied!');" class="text-slate-400 hover:text-white text-xs px-2 py-0.5 bg-white/5 rounded">
-              <i class="fa-solid fa-copy"></i>
-            </button>
-          </div>
-
-          <div class="grid grid-cols-3 gap-2 pt-1 text-[11px]">
-            <button onclick="navigator.clipboard.writeText('${o.mobile}'); showToast('Number Copied!');" class="py-1.5 px-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-bold flex items-center justify-center gap-1 transition">
-              <i class="fa-solid fa-copy"></i> Copy No.
-            </button>
-            <button onclick="toggleOrderStatus(${index})" class="py-1.5 px-2 rounded-xl ${o.status === 'DONE' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-300'} font-bold flex items-center justify-center gap-1 transition">
-              <i class="fa-solid fa-check"></i> ${o.status === 'DONE' ? 'Done' : 'Mark Done'}
-            </button>
-            <button onclick="sendWaReceipt('${o.mobile}', '${o.mrp}')" class="py-1.5 px-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center justify-center gap-1 transition">
-              <i class="fa-brands fa-whatsapp"></i> Receipt
-            </button>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function toggleOrderStatus(index) {
-      ordersList[index].status = ordersList[index].status === 'DONE' ? 'PENDING' : 'DONE';
-      syncToCloud('orders', ordersList);
-      renderAdminDesk();
-    }
-
-    function sendWaReceipt(mobile, mrp) {
-      const msg = encodeURIComponent(`Namaste! Aapka mobile ${mobile} par Rs.${mrp} ka prepaid recharge successfully complete ho gaya hai. 5min Rch use karne ke liye dhanyawad! Agli baar bhi 2% bachat ke liye link save rakhein.`);
-      window.open(`https://wa.me/91${mobile}?text=${msg}`, '_blank');
-    }
-
-    function clearAllOrders() {
-      ordersList = [];
-      syncToCloud('orders', []);
-      renderAdminDesk();
-      showToast('Cloud order history cleared.');
-    }
-
-    function saveUpiSetting() {
-      const val = document.getElementById('settingUpiInput').value.trim();
-      if (val && val.includes('@')) {
-        ACTIVE_UPI = val;
-        syncToCloud('upi', ACTIVE_UPI);
-        document.getElementById('sheetUpiDisplay').textContent = ACTIVE_UPI;
-        showToast('UPI ID saved to Cloud!');
-      } else {
-        showToast('Invalid UPI ID!', true);
-      }
-    }
-
-    function saveWaSetting() {
-      const val = document.getElementById('settingWaInput').value.trim();
-      if (val.length >= 10) {
-        SUPPORT_WA = val;
-        syncToCloud('wa', SUPPORT_WA);
-        updateWaButton();
-        showToast('WhatsApp saved to Cloud!');
-      } else {
-        showToast('Invalid phone number!', true);
-      }
-    }
-
-    function savePinSetting() {
-      const val = document.getElementById('settingPinInput').value.trim();
-      if (/^\d{4}$/.test(val)) {
-        ADMIN_PIN = val;
-        syncToCloud('pin', ADMIN_PIN);
-        showToast('Admin PIN updated in Cloud!');
-      } else {
-        showToast('PIN must be 4 digits!', true);
-      }
     }
 
     // --- 🔔 LIVE SOCIAL PROOF TICKER ---
@@ -1232,119 +666,65 @@
         if (timerDisplay) timerDisplay.textContent = `${m}:${s}`;
         const pct = Math.min(100, Math.floor(((299 - totalSec) / 299) * 100));
         if (prog) prog.style.width = pct + '%';
-    }, 1000);
-  }
-
-  window.onload = initStore;
-</script>
-  <!-- 🔔 1. LIVE SOCIAL PROOF POPUP -->
-<div id="recentActivityToast" class="fixed bottom-24 left-4 z-40 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl rounded-2xl p-3 flex items-center gap-3 transition-all duration-500 translate-y-24 opacity-0 pointer-events-none max-w-[280px]">
-  <div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 text-base font-bold">
-    <i class="fa-solid fa-bolt"></i>
-  </div>
-  <div class="overflow-hidden">
-    <p id="activityText" class="text-xs font-bold text-slate-800 leading-tight truncate">Rahul from Punjab recharged ₹299</p>
-    <p class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1 font-semibold">
-      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Just now • Live
-    </p>
-  </div>
-</div>
-
-<!-- ⚡ 2. LIVE 5-MINUTE DISPATCH TRACKING MODAL -->
-<div id="trackingModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[90] flex items-center justify-center p-4 hidden">
-  <div class="w-full max-w-sm bg-white rounded-3xl p-6 text-center space-y-5 shadow-2xl relative border border-slate-100">
-    <div class="relative mx-auto w-16 h-16">
-      <div class="absolute inset-0 bg-emerald-500/20 rounded-full animate-ping"></div>
-      <div class="relative w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-emerald-600/30">
-        <i class="fa-solid fa-tower-broadcast animate-bounce"></i>
-      </div>
-    </div>
-
-    <div>
-      <h3 class="font-extrabold text-xl text-slate-900">Recharge in Progress</h3>
-      <p class="text-xs text-slate-500 mt-1">Telecom Gateway Connected</p>
-    </div>
-
-    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-      <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Estimated Dispatch Time</span>
-      <div id="dispatchTimer" class="text-3xl font-black text-emerald-600 tracking-wider mono mt-1">04:59</div>
-      <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mt-3">
-        <div id="trackingProgress" class="bg-emerald-600 h-full w-[15%] transition-all duration-1000"></div>
-      </div>
-    </div>
-
-    <div class="text-left text-xs bg-slate-50/50 rounded-xl p-3 space-y-1.5 border border-slate-100 text-slate-600 font-medium">
-      <div class="flex justify-between"><span>Number:</span><strong id="trackMobile" class="text-slate-800">--</strong></div>
-      <div class="flex justify-between"><span>Operator:</span><strong id="trackCarrier" class="text-slate-800">--</strong></div>
-      <div class="flex justify-between"><span>Plan MRP:</span><strong id="trackAmount" class="text-slate-800">₹--</strong></div>
-      <div class="flex justify-between text-emerald-700 font-bold"><span>Status:</span><span>Processing</span></div>
-    </div>
-
-    <button onclick="document.getElementById('trackingModal').classList.add('hidden')" class="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition">
-      Close Window
-    </button>
-  </div>
-</div> 
-  <script>
-// ================= LIVE REMOTE CONTROLLER SYNC =================
-const RTDB_STREAM = 'https://minrch-db-default-rtdb.firebaseio.com/settings.json';
-
-async function fetchLiveStoreSettings() {
-  try {
-    const res = await fetch(RTDB_STREAM);
-    const data = await res.json();
-    if (data) applyStoreRemoteUpdate(data);
-  } catch (e) {}
-}
-
-function initLiveStoreBroadcast() {
-  fetchLiveStoreSettings();
-  if (!!window.EventSource) {
-    const source = new EventSource(RTDB_STREAM);
-    source.addEventListener('put', function(e) {
-      try {
-        const payload = JSON.parse(e.data);
-        if (payload && payload.data) {
-          applyStoreRemoteUpdate(payload.data);
-        }
-      } catch (err) {}
-    });
-  }
-}
-
-function applyStoreRemoteUpdate(cfg) {
-  if (cfg.upi && typeof ACTIVE_UPI !== 'undefined') {
-    ACTIVE_UPI = cfg.upi;
-  }
-  if (cfg.supportWa && typeof SUPPORT_WA !== 'undefined') {
-    SUPPORT_WA = cfg.supportWa;
-  }
-  if (cfg.notice) {
-    const noticeEl = document.getElementById('topBannerText') || document.querySelector('.promo-banner');
-    if (noticeEl) noticeEl.textContent = cfg.notice;
-  }
-  if (cfg.maintenance === true) {
-    let lockModal = document.getElementById('maintLockOverlay');
-    if (!lockModal) {
-      lockModal = document.createElement('div');
-      lockModal.id = 'maintLockOverlay';
-      lockModal.className = 'fixed inset-0 z-[9999] bg-slate-950 flex flex-col items-center justify-center text-center p-6 text-white';
-      lockModal.innerHTML = `
-        <div class="w-16 h-16 bg-amber-500/20 text-amber-400 rounded-2xl flex items-center justify-center text-2xl mb-4 border border-amber-500/30">
-          <i class="fa-solid fa-screwdriver-wrench"></i>
-        </div>
-        <h2 class="text-xl font-bold mb-2">Temporarily Under Maintenance</h2>
-        <p class="text-xs text-slate-400 max-w-sm">We are updating plans and payment routes. Back online shortly.</p>
-      `;
-      document.body.appendChild(lockModal);
+      }, 1000);
     }
-  } else {
-    const lockModal = document.getElementById('maintLockOverlay');
-    if (lockModal) lockModal.remove();
-  }
-}
 
-initLiveStoreBroadcast();
-</script>
+    window.onload = initStore;
+
+    // ================= LIVE REMOTE CONTROLLER SYNC (SSE STREAM) =================
+    const RTDB_STREAM = `${FIREBASE_DB_URL}/settings.json`;
+
+    async function fetchLiveStoreSettings() {
+      try {
+        const res = await fetch(RTDB_STREAM);
+        const data = await res.json();
+        if (data) applyStoreRemoteUpdate(data);
+      } catch (e) {}
+    }
+
+    function initLiveStoreBroadcast() {
+      fetchLiveStoreSettings();
+      if (!!window.EventSource) {
+        const source = new EventSource(RTDB_STREAM);
+        source.addEventListener('put', function(e) {
+          try {
+            const payload = JSON.parse(e.data);
+            if (payload && payload.data) {
+              applyStoreRemoteUpdate(payload.data);
+            }
+          } catch (err) {}
+        });
+      }
+    }
+
+    function applyStoreRemoteUpdate(cfg) {
+      if (cfg.upi) {
+        ACTIVE_UPI = cfg.upi;
+        const upiDisp = document.getElementById('sheetUpiDisplay');
+        if (upiDisp) upiDisp.textContent = ACTIVE_UPI;
+      }
+      if (cfg.supportWa) {
+        SUPPORT_WA = cfg.supportWa;
+        updateWaButton();
+      }
+      if (cfg.discount !== undefined) {
+        DISCOUNT_RATE = parseFloat(cfg.discount) / 100 || 0.02;
+        const discSub = document.getElementById('discountSubtitle');
+        if (discSub) discSub.textContent = `${cfg.discount}% Flat Discount`;
+        updateBill();
+        renderCarousel();
+      }
+      if (cfg.notice) {
+        const bannerTxt = document.getElementById('topBannerText');
+        if (bannerTxt) bannerTxt.textContent = cfg.notice;
+      }
+      if (cfg.maintenance !== undefined) {
+        IS_MAINTENANCE = !!cfg.maintenance;
+        applyMaintenanceState();
+      }
+    }
+
+    initLiveStoreBroadcast();
+  </script>
 </body>
 </html>
