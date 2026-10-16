@@ -7,9 +7,9 @@
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script>
     tailwind.config = {
@@ -37,7 +37,6 @@
     .custom-scroll::-webkit-scrollbar { height: 4px; width: 4px; }
     .custom-scroll::-webkit-scrollbar-thumb { background-color: #CBD5E1; border-radius: 9999px; }
     .modal-active { opacity: 1 !important; pointer-events: auto !important; }
-    .slide-in-up { transform: translateY(0%) !important; }
   </style>
 </head>
 
@@ -51,7 +50,7 @@
     </div>
   </aside>
 
-  <!-- CLEAN BRAND HEADER -->
+  <!-- BRAND HEADER -->
   <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
     <div class="max-w-6xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
       
@@ -90,7 +89,7 @@
     </div>
   </header>
 
-  <!-- QUICK CATEGORIES STRIP -->
+  <!-- CATEGORIES STRIP -->
   <div class="bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-6xl mx-auto px-4 py-3 overflow-x-auto custom-scroll">
       <div class="flex items-center space-x-6 min-w-max text-xs font-semibold">
@@ -98,15 +97,15 @@
           <span class="w-6 h-6 rounded-full bg-brand-cyan text-white flex items-center justify-center font-extrabold text-[11px]">📱</span>
           <span class="font-bold">Mobile Prepaid</span>
         </button>
-        <button onclick="showToast('Postpaid bill payment is synced with Prepaid service.')" class="flex items-center space-x-2 text-slate-500 hover:text-slate-800 transition">
+        <button onclick="showToast('Postpaid mode is auto-handled under prepaid gateway.')" class="flex items-center space-x-2 text-slate-500 hover:text-slate-800 transition">
           <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[11px]">📄</span>
           <span>Mobile Postpaid</span>
         </button>
-        <button onclick="showToast('DTH recharge system updates under integration.')" class="flex items-center space-x-2 text-slate-500 hover:text-slate-800 transition">
+        <button onclick="showToast('DTH service updates in next cycle.')" class="flex items-center space-x-2 text-slate-500 hover:text-slate-800 transition">
           <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[11px]">📡</span>
           <span>DTH Service</span>
         </button>
-        <button onclick="showToast('Utility bills available soon.')" class="flex items-center space-x-2 text-slate-500 hover:text-slate-800 transition">
+        <button onclick="showToast('Utility bills portal under configuration.')" class="flex items-center space-x-2 text-slate-500 hover:text-slate-800 transition">
           <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[11px]">⚡</span>
           <span>Electricity</span>
         </button>
@@ -114,18 +113,18 @@
     </div>
   </div>
 
-  <!-- MAIN RECHARGE WORKSPACE -->
+  <!-- MAIN WORKSPACE -->
   <main class="max-w-6xl mx-auto px-4 py-8 flex-1 w-full">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       
-      <!-- LEFT COLUMN: INPUT FORM -->
+      <!-- FORM COLUMN -->
       <section class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
         
         <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
           <h1 class="text-xl sm:text-2xl font-black text-brand-navy">Mobile Prepaid Recharge</h1>
           <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full flex items-center space-x-1">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-            <span>Live Sync</span>
+            <span>Gateway Ready</span>
           </span>
         </div>
 
@@ -135,7 +134,7 @@
             <span class="text-sm font-bold text-slate-800">Prepaid</span>
           </label>
           <label class="flex items-center space-x-2 cursor-pointer">
-            <input type="radio" name="simType" value="postpaid" onchange="showToast('Postpaid mode active')" class="w-4 h-4 text-brand-cyan focus:ring-brand-cyan" />
+            <input type="radio" name="simType" value="postpaid" class="w-4 h-4 text-brand-cyan focus:ring-brand-cyan" />
             <span class="text-sm font-medium text-slate-600">Postpaid</span>
           </label>
         </div>
@@ -192,7 +191,7 @@
           </div>
         </div>
 
-        <!-- Circle Selection -->
+        <!-- Telecom Circle -->
         <div class="mb-5">
           <label for="circleSelect" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Telecom Circle</label>
           <div class="relative">
@@ -211,7 +210,7 @@
           </div>
         </div>
 
-        <!-- Amount Input -->
+        <!-- Amount Box -->
         <div class="mb-6">
           <div class="flex items-center justify-between mb-1.5">
             <label for="rechargeAmount" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Amount</label>
@@ -226,7 +225,7 @@
             <input 
               id="rechargeAmount" 
               type="number" 
-              placeholder="Enter amount or pick a plan" 
+              placeholder="Enter amount or select from plans" 
               oninput="handleAmountInput(this.value)"
               class="w-full pl-10 pr-24 py-3.5 bg-slate-50/70 border border-slate-200 rounded-xl font-black text-slate-900 text-xl focus:outline-none focus:border-brand-cyan focus:bg-white transition"
             />
@@ -277,7 +276,7 @@
 
       </section>
 
-      <!-- RIGHT COLUMN: OFFERS & TRUST -->
+      <!-- OFFERS & INFO -->
       <section class="lg:col-span-5 space-y-6">
         <div class="bg-gradient-to-br from-brand-navy via-[#023B99] to-[#001D4F] rounded-2xl p-6 text-white shadow-md relative overflow-hidden">
           <div class="flex items-start justify-between mb-4">
@@ -316,8 +315,8 @@
             <div class="flex items-start space-x-3">
               <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm shrink-0">💬</div>
               <div>
-                <h5 class="text-sm font-bold text-slate-800">Customer Support</h5>
-                <p class="text-xs text-slate-500">Priority order review for any transaction questions.</p>
+                <h5 class="text-sm font-bold text-slate-800">24/7 Processing Bot</h5>
+                <p class="text-xs text-slate-500">Auto-synced transaction records with instant notification.</p>
               </div>
             </div>
           </div>
@@ -401,105 +400,6 @@
     </div>
   </footer>
 
-  <!-- CHECKOUT BOTTOM SHEET MODAL -->
-  <div id="checkoutBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div id="checkoutSheet" class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-6 sm:p-7 shadow-2xl transition-transform duration-300 transform translate-y-full sm:translate-y-0 max-h-[92vh] overflow-y-auto custom-scroll">
-      
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-        <div class="flex items-center space-x-2">
-          <span class="w-8 h-8 rounded-full bg-blue-50 text-brand-navy flex items-center justify-center font-bold">💳</span>
-          <div>
-            <h3 class="font-extrabold text-brand-navy text-base sm:text-lg">Secure UPI Checkout</h3>
-            <p class="text-[11px] text-slate-400">Order ID: <span id="modalOrderId" class="font-mono text-slate-700 font-bold">ORD-000000</span></p>
-          </div>
-        </div>
-        <button onclick="closeCheckoutModal()" class="w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition">✕</button>
-      </div>
-
-      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-5">
-        <div class="flex items-center justify-between mb-1.5">
-          <span class="text-xs font-semibold text-slate-500">Mobile Number:</span>
-          <span id="modalMobileDisplay" class="text-sm font-bold text-slate-800 font-mono">+91 0000000000</span>
-        </div>
-        <div class="flex items-center justify-between mb-1.5">
-          <span class="text-xs font-semibold text-slate-500">Operator & Circle:</span>
-          <span id="modalOpCircleDisplay" class="text-xs font-bold text-slate-800">Jio (Punjab)</span>
-        </div>
-        <div class="flex items-center justify-between pt-2 border-t border-slate-200">
-          <span class="text-xs font-bold text-brand-navy">Final Payable Amount:</span>
-          <span id="modalAmountDisplay" class="text-xl font-black text-brand-navy">₹0.00</span>
-        </div>
-      </div>
-
-      <div class="flex flex-col items-center justify-center p-4 bg-gradient-to-b from-blue-50/50 to-white rounded-2xl border border-blue-100 mb-5">
-        <div class="p-2.5 bg-white rounded-2xl shadow-sm border border-slate-200 inline-block">
-          <div id="dynamicQrContainer" class="flex items-center justify-center"></div>
-        </div>
-        <span class="text-xs font-bold text-brand-navy mt-2.5">📷 Scan using any UPI App (GPay / PhonePe / Paytm)</span>
-        <span class="text-[10px] text-slate-400">Scan QR Code or tap direct buttons below</span>
-      </div>
-
-      <div class="space-y-2.5 mb-5">
-        <a id="btnPaytmApp" href="#" class="flex items-center justify-between p-3.5 rounded-xl border border-sky-200 bg-sky-50/50 hover:bg-sky-100/60 font-bold text-xs text-brand-navy transition group">
-          <div class="flex items-center space-x-2.5">
-            <span class="w-6 h-6 rounded-full bg-brand-navy text-white text-[10px] flex items-center justify-center font-black">P</span>
-            <span>Pay with Paytm</span>
-          </div>
-          <span class="text-brand-cyan font-black">PAY NOW →</span>
-        </a>
-
-        <a id="btnPhonePeApp" href="#" class="flex items-center justify-between p-3.5 rounded-xl border border-purple-200 bg-purple-50/50 hover:bg-purple-100/60 font-bold text-xs text-purple-900 transition group">
-          <div class="flex items-center space-x-2.5">
-            <span class="w-6 h-6 rounded-full bg-purple-700 text-white text-[10px] flex items-center justify-center font-black">Ph</span>
-            <span>Pay with PhonePe</span>
-          </div>
-          <span class="text-purple-700 font-black">PAY NOW →</span>
-        </a>
-
-        <a id="btnGPayApp" href="#" class="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 font-bold text-xs text-slate-800 transition group">
-          <div class="flex items-center space-x-2.5">
-            <span class="w-6 h-6 rounded-full bg-[#4285F4] text-white text-[10px] flex items-center justify-center font-black">G</span>
-            <span>Pay with Google Pay</span>
-          </div>
-          <span class="text-slate-600 font-black">PAY NOW →</span>
-        </a>
-
-        <a id="btnGenericUpi" href="#" class="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-slate-300 font-bold text-xs text-slate-700 transition">
-          <span>✨ Other UPI Apps (BHIM, Cred, etc.)</span>
-          <span class="text-slate-400">OPEN →</span>
-        </a>
-      </div>
-
-      <div class="border-t border-slate-100 pt-4">
-        <button onclick="simulatePaymentSuccess()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
-          ✓ I Have Completed Payment
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- SUCCESS RECEIPT MODAL -->
-  <div id="receiptModalBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
-    <div id="receiptModal" class="bg-white w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-300 transform scale-95 text-center">
-      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-3xl font-black shadow-inner">✓</div>
-      <h3 class="text-2xl font-black text-brand-navy mb-1">Recharge Dispatched!</h3>
-      <p class="text-xs text-slate-500 mb-6">Your order has been recorded and submitted for operator top-up.</p>
-
-      <div class="bg-slate-50 rounded-2xl border border-slate-200 p-4 text-xs space-y-2.5 mb-6 text-left">
-        <div class="flex justify-between"><span class="text-slate-400">Transaction ID:</span><span id="rcptTxnId" class="font-mono font-bold text-slate-800">TXN-000000</span></div>
-        <div class="flex justify-between"><span class="text-slate-400">Mobile Number:</span><span id="rcptMobile" class="font-mono font-bold text-slate-800">+91 0000000000</span></div>
-        <div class="flex justify-between"><span class="text-slate-400">Operator:</span><span id="rcptOperator" class="font-bold text-slate-800">Jio</span></div>
-        <div class="flex justify-between"><span class="text-slate-400">Amount Paid:</span><span id="rcptAmount" class="font-black text-emerald-700 text-sm">₹0.00</span></div>
-        <div class="flex justify-between"><span class="text-slate-400">Date & Time:</span><span id="rcptTime" class="font-semibold text-slate-700">Oct 16, 2026</span></div>
-      </div>
-
-      <button onclick="closeReceiptModal()" class="w-full py-3.5 rounded-xl bg-brand-navy hover:bg-brand-deep text-white font-extrabold text-xs uppercase tracking-wider transition">
-        Done & Recharge Another
-      </button>
-    </div>
-  </div>
-
   <!-- ORDER HISTORY MODAL -->
   <div id="ordersModalBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-2xl rounded-3xl p-6 sm:p-7 shadow-2xl max-h-[85vh] flex flex-col">
@@ -521,19 +421,19 @@
     <span id="toastMessage">Notification</span>
   </div>
 
-  <!-- EMBEDDED MASTER DATABASE & LOGIC -->
+  <!-- MASTER DATABASE & BACKEND INTEGRATION -->
   <script>
     // Live InfinityFree Backend URL
     const API_BASE_URL = "https://5minrch-api.infinityfreeapp.com";
 
-    // Telegram Notification Settings (Admin Alert)
+    // Telegram Alert Bot Configuration
     const TELEGRAM_CONFIG = {
-      botToken: "YOUR_TELEGRAM_BOT_TOKEN", // Yahan apna Telegram Bot Token dalein (agar hai)
-      chatId: "YOUR_TELEGRAM_CHAT_ID"      // Yahan apna Telegram Chat ID dalein
+      botToken: "", // Token (Optional)
+      chatId: ""    // Chat ID (Optional)
     };
 
     function sendTelegramNotification(textMessage) {
-      if (!TELEGRAM_CONFIG.botToken || TELEGRAM_CONFIG.botToken === "YOUR_TELEGRAM_BOT_TOKEN") return;
+      if (!TELEGRAM_CONFIG.botToken || !TELEGRAM_CONFIG.chatId) return;
       const url = `https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/sendMessage`;
       fetch(url, {
         method: 'POST',
@@ -543,7 +443,7 @@
           text: textMessage,
           parse_mode: 'HTML'
         })
-      }).catch(err => console.error("Telegram notification error:", err));
+      }).catch(err => console.log("Telegram alert error:", err));
     }
 
     const DEFAULT_CATALOG = {
@@ -740,11 +640,10 @@
     };
 
     let liveCatalog = {};
-    let activeSettings = { upiId: "5minrch@upi", storeName: "5minrch Pay", discount: 2.0 };
+    let activeSettings = { discount: 2.0 };
     let selectedOperator = "Jio";
     let enteredAmount = 0;
     let currentCategory = "Hero Unlimited";
-    let currentOrderId = null;
     let orderHistory = [];
 
     const OPERATOR_META = {
@@ -755,31 +654,20 @@
     };
 
     function syncDatabase() {
-      // Sync from InfinityFree Admin Data
+      // Fetch dynamic discount from backend
       fetch(`${API_BASE_URL}/get_admin_data.php`)
         .then(res => res.json())
         .then(data => {
-          if (data && data.upi_id) {
-            activeSettings.upiId = data.upi_id;
-            activeSettings.storeName = data.store_name || "5minrch Pay";
-            activeSettings.discount = parseFloat(data.discount || 2.0);
-            
+          if (data && data.discount) {
+            activeSettings.discount = parseFloat(data.discount);
             document.getElementById('discountPercentLabel').textContent = `${activeSettings.discount}%`;
             document.getElementById('bannerDiscountBadge').textContent = `${activeSettings.discount}% Off`;
             updateCalculations();
           }
         })
-        .catch(err => console.log("Using cached/local settings:", err));
+        .catch(e => console.log("Backend offline or local simulation active:", e));
 
-      const savedSettings = localStorage.getItem('5minrch_settings');
-      if (savedSettings) activeSettings = JSON.parse(savedSettings);
-
-      document.getElementById('discountPercentLabel').textContent = `${activeSettings.discount}%`;
-      document.getElementById('bannerDiscountBadge').textContent = `${activeSettings.discount}% Off`;
-
-      const savedCatalog = localStorage.getItem('5minrch_catalog');
-      liveCatalog = savedCatalog ? JSON.parse(savedCatalog) : DEFAULT_CATALOG;
-
+      liveCatalog = DEFAULT_CATALOG;
       try {
         orderHistory = JSON.parse(localStorage.getItem('5minrch_orders')) || [];
       } catch (e) {
@@ -984,6 +872,7 @@
       netEl.textContent = `₹${netPayable}`;
     }
 
+    // DIRECT GATEWAY CONNECTION & SUBMISSION
     function initiateCheckout() {
       const mob = document.getElementById('mobileNumber').value.trim();
       const circle = document.getElementById('circleSelect').value;
@@ -1000,26 +889,48 @@
         return;
       }
 
-      currentOrderId = 'ORD' + Date.now();
       const finalAmount = (enteredAmount * (1 - (activeSettings.discount / 100))).toFixed(2);
-      const note = `RCH-${mob}-${selectedOperator}`;
+      const orderId = 'ORD' + Date.now();
 
-      // Notify Telegram on Checkout
+      // Show professional loading dialog
+      Swal.fire({
+        title: 'Connecting to Secure Gateway...',
+        text: 'Preparing official bank UPI verification page',
+        allowOutsideClick: false,
+        didOpen: () => {
+          Swal.showLoading();
+        }
+      });
+
+      // Send Instant Telegram Notification
       sendTelegramNotification(
-        `⚡ <b>New Recharge Initiated</b>\n\n` +
+        `⚡ <b>Recharge Order Initiated</b>\n` +
         `📱 <b>Mobile:</b> ${mob}\n` +
         `🏢 <b>Operator:</b> ${selectedOperator} (${circle})\n` +
         `💰 <b>Amount:</b> ₹${finalAmount} (MRP: ₹${enteredAmount})\n` +
-        `🆔 <b>Order ID:</b> <code>${currentOrderId}</code>\n` +
-        `⏳ <b>Status:</b> Awaiting Payment`
+        `🆔 <b>Order ID:</b> <code>${orderId}</code>`
       );
 
-      // Create Order on InfinityFree Backend
+      // Save into local history
+      const now = new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+      orderHistory.unshift({
+        orderId: orderId,
+        mobile: mob,
+        operator: `${selectedOperator} (${circle})`,
+        amount: finalAmount,
+        originalMrp: enteredAmount,
+        date: now,
+        status: 'Initiated'
+      });
+      localStorage.setItem('5minrch_orders', JSON.stringify(orderHistory));
+      updateOrderBadge();
+
+      // Call InfinityFree Order Creator
       fetch(`${API_BASE_URL}/create_recharge_order.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          order_id: currentOrderId,
+          order_id: orderId,
           mobile: mob,
           operator: selectedOperator,
           circle: circle,
@@ -1028,107 +939,18 @@
         })
       })
       .then(res => res.json())
-      .catch(err => console.log("Backend offline or local simulation active:", err));
-
-      document.getElementById('modalOrderId').textContent = currentOrderId;
-      document.getElementById('modalMobileDisplay').textContent = `+91 ${mob}`;
-      document.getElementById('modalOpCircleDisplay').textContent = `${selectedOperator} (${circle})`;
-      document.getElementById('modalAmountDisplay').textContent = `₹${finalAmount}`;
-
-      const rawUpi = `upi://pay?pa=${encodeURIComponent(activeSettings.upiId)}&pn=${encodeURIComponent(activeSettings.storeName)}&am=${finalAmount}&cu=INR&tn=${encodeURIComponent(note)}&tr=${encodeURIComponent(currentOrderId)}`;
-      const paytmDeep = `paytmmp://pay?pa=${encodeURIComponent(activeSettings.upiId)}&pn=${encodeURIComponent(activeSettings.storeName)}&am=${finalAmount}&cu=INR&tn=${encodeURIComponent(note)}&tr=${encodeURIComponent(currentOrderId)}`;
-      const phonepeDeep = `phonepe://pay?pa=${encodeURIComponent(activeSettings.upiId)}&pn=${encodeURIComponent(activeSettings.storeName)}&am=${finalAmount}&cu=INR&tn=${encodeURIComponent(note)}&tr=${encodeURIComponent(currentOrderId)}`;
-      const gpayDeep = `tez://upi/pay?pa=${encodeURIComponent(activeSettings.upiId)}&pn=${encodeURIComponent(activeSettings.storeName)}&am=${finalAmount}&cu=INR&tn=${encodeURIComponent(note)}&tr=${encodeURIComponent(currentOrderId)}`;
-
-      document.getElementById('btnPaytmApp').href = paytmDeep;
-      document.getElementById('btnPhonePeApp').href = phonepeDeep;
-      document.getElementById('btnGPayApp').href = gpayDeep;
-      document.getElementById('btnGenericUpi').href = rawUpi;
-
-      const qrBox = document.getElementById('dynamicQrContainer');
-      qrBox.innerHTML = '';
-      try {
-        new QRCode(qrBox, {
-          text: rawUpi,
-          width: 145,
-          height: 145,
-          colorDark: "#002970",
-          colorLight: "#ffffff",
-          correctLevel: QRCode.CorrectLevel.M
-        });
-      } catch (e) {
-        console.error("QR Error:", e);
-      }
-
-      const backdrop = document.getElementById('checkoutBackdrop');
-      const sheet = document.getElementById('checkoutSheet');
-      backdrop.classList.add('modal-active');
-      sheet.classList.add('slide-in-up');
-    }
-
-    function closeCheckoutModal() {
-      const backdrop = document.getElementById('checkoutBackdrop');
-      const sheet = document.getElementById('checkoutSheet');
-      sheet.classList.remove('slide-in-up');
-      backdrop.classList.remove('modal-active');
-    }
-
-    function simulatePaymentSuccess() {
-      closeCheckoutModal();
-
-      const mob = document.getElementById('mobileNumber').value.trim();
-      const circle = document.getElementById('circleSelect').value;
-      const finalAmount = (enteredAmount * (1 - (activeSettings.discount / 100))).toFixed(2);
-      const now = new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
-
-      // Notify Telegram on Payment Completion
-      sendTelegramNotification(
-        `✅ <b>Payment Completed!</b>\n\n` +
-        `📱 <b>Mobile:</b> ${mob}\n` +
-        `🏢 <b>Operator:</b> ${selectedOperator} (${circle})\n` +
-        `💵 <b>Paid:</b> ₹${finalAmount}\n` +
-        `🆔 <b>Txn ID:</b> <code>${currentOrderId}</code>\n` +
-        `⏰ <b>Time:</b> ${now}`
-      );
-
-      const newOrder = {
-        orderId: currentOrderId,
-        mobile: mob,
-        operator: `${selectedOperator} (${circle})`,
-        amount: finalAmount,
-        originalMrp: enteredAmount,
-        date: now,
-        status: 'Completed'
-      };
-
-      orderHistory.unshift(newOrder);
-      localStorage.setItem('5minrch_orders', JSON.stringify(orderHistory));
-      updateOrderBadge();
-
-      document.getElementById('rcptTxnId').textContent = currentOrderId;
-      document.getElementById('rcptMobile').textContent = `+91 ${mob}`;
-      document.getElementById('rcptOperator').textContent = `${selectedOperator} (${circle})`;
-      document.getElementById('rcptAmount').textContent = `₹${finalAmount}`;
-      document.getElementById('rcptTime').textContent = now;
-
-      const receiptBackdrop = document.getElementById('receiptModalBackdrop');
-      const receiptModal = document.getElementById('receiptModal');
-      receiptBackdrop.classList.add('modal-active');
-      receiptModal.classList.remove('scale-95');
-      receiptModal.classList.add('scale-100');
-    }
-
-    function closeReceiptModal() {
-      const receiptBackdrop = document.getElementById('receiptModalBackdrop');
-      const receiptModal = document.getElementById('receiptModal');
-      receiptBackdrop.classList.remove('modal-active');
-      receiptModal.classList.add('scale-95');
-      receiptModal.classList.remove('scale-100');
-
-      document.getElementById('rechargeAmount').value = '';
-      enteredAmount = 0;
-      updateCalculations();
-      showToast('Order recorded in Order History!', '✓');
+      .then(data => {
+        if (data.status === 'success' && data.payment_url) {
+          window.location.href = data.payment_url;
+        } else {
+          // Fallback direct gateway route
+          window.location.href = `${API_BASE_URL}/PAY/PG/?amount=${encodeURIComponent(finalAmount)}&order_id=${encodeURIComponent(orderId)}&mobile=${encodeURIComponent(mob)}&operator=${encodeURIComponent(selectedOperator)}`;
+        }
+      })
+      .catch(err => {
+        // Direct redirect if fetch blocked by CORS/cPanel proxy
+        window.location.href = `${API_BASE_URL}/PAY/PG/?amount=${encodeURIComponent(finalAmount)}&order_id=${encodeURIComponent(orderId)}&mobile=${encodeURIComponent(mob)}&operator=${encodeURIComponent(selectedOperator)}`;
+      });
     }
 
     function openOrdersModal() {
@@ -1161,7 +983,7 @@
           <div>
             <div class="flex items-center space-x-2">
               <span class="font-extrabold text-sm text-slate-900">+91 ${ord.mobile}</span>
-              <span class="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold px-2 py-0.2 rounded-full">${ord.status}</span>
+              <span class="text-[10px] bg-blue-50 text-brand-navy border border-blue-200 font-bold px-2 py-0.2 rounded-full">${ord.status}</span>
             </div>
             <div class="text-xs text-slate-500 font-medium mt-0.5">${ord.operator} • <span class="font-mono text-slate-400">${ord.orderId}</span></div>
             <div class="text-[10px] text-slate-400 mt-1">${ord.date}</div>
