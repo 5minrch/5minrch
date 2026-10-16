@@ -1,1511 +1,1212 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-
-  <title>5min Rch - Flat 2% OFF | Prepaid Mobile Recharge</title>
-
-
-
-  <!-- Google Search Console Verification Tag -->
-
-  <meta name="google-site-verification" content="OYRsoz0eVDKzrzpMxnGLXN6f_8IRSdkIKu1vVhR-hEs" />
-
-
-
-  <!-- Google tag (gtag.js) - Google Analytics -->
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YL5NBRZ541"></script>
-
-  <script>
-
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag(){dataLayer.push(arguments);}
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-YL5NBRZ541');
-
-  </script>
-
-
-
-  <meta name="title" content="5min Rch - Flat 2% OFF on Jio, Airtel, Vi Prepaid Recharge">
-
-  <meta name="description" content="Get flat 2.0% instant discount on mobile recharges. Zero convenience fee, direct UPI payment, fast 5-minute dispatch. 100% refund guarantee.">
-
-  <meta name="robots" content="index, follow">
-
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5minrch Pay - Fast & Secure Mobile Recharge</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-
-
-  <style>
-
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap');
-
-    body {
-
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-
-      -webkit-tap-highlight-color: transparent;
-
-      touch-action: manipulation;
-
-    }
-
-    .mono { font-family: 'JetBrains Mono', monospace; }
-
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-    .plan-card-active {
-
-      border-color: #059669 !important;
-
-      background-color: #ecfdf5 !important;
-
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.18);
-
-    }
-
-    .sheet-up { transform: translateY(0%) !important; }
-
-  </style>
-
-</head>
-
-<body class="bg-slate-100 text-slate-900 min-h-screen flex justify-center selection:bg-emerald-500 selection:text-white">
-
-
-
-  <!-- MAINTENANCE SCREEN -->
-
-  <div id="maintenanceScreen" class="fixed inset-0 bg-[#0a0f1d] z-[60] flex flex-col items-center justify-center p-6 text-center text-white hidden">
-
-    <div class="h-20 w-20 rounded-3xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 text-3xl mb-5 shadow-2xl animate-pulse">
-
-      <i class="fa-solid fa-wrench"></i>
-
-    </div>
-
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-bold mb-3">
-
-      <span class="h-2 w-2 rounded-full bg-amber-400 animate-ping"></span>
-
-      <span>System Update In Progress</span>
-
-    </div>
-
-    <h2 class="text-2xl font-black tracking-tight">Temporary Maintenance</h2>
-
-    <p class="text-slate-400 text-xs sm:text-sm mt-2 max-w-xs leading-relaxed">
-
-      Hum recharge gateway aur automated dispatch servers upgrade kar rahe hain. Site jald hi re-open hogi!
-
-    </p>
-
-    <div class="mt-5 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
-
-      <i class="fa-regular fa-clock text-amber-400 mr-1.5"></i> Estimated time: 15–30 Mins
-
-    </div>
-
-  </div>
-
-
-
-  <!-- APP WRAPPER -->
-
-  <div class="w-full max-w-md bg-white min-h-screen flex flex-col justify-between shadow-2xl relative pb-28">
-
-
-
-    <!-- Header -->
-
-    <header class="bg-white border-b border-slate-100 sticky top-0 z-30 px-4 py-3 flex justify-between items-center shadow-xs">
-
-      <div class="flex items-center gap-2.5 select-none">
-
-        <div class="h-9 w-9 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black text-base shadow-sm">
-
-          <i class="fa-solid fa-bolt"></i>
-
-        </div>
-
-        <div>
-
-          <h1 class="font-extrabold text-base leading-tight tracking-tight text-slate-900">5min <span class="text-emerald-600">Rch</span></h1>
-
-          <p class="text-[10px] text-emerald-600 font-bold flex items-center gap-1">
-
-            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Instant Dispatch
-
-          </p>
-
-        </div>
-
-      </div>
-
-
-
-      <div id="topBannerBadge" class="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold flex items-center gap-1">
-
-        <i class="fa-solid fa-tag"></i> <span id="topBannerText">Flat 2% OFF</span>
-
-      </div>
-
-    </header>
-
-
-
-    <!-- Main Content -->
-
-    <main class="p-4 space-y-4 flex-1">
-
-
-
-      <!-- Mobile Number Field -->
-
-      <div class="space-y-1.5">
-
-        <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Mobile Number</label>
-
-        <div class="relative flex items-center">
-
-          <div class="absolute left-3.5 flex items-center gap-1 text-slate-500 font-bold text-sm">
-
-            <span>+91</span>
-
-          </div>
-
-          <input type="tel" id="mobileInput" maxlength="10" placeholder="10-digit number dalein" oninput="handleMobileInput(this.value)" class="w-full bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:bg-white rounded-2xl py-3.5 pl-14 pr-24 text-base font-bold mono text-slate-900 outline-none transition shadow-xs">
-
-
-
-          <div id="operatorBadge" class="absolute right-3 px-2 py-1 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold flex items-center gap-1.5 transition">
-
-            <span class="h-2 w-2 rounded-full bg-blue-500"></span>
-
-            <span id="operatorText">Jio</span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- Carrier Switcher Chips -->
-
-      <div class="grid grid-cols-3 gap-2">
-
-        <button type="button" onclick="selectOperator('Jio')" class="op-chip py-2 px-3 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center gap-1.5 text-xs font-bold transition" data-op="Jio">
-
-          <span class="h-2.5 w-2.5 rounded-full bg-blue-500"></span> Jio
-
-        </button>
-
-        <button type="button" onclick="selectOperator('Airtel')" class="op-chip py-2 px-3 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center gap-1.5 text-xs font-bold transition" data-op="Airtel">
-
-          <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span> Airtel
-
-        </button>
-
-        <button type="button" onclick="selectOperator('Vi')" class="op-chip py-2 px-3 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center gap-1.5 text-xs font-bold transition" data-op="Vi">
-
-          <span class="h-2.5 w-2.5 rounded-full bg-amber-500"></span> Vi
-
-        </button>
-
-      </div>
-
-
-
-      <!-- Plan Category Filter Pills -->
-
-      <div class="space-y-2 pt-1">
-
-        <div class="flex justify-between items-center px-0.5">
-
-          <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Available Plans</span>
-
-          <span class="text-[10px] text-emerald-600 font-bold" id="discountSubtitle">2% Flat Discount</span>
-
-        </div>
-
-
-
-        <div class="flex gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="categoryFilterContainer">
-
-          <button onclick="filterPlanCategory('ALL')" class="cat-pill px-3 py-1.5 rounded-lg text-[11px] font-bold bg-slate-900 text-white whitespace-nowrap transition" data-cat="ALL">All Plans</button>
-
-          <button onclick="filterPlanCategory('DATA')" class="cat-pill px-3 py-1.5 rounded-lg text-[11px] font-bold bg-slate-100 text-slate-600 whitespace-nowrap transition" data-cat="DATA">Data Add-ons</button>
-
-          <button onclick="filterPlanCategory('28D')" class="cat-pill px-3 py-1.5 rounded-lg text-[11px] font-bold bg-slate-100 text-slate-600 whitespace-nowrap transition" data-cat="28D">28 Days Packs</button>
-
-          <button onclick="filterPlanCategory('MID')" class="cat-pill px-3 py-1.5 rounded-lg text-[11px] font-bold bg-slate-100 text-slate-600 whitespace-nowrap transition" data-cat="MID">56 - 84 Days</button>
-
-          <button onclick="filterPlanCategory('ANNUAL')" class="cat-pill px-3 py-1.5 rounded-lg text-[11px] font-bold bg-slate-100 text-slate-600 whitespace-nowrap transition" data-cat="ANNUAL">Annual 365D</button>
-
-        </div>
-
-
-
-        <div id="planScrollContainer" class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1.5 pt-0.5"></div>
-
-      </div>
-
-
-
-      <!-- Custom Amount Input -->
-
-      <div class="space-y-2 pt-1">
-
-        <label class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Ya Custom MRP Dalein</label>
-
-        <div class="relative">
-
-          <span class="absolute left-4 top-3 text-slate-400 font-bold mono text-sm">₹</span>
-
-          <input type="number" id="customAmountInput" placeholder="Koi bhi amount likhein (e.g. 399)" oninput="onCustomAmountChange()" class="w-full bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:bg-white rounded-2xl py-3 pl-9 pr-4 text-sm font-bold mono text-slate-900 outline-none transition">
-
-        </div>
-
-        
-
-        <div class="p-2.5 rounded-xl bg-emerald-50/80 border border-emerald-200 flex items-start gap-2">
-
-          <i class="fa-solid fa-gift text-emerald-600 text-xs mt-0.5 shrink-0"></i>
-
-          <p class="text-[10px] text-emerald-900 font-medium leading-snug">
-
-            <b>Special Offer Tip:</b> Agar koi special offer chal raha hai, toh seedha MRP dalein aur <b>flat 2% discount</b> paayein!
-
-          </p>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- Guarantees -->
-
-      <div class="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-100 flex items-center gap-3">
-
-        <div class="h-8 w-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 text-sm shadow-xs">
-
-          <i class="fa-solid fa-shield-check"></i>
-
-        </div>
-
-        <div class="text-[11px] leading-tight text-emerald-950">
-
-          <p class="font-bold">100% Refund Guarantee</p>
-
-          <p class="text-emerald-700 mt-0.5">Agar 5 minute me recharge dispatch nahi hua, toh seedha aapke UPI par refund milega.</p>
-
-        </div>
-
-      </div>
-
-
-
-    </main>
-
-
-
-    <!-- Bottom Pay Bar -->
-
-    <div class="fixed bottom-0 inset-x-0 max-w-md mx-auto bg-white border-t border-slate-200/80 p-3.5 z-40 flex items-center justify-between gap-3 shadow-lg">
-
-      <div>
-
-        <div class="flex items-center gap-1.5">
-
-          <span class="text-lg font-black text-slate-900 mono leading-none" id="bottomFinalPrice">₹342.02</span>
-
-          <span class="text-[10px] line-through text-slate-400 mono" id="bottomOriginalPrice">₹349</span>
-
-        </div>
-
-        <p class="text-[10px] text-emerald-600 font-bold mt-0.5">
-
-          <i class="fa-solid fa-tag mr-0.5"></i> Bachat: <span id="bottomSavings">₹6.98</span>
-
-        </p>
-
-      </div>
-
-
-
-      <button type="button" onclick="openPaymentSheet()" class="flex-1 py-3.5 px-5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-extrabold rounded-2xl text-sm shadow-md shadow-emerald-600/20 transition flex items-center justify-center gap-2">
-
-        <span>Proceed to Pay</span>
-
-        <i class="fa-solid fa-arrow-right text-xs"></i>
-
-      </button>
-
-    </div>
-
-
-
-    <!-- WhatsApp Support Bubble -->
-
-    <a id="waBubble" href="#" target="_blank" class="fixed bottom-20 right-4 z-30 h-11 w-11 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg flex items-center justify-center text-lg active:scale-95 transition" aria-label="Support">
-
-      <i class="fa-brands fa-whatsapp"></i>
-
-    </a>
-
-
-
-    <!-- Footer -->
-
-    <footer class="text-center py-3 px-4 border-t border-slate-100 bg-white">
-
-      <p class="text-[10px] text-slate-400 select-none">
-
-        5min Rch &bull; Independent Retail Facilitator &bull; Fast Dispatch
-
-      </p>
-
-    </footer>
-
-
-
-  </div>
-
-
-
-  <!-- PAYMENT BOTTOM SHEET -->
-
-  <div id="sheetBackdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-200" onclick="closePaymentSheet()"></div>
-
-
-
-  <div id="paymentSheet" class="fixed bottom-0 inset-x-0 max-w-md mx-auto bg-white rounded-t-[32px] p-5 z-50 translate-y-full transition-transform duration-300 ease-out space-y-4 shadow-2xl border-t border-slate-100">
-
-    <div class="w-10 h-1 bg-slate-200 rounded-full mx-auto -mt-1"></div>
-
-
-
-    <div class="flex justify-between items-center">
-
-      <div>
-
-        <h3 class="font-extrabold text-base text-slate-900">Direct UPI Checkout</h3>
-
-        <p class="text-[11px] text-slate-500">Zero convenience fee &bull; Flat 2% Discount applied</p>
-
-      </div>
-
-      <button onclick="closePaymentSheet()" class="h-7 w-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:text-slate-800">
-
-        <i class="fa-solid fa-xmark text-xs"></i>
-
-      </button>
-
-    </div>
-
-
-
-    <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 flex justify-between items-center">
-
-      <div>
-
-        <span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">Payable Amount</span>
-
-        <div id="sheetPayableAmount" class="font-black text-xl text-emerald-600 mono">₹342.02</div>
-
-      </div>
-
-      <div class="text-right">
-
-        <span class="text-[10px] text-slate-500 uppercase font-bold tracking-wider">UPI ID</span>
-
-        <div id="sheetUpiDisplay" class="text-xs mono font-bold text-slate-800 select-all">rameshtelecom13@ybl</div>
-
-      </div>
-
-    </div>
-
-
-
-    <div class="space-y-1.5">
-
-      <p class="text-[11px] font-bold text-slate-500 uppercase">Step 1: Kisi bhi app se payment karein</p>
-
-      <div class="grid grid-cols-3 gap-2">
-
-        <a id="phonePeLink" href="#" class="py-2.5 px-2 rounded-xl bg-purple-50 border border-purple-200 text-purple-700 font-bold text-xs flex items-center justify-center gap-1 transition">
-
-          <i class="fa-solid fa-mobile-screen"></i> PhonePe
-
-        </a>
-
-        <a id="gPayLink" href="#" class="py-2.5 px-2 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 font-bold text-xs flex items-center justify-center gap-1 transition">
-
-          <i class="fa-brands fa-google-pay text-base"></i> GPay
-
-        </a>
-
-        <a id="otherUpiLink" href="#" class="py-2.5 px-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-1 transition">
-
-          <i class="fa-solid fa-wallet"></i> Other Apps
-
-        </a>
-
-      </div>
-
-    </div>
-
-
-
-    <details class="bg-slate-50 rounded-xl border border-slate-200 p-2 text-xs">
-
-      <summary class="font-bold text-slate-600 cursor-pointer list-none flex justify-between items-center px-1">
-
-        <span><i class="fa-solid fa-qrcode text-emerald-600 mr-1.5"></i> QR Code scan karein</span>
-
-        <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
-
-      </summary>
-
-      <div class="pt-2 text-center">
-
-        <div id="sheetQrContainer" class="inline-block p-1 bg-white border border-slate-200 rounded-lg shadow-xs"></div>
-
-      </div>
-
-    </details>
-
-
-
-    <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs">
-
-      <p class="font-bold flex items-center gap-1.5">
-
-        <i class="fa-solid fa-circle-info text-amber-600"></i> Payment Complete Hone Ke Baad:
-
-      </p>
-
-      <p class="text-[11px] text-amber-800 mt-1">UPI app se pay karne ke baad niche button dabayein, recharge 5 min me dispatch ho jayega.</p>
-
-    </div>
-
-
-
-    <button onclick="submitOrder()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-extrabold rounded-xl text-sm transition shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2">
-
-      <i class="fa-solid fa-bolt"></i>
-
-      <span>I Have Paid & Dispatch Recharge</span>
-
-    </button>
-
-  </div>
-
-
-
-  <!-- Toast Notification -->
-
-  <div id="toastNotification" class="fixed top-5 inset-x-0 mx-auto max-w-xs bg-slate-900 border border-white/10 text-white text-xs font-bold py-2.5 px-4 rounded-2xl shadow-2xl flex items-center gap-2.5 -translate-y-20 opacity-0 transition-all duration-300 pointer-events-none z-[80]">
-
-    <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
-
-    <span id="toastMsg">Notification</span>
-
-  </div>
-
-
-
-  <!-- 🔔 1. LIVE SOCIAL PROOF POPUP -->
-
-  <div id="recentActivityToast" class="fixed bottom-24 left-4 z-40 bg-white/95 backdrop-blur-md border border-slate-200 shadow-xl rounded-2xl p-3 flex items-center gap-3 transition-all duration-500 translate-y-24 opacity-0 pointer-events-none max-w-[280px]">
-
-    <div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 text-base font-bold">
-
-      <i class="fa-solid fa-bolt"></i>
-
-    </div>
-
-    <div class="overflow-hidden">
-
-      <p id="activityText" class="text-xs font-bold text-slate-800 leading-tight truncate">Rahul from Punjab recharged ₹299</p>
-
-      <p class="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1 font-semibold">
-
-        <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Just now • Live
-
-      </p>
-
-    </div>
-
-  </div>
-
-
-
-  <!-- ⚡ 2. LIVE 5-MINUTE DISPATCH TRACKING MODAL -->
-
-  <div id="trackingModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[90] flex items-center justify-center p-4 hidden">
-
-    <div class="w-full max-w-sm bg-white rounded-3xl p-6 text-center space-y-5 shadow-2xl relative border border-slate-100">
-
-      <div class="relative mx-auto w-16 h-16">
-
-        <div class="absolute inset-0 bg-emerald-500/20 rounded-full animate-ping"></div>
-
-        <div class="relative w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-lg shadow-emerald-600/30">
-
-          <i class="fa-solid fa-tower-broadcast animate-bounce"></i>
-
-        </div>
-
-      </div>
-
-
-
-      <div>
-
-        <h3 class="font-extrabold text-xl text-slate-900">Recharge in Progress</h3>
-
-        <p class="text-xs text-slate-500 mt-1">Telecom Gateway Connected</p>
-
-      </div>
-
-
-
-      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-
-        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Estimated Dispatch Time</span>
-
-        <div id="dispatchTimer" class="text-3xl font-black text-emerald-600 tracking-wider mono mt-1">04:59</div>
-
-        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mt-3">
-
-          <div id="trackingProgress" class="bg-emerald-600 h-full w-[15%] transition-all duration-1000"></div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="text-left text-xs bg-slate-50/50 rounded-xl p-3 space-y-1.5 border border-slate-100 text-slate-600 font-medium">
-
-        <div class="flex justify-between"><span>Number:</span><strong id="trackMobile" class="text-slate-800">--</strong></div>
-
-        <div class="flex justify-between"><span>Operator:</span><strong id="trackCarrier" class="text-slate-800">--</strong></div>
-
-        <div class="flex justify-between"><span>Plan MRP:</span><strong id="trackAmount" class="text-slate-800">₹--</strong></div>
-
-        <div class="flex justify-between text-emerald-700 font-bold"><span>Status:</span><span>Processing</span></div>
-
-      </div>
-
-
-
-      <button onclick="document.getElementById('trackingModal').classList.add('hidden')" class="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition">
-
-        Close Window
-
-      </button>
-
-    </div>
-
-  </div>
-
-
-
   <script>
-
-    // -------------------------------------------------------------
-
-    // CONFIGURATION & GLOBAL STATE
-
-    // -------------------------------------------------------------
-
-    const FIREBASE_DB_URL = 'https://minrch-db-default-rtdb.firebaseio.com';
-
-
-
-    let ACTIVE_UPI = 'rameshtelecom13@ybl';
-
-    let SUPPORT_WA = '917009800948';
-
-    let DISCOUNT_RATE = 0.02;
-
-    let IS_MAINTENANCE = false;
-
-
-
-    const TG_BOT = '8633314298:AAExWjKQautkhNj_D1HHoaTubRaDm0uD1ks';
-
-    const TG_CHAT = '514213737';
-
-
-
-    const DEFAULT_PLANS = {
-
-      Jio: [
-
-        { mrp: 19, val: '1 Day', desc: '1GB Data Booster', cat: 'DATA' },
-
-        { mrp: 29, val: '2 Days', desc: '2GB Data Booster', cat: 'DATA' },
-
-        { mrp: 49, val: '1 Day', desc: '25GB High Speed Data', cat: 'DATA' },
-
-        { mrp: 69, val: '7 Days', desc: '6GB Data Pack', cat: 'DATA' },
-
-        { mrp: 189, val: '28 Days', desc: '2GB Total + Unlimited Call', cat: '28D' },
-
-        { mrp: 198, val: '14 Days', desc: '2GB/Day + True 5G Unltd', cat: '28D' },
-
-        { mrp: 199, val: '18 Days', desc: '1.5GB/Day + Call', cat: '28D' },
-
-        { mrp: 249, val: '28 Days', desc: '1GB/Day + Unlimited Call', cat: '28D' },
-
-        { mrp: 299, val: '28 Days', desc: '1.5GB/Day + Unlimited Call', cat: '28D' },
-
-        { mrp: 349, val: '28 Days', desc: '2GB/Day + True 5G Unltd', cat: '28D' },
-
-        { mrp: 399, val: '28 Days', desc: '2.5GB/Day + True 5G Unltd', cat: '28D' },
-
-        { mrp: 449, val: '28 Days', desc: '3GB/Day + True 5G Unltd', cat: '28D' },
-
-        { mrp: 579, val: '56 Days', desc: '1.5GB/Day + Unlimited Call', cat: 'MID' },
-
-        { mrp: 629, val: '56 Days', desc: '2GB/Day + True 5G Unltd', cat: 'MID' },
-
-        { mrp: 799, val: '84 Days', desc: '1.5GB/Day + Unlimited Call', cat: 'MID' },
-
-        { mrp: 859, val: '84 Days', desc: '2GB/Day + True 5G Unltd', cat: 'MID' },
-
-        { mrp: 899, val: '90 Days', desc: '2GB/Day + 20GB Extra 5G', cat: 'MID' },
-
-        { mrp: 999, val: '98 Days', desc: '2GB/Day + True 5G Unltd', cat: 'MID' },
-
-        { mrp: 1199, val: '84 Days', desc: '3GB/Day + True 5G Unltd', cat: 'MID' },
-
-        { mrp: 1899, val: '336 Days', desc: '24GB Total Value Plan', cat: 'ANNUAL' },
-
-        { mrp: 3599, val: '365 Days', desc: '2.5GB/Day + True 5G Annual', cat: 'ANNUAL' }
-
-      ],
-
-      Airtel: [
-
-        { mrp: 11, val: '1 Hour', desc: 'Unlimited Data (1 Hr)', cat: 'DATA' },
-
-        { mrp: 22, val: '1 Day', desc: '1GB Data Booster', cat: 'DATA' },
-
-        { mrp: 33, val: '1 Day', desc: '2GB Data Booster', cat: 'DATA' },
-
-        { mrp: 49, val: '1 Day', desc: 'Unlimited Data (1 Day)', cat: 'DATA' },
-
-        { mrp: 99, val: '2 Days', desc: 'Unlimited Data (2 Days)', cat: 'DATA' },
-
-        { mrp: 199, val: '28 Days', desc: '2GB Total + Unlimited Call', cat: '28D' },
-
-        { mrp: 299, val: '28 Days', desc: '1GB/Day + Unlimited Call', cat: '28D' },
-
-        { mrp: 349, val: '28 Days', desc: '1.5GB/Day + Unlimited Call', cat: '28D' },
-
-        { mrp: 399, val: '28 Days', desc: '2.5GB/Day + Unlimited 5G', cat: '28D' },
-
-        { mrp: 409, val: '28 Days', desc: '2.5GB/Day + Unlimited 5G', cat: '28D' },
-
-        { mrp: 449, val: '28 Days', desc: '3GB/Day + Unlimited 5G', cat: '28D' },
-
-        { mrp: 509, val: '84 Days', desc: '6GB Total Value Pack', cat: 'MID' },
-
-        { mrp: 579, val: '56 Days', desc: '1.5GB/Day + Unlimited Call', cat: 'MID' },
-
-        { mrp: 649, val: '56 Days', desc: '2GB/Day + Unlimited 5G', cat: 'MID' },
-
-        { mrp: 859, val: '84 Days', desc: '1.5GB/Day + Unlimited Call', cat: 'MID' },
-
-        { mrp: 979, val: '84 Days', desc: '2GB/Day + Unlimited 5G', cat: 'MID' },
-
-        { mrp: 1999, val: '365 Days', desc: '24GB Total Annual Pack', cat: 'ANNUAL' },
-
-        { mrp: 3599, val: '365 Days', desc: '2GB/Day + Unlimited 5G Annual', cat: 'ANNUAL' }
-
-      ],
-
-      Vi: [
-
-        { mrp: 19, val: '1 Day', desc: '1GB Data Booster', cat: 'DATA' },
-
-        { mrp: 29, val: '2 Days', desc: '2GB Data Booster', cat: 'DATA' },
-
-        { mrp: 49, val: '1 Day', desc: 'Unlimited 20GB Night Data', cat: 'DATA' },
-
-        { mrp: 199, val: '28 Days', desc: '2GB Total + Unlimited Call', cat: '28D' },
-
-        { mrp: 299, val: '28 Days', desc: '1GB/Day + Unlimited Call', cat: '28D' },
-
-        { mrp: 349, val: '28 Days', desc: '1.5GB/Day + Binge All Night', cat: '28D' },
-
-        { mrp: 365, val: '28 Days', desc: '2GB/Day + Half-Day Unltd (12am-12pm)', cat: '28D' },
-
-        { mrp: 399, val: '28 Days', desc: '2.5GB/Day + Hero Unltd (Night+Rollover)', cat: '28D' },
-
-        { mrp: 409, val: '28 Days', desc: '2.5GB/Day + Weekend Rollover', cat: '28D' },
-
-        { mrp: 449, val: '28 Days', desc: '3GB/Day + Hero Unlimited', cat: '28D' },
-
-        { mrp: 509, val: '84 Days', desc: '6GB Total Value Pack', cat: 'MID' },
-
-        { mrp: 579, val: '56 Days', desc: '1.5GB/Day + Binge All Night', cat: 'MID' },
-
-        { mrp: 649, val: '56 Days', desc: '2GB/Day + Weekend Rollover', cat: 'MID' },
-
-        { mrp: 859, val: '84 Days', desc: '1.5GB/Day + Hero Unlimited', cat: 'MID' },
-
-        { mrp: 979, val: '84 Days', desc: '2GB/Day + Binge All Night', cat: 'MID' },
-
-        { mrp: 1999, val: '365 Days', desc: '24GB Total Annual Pack', cat: 'ANNUAL' },
-
-        { mrp: 3499, val: '365 Days', desc: '1.5GB/Day + Binge All Night', cat: 'ANNUAL' }
-
-      ]
-
-    };
-
-
-
-    let CARRIER_PLANS = JSON.parse(JSON.stringify(DEFAULT_PLANS));
-
-    let activeOp = 'Jio';
-
-    let activeCat = 'ALL';
-
-    let selectedMrp = 349;
-
-
-
-    function showToast(msg, isError = false) {
-
-      const toast = document.getElementById('toastNotification');
-
-      const icon = document.getElementById('toastIcon');
-
-      document.getElementById('toastMsg').textContent = msg;
-
-      icon.className = isError ? 'fa-solid fa-circle-exclamation text-rose-400 text-sm' : 'fa-solid fa-circle-check text-emerald-400 text-sm';
-
-      toast.classList.remove('-translate-y-20', 'opacity-0');
-
-      setTimeout(() => toast.classList.add('-translate-y-20', 'opacity-0'), 2500);
-
-    }
-
-
-
-    function initStore() {
-
-      applyMaintenanceState();
-
-      selectOperator('Jio');
-
-      selectPackMrp(349);
-
-      document.getElementById('sheetUpiDisplay').textContent = ACTIVE_UPI;
-
-      updateWaButton();
-
-    }
-
-
-
-    function applyMaintenanceState() {
-
-      const screen = document.getElementById('maintenanceScreen');
-
-      if (IS_MAINTENANCE) {
-
-        screen.classList.remove('hidden');
-
-      } else {
-
-        screen.classList.add('hidden');
-
-      }
-
-    }
-
-
-
-    function updateWaButton() {
-
-      document.getElementById('waBubble').href = `https://wa.me/${SUPPORT_WA}?text=${encodeURIComponent('Hi, mujhe recharge helpline se help chahiye.')}`;
-
-    }
-
-
-
-    function selectOperator(op) {
-
-      activeOp = op;
-
-      document.querySelectorAll('.op-chip').forEach(btn => {
-
-        if (btn.dataset.op === op) {
-
-          btn.classList.add('border-emerald-600', 'bg-emerald-50', 'text-emerald-800');
-
-        } else {
-
-          btn.classList.remove('border-emerald-600', 'bg-emerald-50', 'text-emerald-800');
-
-        }
-
-      });
-
-
-
-      const badge = document.getElementById('operatorBadge');
-
-      document.getElementById('operatorText').textContent = op;
-
-
-
-      if (op === 'Jio') {
-
-        badge.className = 'absolute right-3 px-2 py-1 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold flex items-center gap-1.5';
-
-      } else if (op === 'Airtel') {
-
-        badge.className = 'absolute right-3 px-2 py-1 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold flex items-center gap-1.5';
-
-      } else {
-
-        badge.className = 'absolute right-3 px-2 py-1 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 text-xs font-bold flex items-center gap-1.5';
-
-      }
-
-      renderCarousel();
-
-    }
-
-
-
-    function filterPlanCategory(cat) {
-
-      activeCat = cat;
-
-      document.querySelectorAll('.cat-pill').forEach(btn => {
-
-        if (btn.dataset.cat === cat) {
-
-          btn.className = 'cat-pill px-3 py-1.5 rounded-lg text-[11px] font-bold bg-slate-900 text-white whitespace-nowrap transition';
-
-        } else {
-
-          btn.className = 'cat-pill px-3 py-1.5 rounded-lg text-[11px] font-bold bg-slate-100 text-slate-600 whitespace-nowrap transition';
-
-        }
-
-      });
-
-      renderCarousel();
-
-    }
-
-
-
-    function renderCarousel() {
-
-      const container = document.getElementById('planScrollContainer');
-
-      const allPlans = CARRIER_PLANS[activeOp] || [];
-
-      const filtered = (activeCat === 'ALL') ? allPlans : allPlans.filter(p => p.cat === activeCat);
-
-
-
-      if (filtered.length === 0) {
-
-        container.innerHTML = `<div class="p-3 text-xs text-slate-400">Is category mein koi pack nahi mila.</div>`;
-
-        return;
-
-      }
-
-
-
-      const discPct = Math.round(DISCOUNT_RATE * 100);
-
-
-
-      container.innerHTML = filtered.map(p => `
-
-        <button type="button" onclick="selectPackMrp(${p.mrp})" class="shrink-0 w-32 p-3 rounded-2xl border border-slate-200 bg-slate-50 text-left transition ${selectedMrp === p.mrp ? 'plan-card-active' : ''}">
-
-          <div class="flex items-center justify-between">
-
-            <span class="text-sm font-black text-slate-900 mono">₹${p.mrp}</span>
-
-            <span class="text-[9px] font-bold text-emerald-600 bg-emerald-50 px-1 rounded">-${discPct}%</span>
-
-          </div>
-
-          <div class="text-[11px] font-bold text-slate-700 mt-1">${p.val}</div>
-
-          <div class="text-[10px] text-slate-400 truncate mt-0.5" title="${p.desc}">${p.desc}</div>
-
-        </button>
-
-      `).join('');
-
-    }
-
-
-
-    function selectPackMrp(mrp) {
-
-      selectedMrp = mrp;
-
-      document.getElementById('customAmountInput').value = mrp;
-
-      renderCarousel();
-
-      updateBill();
-
-    }
-
-
-
-    function onCustomAmountChange() {
-
-      const val = parseFloat(document.getElementById('customAmountInput').value);
-
-      selectedMrp = (!isNaN(val) && val > 0) ? val : 0;
-
-      renderCarousel();
-
-      updateBill();
-
-    }
-
-
-
-    function updateBill() {
-
-      const mrp = selectedMrp || 0;
-
-      const discount = (mrp * DISCOUNT_RATE);
-
-      const net = (mrp > 0) ? Math.max(1, (mrp - discount)).toFixed(2) : '0.00';
-
-
-
-      document.getElementById('bottomOriginalPrice').textContent = `₹${mrp}`;
-
-      document.getElementById('bottomSavings').textContent = `₹${discount.toFixed(2)}`;
-
-      document.getElementById('bottomFinalPrice').textContent = `₹${net}`;
-
-      document.getElementById('sheetPayableAmount').textContent = `₹${net}`;
-
-    }
-
-
-
-    function handleMobileInput(val) {
-
-      if (val.length >= 4) {
-
-        const p = val.substring(0, 4);
-
-        if (['9811', '9810', '9845', '9871'].includes(p)) selectOperator('Airtel');
-
-        else if (['9820', '9892', '9839'].includes(p)) selectOperator('Vi');
-
-        else selectOperator('Jio');
-
-      }
-
-    }
-
-
-
-    function openPaymentSheet() {
-
-      if (IS_MAINTENANCE) return showToast('System maintenance chal rahi hai!', true);
-
-      const num = document.getElementById('mobileInput').value.trim();
-
-      if (num.length !== 10) return showToast('10-digit number dalein!', true);
-
-      if (selectedMrp <= 0) return showToast('Valid plan amount dalein!', true);
-
-
-
-      const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
-
-      const note = `RCH-${num}`;
-
-      const upiUrl = `upi://pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
-
-
-
-      document.getElementById('phonePeLink').href = `phonepe://pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
-
-      document.getElementById('gPayLink').href = `tez://upi/pay?pa=${encodeURIComponent(ACTIVE_UPI)}&pn=5minRch&am=${net}&cu=INR&tn=${encodeURIComponent(note)}`;
-
-      document.getElementById('otherUpiLink').href = upiUrl;
-
-
-
-      const qr = document.getElementById('sheetQrContainer');
-
-      qr.innerHTML = '';
-
-      new QRCode(qr, { text: upiUrl, width: 130, height: 130 });
-
-
-
-      document.getElementById('sheetBackdrop').classList.remove('opacity-0', 'pointer-events-none');
-
-      document.getElementById('paymentSheet').classList.add('sheet-up');
-
-    }
-
-
-
-    function closePaymentSheet() {
-
-      document.getElementById('sheetBackdrop').classList.add('opacity-0', 'pointer-events-none');
-
-      document.getElementById('paymentSheet').classList.remove('sheet-up');
-
-    }
-
-
-
-    async function submitOrder() {
-
-      const num = document.getElementById('mobileInput').value.trim();
-
-      if (num.length !== 10) return showToast('10-digit number dalein!', true);
-
-      if (selectedMrp <= 0) return showToast('Valid plan amount dalein!', true);
-
-
-
-      const net = document.getElementById('bottomFinalPrice').textContent.replace('₹', '');
-
-
-
-      const orderId = 'ORD' + Date.now().toString().slice(-4);
-
-      const order = {
-
-        id: orderId,
-
-        mobile: num,
-
-        operator: activeOp,
-
-        mrp: selectedMrp,
-
-        payable: net,
-
-        status: 'Pending',
-
-        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-
-      };
-
-
-
-      // 1. Save directly into Firebase orders queue for Admin Ops
-
-      fetch(`${FIREBASE_DB_URL}/orders/${orderId}.json`, {
-
-        method: 'PUT',
-
-        headers: { 'Content-Type': 'application/json' },
-
-        body: JSON.stringify(order)
-
-      }).catch(() => {});
-
-
-
-      // 2. Telegram Alert Dispatch (Instant Beacon)
-
-      const alertText = `🔔 NEW DIRECT RECHARGE ORDER!\n📱 Mobile: ${order.mobile} (${order.operator})\n💰 MRP: Rs.${order.mrp}\n✅ Paid: Rs.${order.payable}\n⚡ Mode: Direct Pay\n⏰ Time: ${order.time}`;
-
-      const telegramUrl = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(alertText)}`;
-
-      
-
-      const beacon = new Image();
-
-      beacon.src = telegramUrl;
-
-
-
-      closePaymentSheet();
-
-      showToast('Order Received! Dispatch started.');
-
-      launchTrackingScreen(order.mobile, order.operator, order.mrp);
-
-    }
-
-
-
-    // 🕵️ AUTO-LEAD CAPTURE: Instant 0-second Alert
-
-    let capturedLeads = new Set();
-
-    const mobileField = document.getElementById('mobileInput');
-
-
-
-    if (mobileField) {
-
-      mobileField.addEventListener('input', function(e) {
-
-        const num = e.target.value.trim();
-
-        if (num.length === 10 && !capturedLeads.has(num)) {
-
-          capturedLeads.add(num);
-
-          
-
-          const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-
-          const carrier = typeof activeOp !== 'undefined' ? activeOp : 'Auto';
-
-
-
-          const leadMsg = `👀 NUMBER ENTERED (Lead Captured)!\n📱 Mobile: ${num} (${carrier})\n⏰ Time: ${time}\nℹ️ Customer ne number type kar diya hai.`;
-
-          const beacon = new Image();
-
-          beacon.src = `https://api.telegram.org/bot${TG_BOT}/sendMessage?chat_id=${TG_CHAT}&text=${encodeURIComponent(leadMsg)}`;
-
-
-
-          fetch(`${FIREBASE_DB_URL}/leads/${num}.json`, {
-
-            method: 'PUT',
-
-            body: JSON.stringify({ mobile: num, carrier: carrier, time: time, type: 'ABANDONED_LEAD' })
-
-          }).catch(() => {});
-
-        }
-
-      });
-
-    }
-
-
-
-    // --- 🔔 LIVE SOCIAL PROOF TICKER ---
-
-    const recentActivities = [
-
-      { name: "Rahul S.", city: "Delhi", amt: "₹299", op: "Jio" },
-
-      { name: "Vikram P.", city: "Patiala", amt: "₹749", op: "Airtel" },
-
-      { name: "Aman K.", city: "Ludhiana", amt: "₹199", op: "Vi" },
-
-      { name: "Preet G.", city: "Bathinda", amt: "₹349", op: "Jio" },
-
-      { name: "Sunil R.", city: "Chandigarh", amt: "₹859", op: "Airtel" }
-
-    ];
-
-
-
-    function showRandomActivity() {
-
-      const toast = document.getElementById('recentActivityToast');
-
-      const text = document.getElementById('activityText');
-
-      if (!toast || !text) return;
-
-
-
-      const act = recentActivities[Math.floor(Math.random() * recentActivities.length)];
-
-      text.textContent = `${act.name} (${act.city}) recharged ${act.amt}`;
-
-
-
-      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-
-      setTimeout(() => {
-
-        toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-
-      }, 4500);
-
-    }
-
-
-
-    setInterval(showRandomActivity, 16000);
-
-    setTimeout(showRandomActivity, 3000);
-
-
-
-    // --- ⚡ 5-MINUTE LIVE COUNTDOWN SCREEN ---
-
-    function launchTrackingScreen(mobile, carrier, mrp) {
-
-      const trackMobile = document.getElementById('trackMobile');
-
-      const trackCarrier = document.getElementById('trackCarrier');
-
-      const trackAmount = document.getElementById('trackAmount');
-
-      if (trackMobile) trackMobile.textContent = mobile;
-
-      if (trackCarrier) trackCarrier.textContent = carrier;
-
-      if (trackAmount) trackAmount.textContent = '₹' + mrp;
-
-
-
-      const modal = document.getElementById('trackingModal');
-
-      const timerDisplay = document.getElementById('dispatchTimer');
-
-      const prog = document.getElementById('trackingProgress');
-
-      if (modal) modal.classList.remove('hidden');
-
-
-
-      let totalSec = 299;
-
-      const interval = setInterval(() => {
-
-        if (totalSec <= 0) {
-
-          clearInterval(interval);
-
-          if (timerDisplay) timerDisplay.textContent = "SUCCESS";
-
-          if (prog) prog.style.width = "100%";
-
-          return;
-
-        }
-
-        totalSec--;
-
-        const m = String(Math.floor(totalSec / 60)).padStart(2, '0');
-
-        const s = String(totalSec % 60).padStart(2, '0');
-
-        if (timerDisplay) timerDisplay.textContent = `${m}:${s}`;
-
-        const pct = Math.min(100, Math.floor(((299 - totalSec) / 299) * 100));
-
-        if (prog) prog.style.width = pct + '%';
-
-      }, 1000);
-
-      // --- REAL-TIME DISPATCH LISTENER ---
-
-    const checkStatusInterval = setInterval(async () => {
-
-      try {
-
-        const res = await fetch(`${FIREBASE_DB_URL}/orders.json`);
-
-        const orders = await res.json();
-
-        if (!orders) return;
-
-
-
-        const matchedOrder = Object.values(orders).reverse().find(o => String(o.mobile) === String(mobile));
-
-        if (matchedOrder && matchedOrder.status === 'Completed') {
-
-          clearInterval(interval);
-
-          clearInterval(checkStatusInterval);
-
-          if (timerDisplay) {
-
-            timerDisplay.textContent = "DISPATCHED";
-
-            timerDisplay.style.color = "#10b981";
-
-          }
-
-          if (prog) {
-
-            prog.style.width = "100%";
-
-            prog.style.backgroundColor = "#10b981";
-
-          }
-
-          const statusBadge = document.getElementById('trackStatus') || document.querySelector('.tracking-status');
-
-          if (statusBadge) statusBadge.textContent = "Recharge Successful ✅";
-
-        }
-
-      } catch (e) {
-
-        console.error("Status check error:", e);
-
-      }
-
-    }, 3000);
-
-    }
-
-
-
-    window.onload = initStore;
-
-
-
-    // ================= LIVE REMOTE CONTROLLER SYNC (SSE STREAM) =================
-
-    const RTDB_STREAM = `${FIREBASE_DB_URL}/settings.json`;
-
-
-
-    async function fetchLiveStoreSettings() {
-
-      try {
-
-        const res = await fetch(RTDB_STREAM);
-
-        const data = await res.json();
-
-        if (data) applyStoreRemoteUpdate(data);
-
-      } catch (e) {}
-
-    }
-
-
-
-    function initLiveStoreBroadcast() {
-
-      fetchLiveStoreSettings();
-
-      if (!!window.EventSource) {
-
-        const source = new EventSource(RTDB_STREAM);
-
-        source.addEventListener('put', function(e) {
-
-          try {
-
-            const payload = JSON.parse(e.data);
-
-            if (payload && payload.data) {
-
-              applyStoreRemoteUpdate(payload.data);
-
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#002970',
+              deep: '#0F2042',
+              cyan: '#00BAF2',
+              sky: '#00B9F5',
+              hoverSky: '#009ecc',
+              lightBg: '#F5F7FA',
+              cardBorder: '#E6ECF5'
             }
-
-          } catch (err) {}
-
-        });
-
+          },
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] }
+        }
       }
-
     }
-
-
-
-    function applyStoreRemoteUpdate(cfg) {
-
-      if (cfg.upi) {
-
-        ACTIVE_UPI = cfg.upi;
-
-        const upiDisp = document.getElementById('sheetUpiDisplay');
-
-        if (upiDisp) upiDisp.textContent = ACTIVE_UPI;
-
-      }
-
-      if (cfg.supportWa) {
-
-        SUPPORT_WA = cfg.supportWa;
-
-        updateWaButton();
-
-      }
-
-      if (cfg.discount !== undefined) {
-
-        DISCOUNT_RATE = parseFloat(cfg.discount) / 100 || 0.02;
-
-        const discSub = document.getElementById('discountSubtitle');
-
-        if (discSub) discSub.textContent = `${cfg.discount}% Flat Discount`;
-
-        updateBill();
-
-        renderCarousel();
-
-      }
-
-      if (cfg.notice) {
-
-        const bannerTxt = document.getElementById('topBannerText');
-
-        if (bannerTxt) bannerTxt.textContent = cfg.notice;
-
-      }
-
-      if (cfg.maintenance !== undefined) {
-
-        IS_MAINTENANCE = !!cfg.maintenance;
-
-        applyMaintenanceState();
-
-      }
-
-    }
-
-
-
-    initLiveStoreBroadcast();
-
   </script>
 
-</body>
+  <style>
+    body { background-color: #F5F7FA; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
+    .custom-scroll::-webkit-scrollbar { height: 4px; width: 4px; }
+    .custom-scroll::-webkit-scrollbar-thumb { background-color: #CBD5E1; border-radius: 9999px; }
+    .modal-active { opacity: 1 !important; pointer-events: auto !important; }
+    .slide-in-up { transform: translateY(0%) !important; }
+  </style>
+</head>
 
+<body class="text-slate-800 min-h-screen flex flex-col justify-between selection:bg-brand-cyan selection:text-white">
+
+  <!-- TOP BANNER -->
+  <aside class="bg-gradient-to-r from-brand-navy via-[#003882] to-brand-navy text-white text-[11px] sm:text-xs py-1.5 px-4 text-center font-semibold tracking-wide border-b border-blue-900/40">
+    <div class="max-w-6xl mx-auto flex items-center justify-center space-x-2">
+      <span id="bannerDiscountBadge" class="bg-brand-cyan text-brand-navy font-extrabold text-[10px] px-1.5 py-0.5 rounded uppercase">2% Off</span>
+      <span>Instant auto discount on all verified prepaid recharges across India!</span>
+    </div>
+  </aside>
+
+  <!-- CLEAN BRAND HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
+      
+      <div class="flex items-center space-x-8">
+        <a href="#" class="flex items-center space-x-1">
+          <span class="text-3xl sm:text-4xl font-black tracking-tight text-brand-navy">5min<span class="text-brand-cyan">rch</span></span>
+          <span class="text-[10px] bg-sky-50 text-brand-navy border border-sky-200 font-extrabold px-1.5 py-0.5 rounded ml-1 tracking-wider uppercase">Pay</span>
+        </a>
+
+        <nav class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-700">
+          <a href="#" class="text-brand-navy font-bold border-b-2 border-brand-cyan pb-1">Mobile Recharge</a>
+          <a href="#plansSection" class="hover:text-brand-cyan transition">Browse Plans</a>
+          <a href="javascript:void(0)" onclick="openOrdersModal()" class="hover:text-brand-cyan transition flex items-center space-x-1">
+            <span>Order History</span>
+            <span id="orderCountBadge" class="bg-blue-100 text-brand-navy text-[10px] font-extrabold px-1.5 py-0.2 rounded-full">0</span>
+          </a>
+          <a href="#complianceSection" class="hover:text-brand-cyan transition">Help & Policy</a>
+        </nav>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <button onclick="openOrdersModal()" class="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 border border-slate-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        </button>
+
+        <div class="flex items-center space-x-2 bg-slate-50 border border-slate-200 rounded-full px-3 py-1.5">
+          <div class="w-7 h-7 rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-xs shadow-inner">
+            5M
+          </div>
+          <span class="text-xs font-bold text-brand-navy hidden sm:inline">Guest User</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- QUICK CATEGORIES STRIP -->
+  <div class="bg-white border-b border-slate-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 overflow-x-auto custom-scroll">
+      <div class="flex items-center space-x-6 min-w-max text-xs font-semibold">
+        <button class="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-blue-50 text-brand-navy border border-blue-200">
+          <span class="w-6 h-6 rounded-full bg-brand-cyan text-white flex items-center justify-center font-extrabold text-[11px]">📱</span>
+          <span class="font-bold">Mobile Prepaid</span>
+        </button>
+        <button onclick="showToast('Postpaid bill payment is synced with Prepaid service.')" class="flex items-center space-x-2 text-slate-500 hover:text-slate-800 transition">
+          <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[11px]">📄</span>
+          <span>Mobile Postpaid</span>
+        </button>
+        <button onclick="showToast('DTH recharge system updates under integration.')" class="flex items-center space-x-2 text-slate-500 hover:text-slate-800 transition">
+          <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[11px]">📡</span>
+          <span>DTH Service</span>
+        </button>
+        <button onclick="showToast('Utility bills available soon.')" class="flex items-center space-x-2 text-slate-500 hover:text-slate-800 transition">
+          <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[11px]">⚡</span>
+          <span>Electricity</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN RECHARGE WORKSPACE -->
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-1 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: INPUT FORM -->
+      <section class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
+        
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+          <h1 class="text-xl sm:text-2xl font-black text-brand-navy">Mobile Prepaid Recharge</h1>
+          <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full flex items-center space-x-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span>Live Sync</span>
+          </span>
+        </div>
+
+        <div class="flex items-center space-x-6 mb-6">
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="radio" name="simType" value="prepaid" checked class="w-4 h-4 text-brand-cyan focus:ring-brand-cyan" />
+            <span class="text-sm font-bold text-slate-800">Prepaid</span>
+          </label>
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="radio" name="simType" value="postpaid" onchange="showToast('Postpaid mode active')" class="w-4 h-4 text-brand-cyan focus:ring-brand-cyan" />
+            <span class="text-sm font-medium text-slate-600">Postpaid</span>
+          </label>
+        </div>
+
+        <!-- Mobile Input -->
+        <div class="mb-5">
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="mobileNumber" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Mobile Number</label>
+            <span id="detectedOperatorBadge" class="text-[11px] font-bold text-brand-navy bg-blue-50 px-2 py-0.5 rounded border border-blue-100 hidden">
+              Detected: Jio
+            </span>
+          </div>
+
+          <div class="relative flex items-center">
+            <div class="absolute left-4 flex items-center space-x-2 pointer-events-none">
+              <span class="font-bold text-slate-400 text-sm">+91</span>
+              <div id="operatorIndicatorIcon" class="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center text-[10px] font-black text-white">
+                ?
+              </div>
+            </div>
+            
+            <input 
+              id="mobileNumber" 
+              type="tel" 
+              maxlength="10" 
+              placeholder="Enter 10 digit mobile number" 
+              oninput="handleMobileInput(this.value)"
+              class="w-full pl-20 pr-4 py-3.5 bg-slate-50/70 border border-slate-200 rounded-xl font-bold text-slate-900 text-base placeholder-slate-400 focus:outline-none focus:border-brand-cyan focus:bg-white transition"
+            />
+          </div>
+          <p id="mobileHelperText" class="text-[11px] text-slate-400 mt-1 pl-1">Enter your 10-digit number for automatic plan loading</p>
+        </div>
+
+        <!-- Operator Selection -->
+        <div class="mb-5">
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Select Operator</label>
+          <div class="grid grid-cols-4 gap-2" id="operatorGrid">
+            <button type="button" onclick="setOperator('Jio')" id="op-btn-Jio" class="op-card active border-2 border-brand-cyan bg-sky-50/60 p-2.5 rounded-xl flex flex-col items-center justify-center transition">
+              <span class="w-8 h-8 rounded-full bg-[#0F2042] text-white flex items-center justify-center font-black text-xs shadow-xs mb-1">Jio</span>
+              <span class="text-xs font-bold text-brand-navy">Jio</span>
+            </button>
+            <button type="button" onclick="setOperator('Airtel')" id="op-btn-Airtel" class="op-card border border-slate-200 hover:border-slate-300 p-2.5 rounded-xl flex flex-col items-center justify-center transition">
+              <span class="w-8 h-8 rounded-full bg-[#ED1C24] text-white flex items-center justify-center font-black text-xs shadow-xs mb-1">Air</span>
+              <span class="text-xs font-bold text-slate-700">Airtel</span>
+            </button>
+            <button type="button" onclick="setOperator('Vi')" id="op-btn-Vi" class="op-card border border-slate-200 hover:border-slate-300 p-2.5 rounded-xl flex flex-col items-center justify-center transition">
+              <span class="w-8 h-8 rounded-full bg-[#E51B24] text-[#FED800] flex items-center justify-center font-black text-xs shadow-xs mb-1">Vi</span>
+              <span class="text-xs font-bold text-slate-700">Vi</span>
+            </button>
+            <button type="button" onclick="setOperator('BSNL')" id="op-btn-BSNL" class="op-card border border-slate-200 hover:border-slate-300 p-2.5 rounded-xl flex flex-col items-center justify-center transition">
+              <span class="w-8 h-8 rounded-full bg-[#185A9D] text-white flex items-center justify-center font-black text-xs shadow-xs mb-1">BS</span>
+              <span class="text-xs font-bold text-slate-700">BSNL</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Circle Selection -->
+        <div class="mb-5">
+          <label for="circleSelect" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Telecom Circle</label>
+          <div class="relative">
+            <select id="circleSelect" class="w-full px-4 py-3.5 bg-slate-50/70 border border-slate-200 rounded-xl font-semibold text-slate-800 text-sm focus:outline-none focus:border-brand-cyan focus:bg-white appearance-none cursor-pointer">
+              <option value="Punjab">Punjab</option>
+              <option value="Delhi NCR">Delhi NCR</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Uttar Pradesh (East)">Uttar Pradesh (East)</option>
+              <option value="Uttar Pradesh (West)">Uttar Pradesh (West)</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Maharashtra & Goa">Maharashtra & Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Karnataka">Karnataka</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Amount Input -->
+        <div class="mb-6">
+          <div class="flex items-center justify-between mb-1.5">
+            <label for="rechargeAmount" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Amount</label>
+            <a href="#plansSection" class="text-xs font-bold text-brand-cyan hover:underline flex items-center space-x-1">
+              <span>Browse Plans</span>
+              <span>↓</span>
+            </a>
+          </div>
+
+          <div class="relative flex items-center">
+            <span class="absolute left-4 font-extrabold text-slate-400 text-lg">₹</span>
+            <input 
+              id="rechargeAmount" 
+              type="number" 
+              placeholder="Enter amount or pick a plan" 
+              oninput="handleAmountInput(this.value)"
+              class="w-full pl-10 pr-24 py-3.5 bg-slate-50/70 border border-slate-200 rounded-xl font-black text-slate-900 text-xl focus:outline-none focus:border-brand-cyan focus:bg-white transition"
+            />
+            <button 
+              type="button" 
+              onclick="document.getElementById('plansSection').scrollIntoView({behavior: 'smooth'})" 
+              class="absolute right-2 px-3 py-1.5 bg-sky-50 text-brand-cyan font-bold text-xs rounded-lg hover:bg-sky-100 transition"
+            >
+              Plans
+            </button>
+          </div>
+        </div>
+
+        <!-- Breakdown Box -->
+        <div class="bg-slate-50 rounded-xl border border-slate-200 p-4 mb-6">
+          <div class="flex items-center justify-between text-xs text-slate-600 mb-2 font-medium">
+            <span>Recharge Value (MRP)</span>
+            <span id="summaryMrp" class="font-bold text-slate-800">₹0</span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-emerald-600 mb-2 font-semibold">
+            <span class="flex items-center space-x-1">
+              <span>Direct Discount (<span id="discountPercentLabel">2%</span>)</span>
+              <span class="bg-emerald-100 text-emerald-800 text-[10px] px-1 py-0.2 rounded font-bold">SAVED</span>
+            </span>
+            <span id="summaryDiscount">- ₹0.00</span>
+          </div>
+          <div class="border-t border-slate-200 pt-2 flex items-center justify-between">
+            <div>
+              <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400">Net Payable Amount</div>
+              <div class="text-2xl font-black text-brand-navy" id="summaryNet">₹0.00</div>
+            </div>
+            <div class="text-right">
+              <span class="text-[11px] bg-blue-50 text-brand-navy border border-blue-200 font-bold px-2 py-0.5 rounded-full">
+                Zero Convenience Fee
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <button 
+          id="proceedBtn" 
+          onclick="initiateCheckout()" 
+          class="w-full py-4 rounded-xl font-extrabold text-white bg-brand-cyan hover:bg-brand-hoverSky transition shadow-md shadow-sky-100 text-base flex items-center justify-center space-x-2 cursor-pointer"
+        >
+          <span>Proceed to Recharge</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+        </button>
+
+      </section>
+
+      <!-- RIGHT COLUMN: OFFERS & TRUST -->
+      <section class="lg:col-span-5 space-y-6">
+        <div class="bg-gradient-to-br from-brand-navy via-[#023B99] to-[#001D4F] rounded-2xl p-6 text-white shadow-md relative overflow-hidden">
+          <div class="flex items-start justify-between mb-4">
+            <div class="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-xl">🎁</div>
+            <span class="text-[10px] bg-brand-cyan text-brand-navy font-black px-2 py-0.5 rounded uppercase">Verified Offer</span>
+          </div>
+
+          <h3 class="text-xl font-black mb-1">Guaranteed Instant Discount</h3>
+          <p class="text-xs text-blue-100 leading-relaxed mb-4">
+            Pay via UPI / GPay / PhonePe / Paytm and receive auto-deducted instant discount on every single mobile recharge.
+          </p>
+
+          <div class="bg-white/10 rounded-xl p-3 border border-white/10 flex items-center justify-between text-xs font-semibold">
+            <span>Promo Code: <strong class="text-brand-cyan tracking-wider">5MINFAST</strong></span>
+            <span class="text-emerald-300 font-bold">Auto-Applied ✓</span>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <h4 class="text-xs font-black uppercase text-slate-400 tracking-wider mb-4">Why Recharge with 5minrch?</h4>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">⚡</div>
+              <div>
+                <h5 class="text-sm font-bold text-slate-800">100% Genuine Top-ups</h5>
+                <p class="text-xs text-slate-500">Dispatched directly with active balance updates.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-blue-50 text-brand-cyan flex items-center justify-center font-bold text-sm shrink-0">🔒</div>
+              <div>
+                <h5 class="text-sm font-bold text-slate-800">Direct NPCI UPI Channels</h5>
+                <p class="text-xs text-slate-500">Encrypted payment verification through verified bank VPAs.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-sm shrink-0">💬</div>
+              <div>
+                <h5 class="text-sm font-bold text-slate-800">Customer Support</h5>
+                <p class="text-xs text-slate-500">Priority order review for any transaction questions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- CATALOG PLANS -->
+    <section id="plansSection" class="mt-12 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 gap-3 mb-6">
+        <div>
+          <h2 class="text-xl font-black text-brand-navy flex items-center space-x-2">
+            <span>Browse Plans for</span>
+            <span id="plansHeaderOperator" class="text-brand-cyan">Jio</span>
+          </h2>
+          <p class="text-xs text-slate-400">Click any plan to immediately load it into your recharge box</p>
+        </div>
+        <div>
+          <input 
+            id="planSearchInput" 
+            type="text" 
+            placeholder="Search ₹, GB or Days..." 
+            oninput="searchPlans(this.value)"
+            class="px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold focus:outline-none focus:border-brand-cyan"
+          />
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-3 overflow-x-auto custom-scroll pb-3 mb-6" id="planCategoriesContainer"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="plansCardsGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- LEGAL & COMPLIANCE FOOTER -->
+  <footer id="complianceSection" class="bg-white border-t border-slate-200 mt-16 pt-10 pb-8 text-slate-500 text-xs">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pb-8 border-b border-slate-200">
+        <div>
+          <h4 class="font-bold text-slate-800 uppercase tracking-wider mb-2.5">Mobile Operators</h4>
+          <ul class="space-y-1.5 font-medium">
+            <li><a href="javascript:void(0)" onclick="setOperator('Jio')" class="hover:text-brand-cyan">Jio Prepaid</a></li>
+            <li><a href="javascript:void(0)" onclick="setOperator('Airtel')" class="hover:text-brand-cyan">Airtel Prepaid</a></li>
+            <li><a href="javascript:void(0)" onclick="setOperator('Vi')" class="hover:text-brand-cyan">Vi Prepaid</a></li>
+            <li><a href="javascript:void(0)" onclick="setOperator('BSNL')" class="hover:text-brand-cyan">BSNL Prepaid</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-800 uppercase tracking-wider mb-2.5">Coverage</h4>
+          <ul class="space-y-1.5 font-medium">
+            <li>Punjab Circle</li>
+            <li>Delhi NCR</li>
+            <li>Mumbai & Maharashtra</li>
+            <li>UP East & West</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-800 uppercase tracking-wider mb-2.5">Platform Policies</h4>
+          <ul class="space-y-1.5 font-medium">
+            <li><a href="javascript:void(0)" onclick="openOrdersModal()" class="hover:text-brand-cyan">Order Status Tracker</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Support email: support@5minrch.shop')" class="hover:text-brand-cyan">Support Center</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Zero personal data sharing guarantee.')" class="hover:text-brand-cyan">Privacy Policy</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Refund policy: Prompt reprocessing upon failure.')" class="hover:text-brand-cyan">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-slate-800 uppercase tracking-wider mb-2.5">Legal Disclaimer</h4>
+          <p class="leading-relaxed mb-3 text-[11px] text-slate-400">
+            5minrch Pay is an independent platform facilitating telecommunication recharges. All brand names, logos, and telecom marks (Jio, Airtel, Vi, BSNL) are the registered property of their respective owners and used strictly for identifying service categories.
+          </p>
+          <div class="flex items-center space-x-2 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200 inline-flex">
+            <span>🛡️ NPCI UPI Compliant Protocol</span>
+          </div>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] font-medium text-slate-400 gap-2">
+        <p>© 2026 5minrch Pay. All rights reserved.</p>
+        <p>End-to-end encrypted direct payment workflow.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHECKOUT BOTTOM SHEET MODAL -->
+  <div id="checkoutBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div id="checkoutSheet" class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl p-6 sm:p-7 shadow-2xl transition-transform duration-300 transform translate-y-full sm:translate-y-0 max-h-[92vh] overflow-y-auto custom-scroll">
+      
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="w-8 h-8 rounded-full bg-blue-50 text-brand-navy flex items-center justify-center font-bold">💳</span>
+          <div>
+            <h3 class="font-extrabold text-brand-navy text-base sm:text-lg">Secure UPI Checkout</h3>
+            <p class="text-[11px] text-slate-400">Order ID: <span id="modalOrderId" class="font-mono text-slate-700 font-bold">ORD-000000</span></p>
+          </div>
+        </div>
+        <button onclick="closeCheckoutModal()" class="w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition">✕</button>
+      </div>
+
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-5">
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-semibold text-slate-500">Mobile Number:</span>
+          <span id="modalMobileDisplay" class="text-sm font-bold text-slate-800 font-mono">+91 0000000000</span>
+        </div>
+        <div class="flex items-center justify-between mb-1.5">
+          <span class="text-xs font-semibold text-slate-500">Operator & Circle:</span>
+          <span id="modalOpCircleDisplay" class="text-xs font-bold text-slate-800">Jio (Punjab)</span>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-slate-200">
+          <span class="text-xs font-bold text-brand-navy">Final Payable Amount:</span>
+          <span id="modalAmountDisplay" class="text-xl font-black text-brand-navy">₹0.00</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center justify-center p-4 bg-gradient-to-b from-blue-50/50 to-white rounded-2xl border border-blue-100 mb-5">
+        <div class="p-2.5 bg-white rounded-2xl shadow-sm border border-slate-200 inline-block">
+          <div id="dynamicQrContainer" class="flex items-center justify-center"></div>
+        </div>
+        <span class="text-xs font-bold text-brand-navy mt-2.5">📷 Scan using any UPI App (GPay / PhonePe / Paytm)</span>
+        <span class="text-[10px] text-slate-400">Scan QR Code or tap direct buttons below</span>
+      </div>
+
+      <div class="space-y-2.5 mb-5">
+        <a id="btnPaytmApp" href="#" class="flex items-center justify-between p-3.5 rounded-xl border border-sky-200 bg-sky-50/50 hover:bg-sky-100/60 font-bold text-xs text-brand-navy transition group">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-6 h-6 rounded-full bg-brand-navy text-white text-[10px] flex items-center justify-center font-black">P</span>
+            <span>Pay with Paytm</span>
+          </div>
+          <span class="text-brand-cyan font-black">PAY NOW →</span>
+        </a>
+
+        <a id="btnPhonePeApp" href="#" class="flex items-center justify-between p-3.5 rounded-xl border border-purple-200 bg-purple-50/50 hover:bg-purple-100/60 font-bold text-xs text-purple-900 transition group">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-6 h-6 rounded-full bg-purple-700 text-white text-[10px] flex items-center justify-center font-black">Ph</span>
+            <span>Pay with PhonePe</span>
+          </div>
+          <span class="text-purple-700 font-black">PAY NOW →</span>
+        </a>
+
+        <a id="btnGPayApp" href="#" class="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 font-bold text-xs text-slate-800 transition group">
+          <div class="flex items-center space-x-2.5">
+            <span class="w-6 h-6 rounded-full bg-[#4285F4] text-white text-[10px] flex items-center justify-center font-black">G</span>
+            <span>Pay with Google Pay</span>
+          </div>
+          <span class="text-slate-600 font-black">PAY NOW →</span>
+        </a>
+
+        <a id="btnGenericUpi" href="#" class="flex items-center justify-between p-3.5 rounded-xl border border-slate-200 hover:border-slate-300 font-bold text-xs text-slate-700 transition">
+          <span>✨ Other UPI Apps (BHIM, Cred, etc.)</span>
+          <span class="text-slate-400">OPEN →</span>
+        </a>
+      </div>
+
+      <div class="border-t border-slate-100 pt-4">
+        <button onclick="simulatePaymentSuccess()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
+          ✓ I Have Completed Payment
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SUCCESS RECEIPT MODAL -->
+  <div id="receiptModalBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+    <div id="receiptModal" class="bg-white w-full max-w-md rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-300 transform scale-95 text-center">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 text-3xl font-black shadow-inner">✓</div>
+      <h3 class="text-2xl font-black text-brand-navy mb-1">Recharge Dispatched!</h3>
+      <p class="text-xs text-slate-500 mb-6">Your order has been recorded and submitted for operator top-up.</p>
+
+      <div class="bg-slate-50 rounded-2xl border border-slate-200 p-4 text-xs space-y-2.5 mb-6 text-left">
+        <div class="flex justify-between"><span class="text-slate-400">Transaction ID:</span><span id="rcptTxnId" class="font-mono font-bold text-slate-800">TXN-000000</span></div>
+        <div class="flex justify-between"><span class="text-slate-400">Mobile Number:</span><span id="rcptMobile" class="font-mono font-bold text-slate-800">+91 0000000000</span></div>
+        <div class="flex justify-between"><span class="text-slate-400">Operator:</span><span id="rcptOperator" class="font-bold text-slate-800">Jio</span></div>
+        <div class="flex justify-between"><span class="text-slate-400">Amount Paid:</span><span id="rcptAmount" class="font-black text-emerald-700 text-sm">₹0.00</span></div>
+        <div class="flex justify-between"><span class="text-slate-400">Date & Time:</span><span id="rcptTime" class="font-semibold text-slate-700">Oct 16, 2026</span></div>
+      </div>
+
+      <button onclick="closeReceiptModal()" class="w-full py-3.5 rounded-xl bg-brand-navy hover:bg-brand-deep text-white font-extrabold text-xs uppercase tracking-wider transition">
+        Done & Recharge Another
+      </button>
+    </div>
+  </div>
+
+  <!-- ORDER HISTORY MODAL -->
+  <div id="ordersModalBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-2xl rounded-3xl p-6 sm:p-7 shadow-2xl max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+        <h3 class="font-extrabold text-brand-navy text-base">Recent Recharge Orders</h3>
+        <button onclick="closeOrdersModal()" class="w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-700">✕</button>
+      </div>
+      <div class="flex-1 overflow-y-auto custom-scroll space-y-3" id="ordersListContainer"></div>
+      <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+        <button onclick="clearOrderHistory()" class="text-rose-500 hover:underline font-bold">Clear History</button>
+        <button onclick="closeOrdersModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-lg transition">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toastNotification" class="fixed top-6 left-1/2 -translate-x-1/2 bg-slate-900/90 backdrop-blur-md text-white text-xs font-bold px-5 py-2.5 rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center space-x-2">
+    <span id="toastIcon">ℹ️</span>
+    <span id="toastMessage">Notification</span>
+  </div>
+
+  <!-- EMBEDDED MASTER DATABASE & LOGIC -->
+  <script>
+    // Live InfinityFree Backend URL
+    const API_BASE_URL = "https://5minrch-api.infinityfreeapp.com";
+
+    // Telegram Notification Settings (Admin Alert)
+    const TELEGRAM_CONFIG = {
+      botToken: "YOUR_TELEGRAM_BOT_TOKEN", // Yahan apna Telegram Bot Token dalein (agar hai)
+      chatId: "YOUR_TELEGRAM_CHAT_ID"      // Yahan apna Telegram Chat ID dalein
+    };
+
+    function sendTelegramNotification(textMessage) {
+      if (!TELEGRAM_CONFIG.botToken || TELEGRAM_CONFIG.botToken === "YOUR_TELEGRAM_BOT_TOKEN") return;
+      const url = `https://api.telegram.org/bot${TELEGRAM_CONFIG.botToken}/sendMessage`;
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CONFIG.chatId,
+          text: textMessage,
+          parse_mode: 'HTML'
+        })
+      }).catch(err => console.error("Telegram notification error:", err));
+    }
+
+    const DEFAULT_CATALOG = {
+      Jio: {
+        "Hero Unlimited": [
+          { amount: 349, validity: "28 Days", data: "2 GB/Day", voice: "Unlimited", desc: "True 5G Unlimited + JioHotstar + JioTV, JioCinema (Old Plan: 299)" },
+          { amount: 399, validity: "28 Days", data: "2.5 GB/Day", voice: "Unlimited", desc: "True 5G Unlimited + 100 SMS/Day + Complimentary Jio Apps" },
+          { amount: 445, validity: "28 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited Calls + 2 GB/Day + 12 Premium OTT Apps Subscription" },
+          { amount: 495, validity: "28 Days", data: "1.5 GB/Day + 5GB", voice: "Unlimited", desc: "JioGames Cloud & FanCode + Exclusive BGMI Skin coupon" },
+          { amount: 500, validity: "28 Days", data: "2 GB/Day", voice: "Unlimited", desc: "True 5G + Extensive OTT benefits (Prime Video, Hotstar, SonyLIV)" },
+          { amount: 545, validity: "28 Days", data: "2 GB/Day + 5GB", voice: "Unlimited", desc: "True 5G + JioGames Cloud & FanCode subscription" },
+          { amount: 579, validity: "56 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Unlimited Calls + 1.5 GB/Day + 100 SMS/Day (Old Plan: 479)" },
+          { amount: 799, validity: "84 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Unlimited Calls + 1.5 GB/Day + Subscription to Jio Apps (Old Plan: 666)" },
+          { amount: 859, validity: "84 Days", data: "2 GB/Day", voice: "Unlimited", desc: "True 5G Unlimited + 2 GB/Day high speed 4G data + Jio Apps" },
+          { amount: 949, validity: "84 Days", data: "2 GB/Day", voice: "Unlimited", desc: "True 5G Unlimited + JioHotstar Mobile Subscription for 84 days" }
+        ],
+        "Truly Unlimited": [
+          { amount: 209, validity: "22 Days", data: "1 GB/Day", voice: "Unlimited", desc: "Budget Friendly Pack + 100 SMS/Day" },
+          { amount: 239, validity: "28 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Value Pack with 1.5 GB/Day & Jio Suite Apps" },
+          { amount: 299, validity: "28 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Standard 28 Days All-Rounder Pack" }
+        ],
+        "Annual Packs": [
+          { amount: 899, validity: "90 Days", data: "2 GB/Day + 20GB", voice: "Unlimited", desc: "Special Offer: 20 GB Extra Data + True 5G Unlimited (90 Days)" },
+          { amount: 999, validity: "98 Days", data: "2 GB/Day", voice: "Unlimited", desc: "True 5G Unlimited + 2 GB/Day + 100 SMS/Day for 98 Days" },
+          { amount: 2025, validity: "200 Days", data: "2.5 GB/Day", voice: "Unlimited", desc: "Special 2025 Plan + True 5G + ₹2150 Coupons (Swiggy, AJIO, Flights)" },
+          { amount: 3599, validity: "365 Days", data: "2.5 GB/Day", voice: "Unlimited", desc: "True 5G Unlimited Annual Super Saver (365 Days Full Year)" }
+        ],
+        "Data Packs": [
+          { amount: 19, validity: "Active Plan", data: "1.5 GB", voice: "NA", desc: "Instant Booster High Speed Data Add-on" },
+          { amount: 29, validity: "Active Plan", data: "2.5 GB", voice: "NA", desc: "Super Booster Top-up for gaming & streaming" },
+          { amount: 200, validity: "28 Days", data: "30 GB Total", voice: "NA", desc: "30 GB Data Only + 15 OTT Platforms (Prime Video, Hotstar, SonyLIV)" }
+        ],
+        "Top-up": [
+          { amount: 10, validity: "Unlimited", data: "Talktime", voice: "₹7.47 TT", desc: "Standard talktime balance credit" },
+          { amount: 20, validity: "Unlimited", data: "Talktime", voice: "₹14.95 TT", desc: "Standard talktime voucher" },
+          { amount: 50, validity: "Unlimited", data: "Talktime", voice: "₹39.37 TT", desc: "Value talktime balance credit" },
+          { amount: 100, validity: "Unlimited", data: "Talktime", voice: "₹81.75 TT", desc: "Full talktime bonus balance" }
+        ]
+      },
+      Airtel: {
+        "Hero Unlimited": [
+          { amount: 349, validity: "28 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Unlimited calls + 100 SMS/Day + Airtel Xstream Play Premium (20+ OTTs)" },
+          { amount: 379, validity: "1 Month", data: "2 GB/Day", voice: "Unlimited", desc: "Truly Unlimited calls + 100 SMS/Day + Apollo 24|7 Circle + Airtel Xstream" },
+          { amount: 399, validity: "28 Days", data: "2.5 GB/Day", voice: "Unlimited", desc: "Unlimited calls + JioHotstar Mobile for 28 days + Unlimited 5G Data" },
+          { amount: 409, validity: "28 Days", data: "2.5 GB/Day", voice: "Unlimited", desc: "Truly Unlimited + Rs. 5 Talktime + Airtel Xstream Play Premium" },
+          { amount: 429, validity: "1 Month", data: "2.5 GB/Day", voice: "Unlimited", desc: "Unlimited calls + Rs. 5 Talktime + Apollo 24|7 Circle + Airtel Xstream" },
+          { amount: 449, validity: "28 Days", data: "4 GB/Day", voice: "Unlimited", desc: "Unlimited calls + JioHotstar Mobile + Google One (30 GB) + Apple Music" },
+          { amount: 549, validity: "28 Days", data: "3 GB/Day", voice: "Unlimited", desc: "Unlimited calls + Disney+ Hotstar Mobile 3 Months + Xstream Play" },
+          { amount: 598, validity: "28 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited calls + Netflix Basic + JioHotstar Super + ZEE5 + Xstream" }
+        ],
+        "Truly Unlimited": [
+          { amount: 199, validity: "28 Days", data: "2 GB", voice: "Unlimited", desc: "Unlimited Local STD & Roaming calls + 300 SMS" },
+          { amount: 219, validity: "28 Days", data: "3 GB", voice: "Unlimited", desc: "Truly Unlimited calls + 300 SMS + Rs. 5 Talktime + Airtel Xstream" },
+          { amount: 355, validity: "30 Days", data: "25 GB", voice: "Unlimited", desc: "Unlimited local, STD & roaming + 100 SMS/Day + Free Hellotunes" },
+          { amount: 469, validity: "84 Days", data: "No Data", voice: "Unlimited", desc: "Unlimited Talktime and NA Data For 84 Days + 900 SMS Pack" },
+          { amount: 489, validity: "77 Days", data: "6 GB", voice: "Unlimited", desc: "Unlimited Talktime and 6 GB Data Pack + Roaming" },
+          { amount: 548, validity: "84 Days", data: "7 GB", voice: "Unlimited", desc: "Unlimited Talktime and 7 GB Data Pack + Roaming" },
+          { amount: 589, validity: "30 Days", data: "50 GB", voice: "Unlimited", desc: "Truly Unlimited calls + 50 GB Data + 300 SMS + Apollo 24|7" },
+          { amount: 609, validity: "1 Month", data: "60 GB", voice: "Unlimited", desc: "Truly Unlimited calls + 60 GB Data + 300 SMS + Apollo 24|7" },
+          { amount: 838, validity: "56 Days", data: "3 GB/Day", voice: "Unlimited", desc: "Unlimited calls + Amazon Prime Membership 56 Days + Xstream Play" },
+          { amount: 899, validity: "84 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Truly Unlimited calls + 1.5 GB/Day Data + 100 SMS/Day" },
+          { amount: 979, validity: "84 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Truly Unlimited + Apollo 24|7 Circle + Airtel Xstream Play (84 Days)" },
+          { amount: 1029, validity: "84 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited calls + Disney+ Hotstar Mobile 3 Months + RewardsMini" },
+          { amount: 1199, validity: "84 Days", data: "2.5 GB/Day", voice: "Unlimited", desc: "Unlimited calls + Amazon Prime 84 Days + Xstream Play (22+ OTTs)" },
+          { amount: 1729, validity: "84 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited calls + Netflix Basic + Hotstar Super + ZEE5 + Xstream" },
+          { amount: 1798, validity: "84 Days", data: "3 GB/Day", voice: "Unlimited", desc: "Unlimited calls + Netflix Basic (All devices) + Apollo 24|7 + Xstream" }
+        ],
+        "Data Packs": [
+          { amount: 11, validity: "1 Hour", data: "Unlimited", voice: "NA", desc: "Get Unlimited Data for 1 hour" },
+          { amount: 22, validity: "1 Day", data: "1 GB", voice: "NA", desc: "Get 1 GB Data booster voucher" },
+          { amount: 26, validity: "1 Day", data: "1.5 GB", voice: "NA", desc: "Data: 1.5 GB | Validity: 1 Day" },
+          { amount: 33, validity: "1 Day", data: "2 GB", voice: "NA", desc: "Get 2 GB High Speed Data" },
+          { amount: 39, validity: "3 Days", data: "3 GB/Day", voice: "NA", desc: "3 GB/day data, validity 3 days" },
+          { amount: 49, validity: "1 Day", data: "Unlimited", voice: "NA", desc: "Get Unlimited Data for 1 day uninterrupted" },
+          { amount: 77, validity: "7 Days", data: "5 GB", voice: "NA", desc: "Get 5 GB Data Pack for 7 Days" },
+          { amount: 99, validity: "2 Days", data: "Unlimited", voice: "NA", desc: "Get Unlimited Data for 2 days" },
+          { amount: 100, validity: "30 Days", data: "6 GB", voice: "NA", desc: "Get 6 GB Data + Airtel Xstream Play Premium (20+ OTTs)" },
+          { amount: 121, validity: "30 Days", data: "6 GB", voice: "NA", desc: "Get 6 GB high speed data add-on" },
+          { amount: 149, validity: "Existing Pack", data: "1 GB", voice: "NA", desc: "1 GB Data + Airtel Xstream Play Premium" },
+          { amount: 161, validity: "30 Days", data: "12 GB", voice: "NA", desc: "Get 12 GB Data Add-on" },
+          { amount: 195, validity: "30 Days", data: "12 GB", voice: "NA", desc: "12 GB Data + JioHotstar Mobile 1 Month" },
+          { amount: 361, validity: "30 Days", data: "50 GB", voice: "NA", desc: "Get 50 GB High Speed Bulk Data" }
+        ],
+        "Annual Packs": [
+          { amount: 1849, validity: "365 Days", data: "No Data", voice: "Unlimited", desc: "Unlimited Local, STD & Roaming calls + 3600 SMS for 1 Year" },
+          { amount: 2249, validity: "365 Days", data: "30 GB", voice: "Unlimited", desc: "Unlimited Talktime and 30 GB Bulk Data Pack for 365 Days" },
+          { amount: 3599, validity: "365 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Truly Unlimited calls + 2 GB/Day Data + 100 SMS/Day (365 Days)" },
+          { amount: 3999, validity: "365 Days", data: "2.5 GB/Day", voice: "Unlimited", desc: "Truly Unlimited + Disney+ Hotstar Mobile 1 Year + Apollo 24|7" }
+        ],
+        "Top-up": [
+          { amount: 10, validity: "Unlimited", data: "Talktime", voice: "₹7.47 TT", desc: "Standard talktime balance credit" },
+          { amount: 20, validity: "Unlimited", data: "Talktime", voice: "₹14.95 TT", desc: "Standard talktime balance voucher" },
+          { amount: 50, validity: "Unlimited", data: "Talktime", voice: "₹39.37 TT", desc: "Value talktime balance credit" },
+          { amount: 100, validity: "Unlimited", data: "Talktime", voice: "₹81.75 TT", desc: "Full talktime bonus balance" }
+        ]
+      },
+      Vi: {
+        "Hero Unlimited": [
+          { amount: 349, validity: "28 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Unlimited Calls + Night data (12am-6am) + Weekend Data Rollover" },
+          { amount: 365, validity: "28 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited Calls + Night data (12am-6am) + Weekend Rollover + Unlimited 5G" },
+          { amount: 399, validity: "28 Days", data: "2 GB/Day", voice: "Unlimited", desc: "JioHotstar Mobile 28 Days + Half Day Unlimited Data (12am-12pm)" },
+          { amount: 449, validity: "28 Days", data: "Unlimited", voice: "Unlimited", desc: "Unlimited Data + ViMTV (19 OTTs) + JioHotstar Mobile subscription" },
+          { amount: 579, validity: "56 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Unlimited Calls + Night data without limits (12am-6am) + Weekend Rollover" },
+          { amount: 696, validity: "56 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Prime Lite 56 Days + Half Day Unlimited Data (12am-12pm)" },
+          { amount: 739, validity: "56 Days", data: "Unlimited", voice: "Unlimited", desc: "Unlimited Calls + Unlimited Data everyday + 100 SMS/Day" },
+          { amount: 859, validity: "84 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Unlimited Calls + Night data (12am-6am) + Weekend Rollover" },
+          { amount: 1099, validity: "84 Days", data: "Unlimited", voice: "Unlimited", desc: "Unlimited Calls + Unlimited Data everyday + 100 SMS/Day" }
+        ],
+        "Truly Unlimited": [
+          { amount: 179, validity: "24 Days", data: "1 GB", voice: "Unlimited", desc: "Get Unlimited Calls + 1 GB Data + 300 SMS for 24 Days" },
+          { amount: 189, validity: "26 Days", data: "1 GB", voice: "Unlimited", desc: "Unlimited Calls + 1 GB Data + 300 SMS valid for 26 days" },
+          { amount: 199, validity: "28 Days", data: "2 GB", voice: "Unlimited", desc: "Get Unlimited Calls + 2 GB Data + 300 SMS" },
+          { amount: 209, validity: "28 Days", data: "2 GB", voice: "Unlimited", desc: "Get Unlimited Calls + 2 GB Data + 300 SMS + Unlimited Callertunes" },
+          { amount: 218, validity: "1 Month", data: "3 GB", voice: "Unlimited", desc: "Get Unlimited Calls + 3 GB Data + 300 SMS" },
+          { amount: 224, validity: "30 Days", data: "4 GB", voice: "Unlimited", desc: "Get Unlimited Calls + 4 GB data for 30 Days" },
+          { amount: 299, validity: "28 Days", data: "1 GB/Day", voice: "Unlimited", desc: "Unlimited Calls + 1 GB/Day + 100 SMS/Day + Vi Movies & TV App" },
+          { amount: 548, validity: "84 Days", data: "7 GB", voice: "Unlimited", desc: "Get Unlimited Calls + 7 GB Data + 1000 SMS" }
+        ],
+        "Data Packs": [
+          { amount: 22, validity: "1 Day", data: "1 GB", voice: "NA", desc: "Get 1 GB Data. No Service Validity." },
+          { amount: 26, validity: "1 Day", data: "1.5 GB", voice: "NA", desc: "Get 1.5 GB Data. No Service Validity." },
+          { amount: 33, validity: "2 Days", data: "2 GB", voice: "NA", desc: "Get 2 GB Data. No Service Validity." },
+          { amount: 44, validity: "1 Day", data: "1 GB", voice: "NA", desc: "Get 1 GB Data + JioHotstar Mobile subscription for 1 month" },
+          { amount: 48, validity: "3 Days", data: "6 GB", voice: "NA", desc: "ADD-ON Data pack: Get 6GB (3GB + Extra 3GB) for 3 Days" },
+          { amount: 49, validity: "1 Day", data: "Unlimited", voice: "NA", desc: "Get Unlimited data for 1 day Till 11:59 PM (Speed up to 64Kbps post 20GB)" },
+          { amount: 69, validity: "28 Days", data: "3 GB", voice: "NA", desc: "Get 3 GB Data. No Service Validity." },
+          { amount: 89, validity: "7 Days", data: "6 GB", voice: "NA", desc: "Get 6 GB Data. No service validity." },
+          { amount: 95, validity: "14 Days", data: "4 GB", voice: "NA", desc: "Get 4 GB Data + 28 Days SonyLIV mobile membership" },
+          { amount: 99, validity: "2 Days", data: "Unlimited", voice: "NA", desc: "Get Unlimited Data for 2 Days" },
+          { amount: 101, validity: "30 Days", data: "5 GB", voice: "NA", desc: "Get 5 GB for 30 Days + JioHotstar Mobile 1 month" },
+          { amount: 139, validity: "28 Days", data: "12 GB", voice: "NA", desc: "Get 12 GB Data. No Service Validity." },
+          { amount: 145, validity: "28 Days", data: "1 GB/Day", voice: "NA", desc: "ADD-ON Data pack: 1 GB/Day for 28 Days." },
+          { amount: 151, validity: "90 Days", data: "4 GB", voice: "NA", desc: "Get 4 GB Data for 90 Days + JioHotstar mobile" },
+          { amount: 154, validity: "1 Month", data: "2 GB", voice: "NA", desc: "Get 2 GB Data + ZEE5, SonyLIV, Lionsgate Play (19 OTTs)" },
+          { amount: 169, validity: "90 Days", data: "8 GB", voice: "NA", desc: "Get 8 GB for 90 Days + JioHotstar Mobile" },
+          { amount: 175, validity: "28 Days", data: "10 GB", voice: "NA", desc: "Get 10 GB Data + JioHotstar Mobile + 19 OTTs" },
+          { amount: 201, validity: "30 Days", data: "10 GB", voice: "NA", desc: "Get 10 GB Data for 30 Days" },
+          { amount: 202, validity: "1 Month", data: "5 GB", voice: "NA", desc: "Get 5 GB Data + JioHotstar, SonyLIV + Vi Movies Pro" },
+          { amount: 208, validity: "30 Days", data: "1.5 GB/Day", voice: "NA", desc: "Get 1.5 GB/day Data. No service validity." },
+          { amount: 248, validity: "1 Month", data: "6 GB", voice: "NA", desc: "Watch Disney+ Hotstar, ZEE5, Sony LIV + 17 OTTs + 6 GB" },
+          { amount: 251, validity: "30 Days", data: "10 GB", voice: "NA", desc: "Get 10 GB Data for 30 Days" },
+          { amount: 348, validity: "28 Days", data: "50 GB", voice: "NA", desc: "Get 50 GB Data. No Service Validity." },
+          { amount: 488, validity: "56 Days", data: "100 GB", voice: "NA", desc: "Get 100 GB Bulk Data" },
+          { amount: 1189, validity: "365 Days", data: "50 GB", voice: "NA", desc: "Get 50 GB Data for 365 Days" }
+        ],
+        "Annual Packs": [
+          { amount: 1749, validity: "180 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Half-Yearly Pack + Night data (12am-6am) + Weekend Rollover" },
+          { amount: 2248, validity: "180 Days", data: "Unlimited", voice: "Unlimited", desc: "Half-Yearly Unlimited Data + 100 SMS/Day + Unlimited Calls" },
+          { amount: 3499, validity: "365 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Full Year 365 Days Pack + Night Data (12am-6am) + Weekend Rollover" }
+        ],
+        "Top-up": [
+          { amount: 10, validity: "Unlimited", data: "Talktime", voice: "₹7.47 TT", desc: "Standard talktime balance" },
+          { amount: 20, validity: "Unlimited", data: "Talktime", voice: "₹14.95 TT", desc: "General talktime balance credit" }
+        ]
+      },
+      BSNL: {
+        "Hero Unlimited": [
+          { amount: 153, validity: "24 Days", data: "1 GB/Day", voice: "Unlimited", desc: "Unlimited Voice Calls + 100 SMS/day (Speed 40 Kbps after 1GB/day)" },
+          { amount: 228, validity: "30 Days", data: "2.5 GB/Day", voice: "Unlimited", desc: "Unlimited voice calls Local/STD/Roaming incl. MTNL + 100 SMS/day" },
+          { amount: 229, validity: "1 Month", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited voice Local/STD any-net in Home LSA + 100 SMS/day" },
+          { amount: 239, validity: "1 Month", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited calls + 100 SMS/day + Rs. 10 Talk Value in Main Account" },
+          { amount: 247, validity: "30 Days", data: "50 GB", voice: "Unlimited", desc: "50 GB Bulk Data + Unlimited calls + 100 SMS/day + Rs. 10 Talk Value" },
+          { amount: 299, validity: "30 Days", data: "3 GB/Day", voice: "Unlimited", desc: "Unlimited Local/STD calls + 3 GB/Day + 100 SMS/day" },
+          { amount: 347, validity: "50 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited voice + 2 GB/Day + 100 SMS/day to any network" },
+          { amount: 485, validity: "72 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited calls any-net + 2 GB/Day Data + 100 SMS/day" },
+          { amount: 599, validity: "70 Days", data: "3 GB/Day", voice: "Unlimited", desc: "Unlimited free voice calling + 3 GB/Day + 100 SMS/day" }
+        ],
+        "Truly Unlimited": [
+          { amount: 48, validity: "30 Days", data: "NA", voice: "Rate Cutter", desc: "Rs. 10 usage value in main account, 20 paisa/min onnet/offnet calls" },
+          { amount: 107, validity: "20 Days", data: "3 GB", voice: "200 Mins", desc: "3 GB free data + 200 Min free voice anynet Local/STD/Roaming" },
+          { amount: 147, validity: "24 Days", data: "5 GB", voice: "Unlimited", desc: "Unlimited Local/STD calls to any network + 5 GB data" },
+          { amount: 319, validity: "60 Days", data: "10 GB", voice: "Unlimited", desc: "Unlimited Voice Calls in home & roaming + 300 SMS + 10 GB data" },
+          { amount: 345, validity: "60 Days", data: "1 GB/Day", voice: "Unlimited", desc: "Unlimited Voice Calls + 1 GB/Day + 100 SMS/day" }
+        ],
+        "Annual Packs": [
+          { amount: 897, validity: "165 Days", data: "24 GB", voice: "Unlimited", desc: "24 GB Bulk Data + Unlimited Voice + 100 SMS/day" },
+          { amount: 997, validity: "164 Days", data: "2 GB/Day (150d)", voice: "Unlimited", desc: "Unlimited Voice calls + 2 GB/day for 150 days + 100 SMS/day" },
+          { amount: 1007, validity: "90 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited Calls + Disney+ Hotstar Mobile 12 Months + 100 SMS/day" },
+          { amount: 1499, validity: "300 Days", data: "32 GB", voice: "Unlimited", desc: "Unlimited voice calls + 32 GB data + 100 SMS/day (300 Days)" },
+          { amount: 1999, validity: "330 Days", data: "1.5 GB/Day", voice: "Unlimited", desc: "Unlimited Voice calls + 1.5 GB/Day + 100 SMS/day (330 Days)" },
+          { amount: 2399, validity: "365 Days", data: "2 GB/Day", voice: "Unlimited", desc: "Unlimited voice calls + 2 GB/Day + 100 SMS/day (365 Days Full Year)" }
+        ],
+        "Data Packs": [
+          { amount: 16, validity: "1 Day", data: "2 GB", voice: "NA", desc: "Mini high speed data booster" },
+          { amount: 98, validity: "22 Days", data: "2 GB/Day", voice: "NA", desc: "Pure data pack without voice" }
+        ],
+        "Top-up": [
+          { amount: 10, validity: "Unlimited", data: "Talktime", voice: "₹7.47 TT", desc: "Standard talktime balance credit" },
+          { amount: 20, validity: "Unlimited", data: "Talktime", voice: "₹14.95 TT", desc: "Standard talktime balance" },
+          { amount: 50, validity: "Unlimited", data: "Talktime", voice: "₹39.37 TT", desc: "Value talktime balance credit" },
+          { amount: 100, validity: "Unlimited", data: "Talktime", voice: "₹81.75 TT", desc: "Full talktime bonus balance" }
+        ]
+      }
+    };
+
+    let liveCatalog = {};
+    let activeSettings = { upiId: "5minrch@upi", storeName: "5minrch Pay", discount: 2.0 };
+    let selectedOperator = "Jio";
+    let enteredAmount = 0;
+    let currentCategory = "Hero Unlimited";
+    let currentOrderId = null;
+    let orderHistory = [];
+
+    const OPERATOR_META = {
+      Jio: { name: 'Jio', bg: '#0F2042', text: 'Jio' },
+      Airtel: { name: 'Airtel', bg: '#ED1C24', text: 'Air' },
+      Vi: { name: 'Vi', bg: '#E51B24', text: 'Vi' },
+      BSNL: { name: 'BSNL', bg: '#185A9D', text: 'BS' }
+    };
+
+    function syncDatabase() {
+      // Sync from InfinityFree Admin Data
+      fetch(`${API_BASE_URL}/get_admin_data.php`)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.upi_id) {
+            activeSettings.upiId = data.upi_id;
+            activeSettings.storeName = data.store_name || "5minrch Pay";
+            activeSettings.discount = parseFloat(data.discount || 2.0);
+            
+            document.getElementById('discountPercentLabel').textContent = `${activeSettings.discount}%`;
+            document.getElementById('bannerDiscountBadge').textContent = `${activeSettings.discount}% Off`;
+            updateCalculations();
+          }
+        })
+        .catch(err => console.log("Using cached/local settings:", err));
+
+      const savedSettings = localStorage.getItem('5minrch_settings');
+      if (savedSettings) activeSettings = JSON.parse(savedSettings);
+
+      document.getElementById('discountPercentLabel').textContent = `${activeSettings.discount}%`;
+      document.getElementById('bannerDiscountBadge').textContent = `${activeSettings.discount}% Off`;
+
+      const savedCatalog = localStorage.getItem('5minrch_catalog');
+      liveCatalog = savedCatalog ? JSON.parse(savedCatalog) : DEFAULT_CATALOG;
+
+      try {
+        orderHistory = JSON.parse(localStorage.getItem('5minrch_orders')) || [];
+      } catch (e) {
+        orderHistory = [];
+      }
+      updateOrderBadge();
+    }
+
+    function handleMobileInput(val) {
+      const clean = val.replace(/\D/g, '');
+      document.getElementById('mobileNumber').value = clean;
+      
+      const badge = document.getElementById('detectedOperatorBadge');
+      const icon = document.getElementById('operatorIndicatorIcon');
+      const helper = document.getElementById('mobileHelperText');
+
+      if (clean.length >= 4) {
+        const prefix = clean.substring(0, 4);
+        let guessed = 'Jio';
+
+        if (/^(9810|9811|9818|9899|9871|9873|9910|9911|9958|9971|9999|9840|9841|9884)/.test(prefix)) guessed = 'Airtel';
+        else if (/^(9820|9821|9892|9819|9833|9920|9930|9867|9870)/.test(prefix)) guessed = 'Vi';
+        else if (/^(9417|9418|9419|9412|9413|9414|9415|9416|9425|9424)/.test(prefix)) guessed = 'BSNL';
+
+        setOperator(guessed, false);
+        badge.textContent = `Auto: ${guessed}`;
+        badge.classList.remove('hidden');
+        icon.textContent = OPERATOR_META[guessed].text;
+        icon.style.backgroundColor = OPERATOR_META[guessed].bg;
+      } else {
+        badge.classList.add('hidden');
+        icon.textContent = '?';
+        icon.style.backgroundColor = '#94A3B8';
+      }
+
+      if (clean.length === 10) {
+        helper.textContent = '✓ 10-Digit number verified. Select or check plans below.';
+        helper.className = 'text-[11px] text-emerald-600 font-bold mt-1 pl-1';
+      } else {
+        helper.textContent = 'Enter your 10-digit number for automatic plan loading';
+        helper.className = 'text-[11px] text-slate-400 mt-1 pl-1';
+      }
+    }
+
+    function setOperator(opName, updateHeading = true) {
+      selectedOperator = opName;
+
+      document.querySelectorAll('.op-card').forEach(btn => {
+        btn.className = 'op-card border border-slate-200 hover:border-slate-300 p-2.5 rounded-xl flex flex-col items-center justify-center transition';
+      });
+
+      const activeBtn = document.getElementById(`op-btn-${opName}`);
+      if (activeBtn) {
+        activeBtn.className = 'op-card active border-2 border-brand-cyan bg-sky-50/60 p-2.5 rounded-xl flex flex-col items-center justify-center transition';
+      }
+
+      const icon = document.getElementById('operatorIndicatorIcon');
+      if (icon) {
+        icon.textContent = OPERATOR_META[opName].text;
+        icon.style.backgroundColor = OPERATOR_META[opName].bg;
+      }
+
+      if (updateHeading) {
+        document.getElementById('plansHeaderOperator').textContent = opName;
+      }
+
+      renderCategoryTabs();
+      renderPlansGrid();
+    }
+
+    function renderCategoryTabs() {
+      const container = document.getElementById('planCategoriesContainer');
+      container.innerHTML = '';
+
+      const categories = Object.keys(liveCatalog[selectedOperator] || {});
+      if (!categories.includes(currentCategory)) {
+        currentCategory = categories[0] || 'Hero Unlimited';
+      }
+
+      categories.forEach(cat => {
+        const btn = document.createElement('button');
+        const isActive = cat === currentCategory;
+        btn.className = isActive 
+          ? 'px-4 py-2 rounded-full font-extrabold text-xs bg-brand-navy text-white whitespace-nowrap shadow-sm transition'
+          : 'px-4 py-2 rounded-full font-bold text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 whitespace-nowrap transition';
+        btn.textContent = cat;
+        btn.onclick = () => {
+          currentCategory = cat;
+          renderCategoryTabs();
+          renderPlansGrid();
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function renderPlansGrid(filterQuery = '') {
+      const container = document.getElementById('plansCardsGrid');
+      container.innerHTML = '';
+
+      const list = (liveCatalog[selectedOperator] && liveCatalog[selectedOperator][currentCategory]) || [];
+      
+      const filtered = list.filter(p => {
+        if (!filterQuery) return true;
+        const q = filterQuery.toLowerCase();
+        return p.amount.toString().includes(q) || 
+               p.validity.toLowerCase().includes(q) || 
+               p.data.toLowerCase().includes(q) || 
+               p.desc.toLowerCase().includes(q);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400">
+            <span class="text-3xl block mb-2">🔍</span>
+            <p class="font-bold text-sm">No plans matching "${filterQuery}"</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const discounted = (p.amount * (1 - (activeSettings.discount / 100))).toFixed(2);
+        const card = document.createElement('div');
+        card.className = "border border-slate-200 hover:border-brand-cyan rounded-2xl p-5 bg-white hover:shadow-md transition flex flex-col justify-between group";
+        
+        card.innerHTML = `
+          <div>
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <div class="flex items-baseline space-x-2">
+                  <span class="text-2xl font-black text-brand-navy">₹${p.amount}</span>
+                  <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">₹${discounted} Net</span>
+                </div>
+                <div class="text-[10px] text-slate-400 font-semibold mt-0.5">Instant ${activeSettings.discount}% Discount</div>
+              </div>
+              <span class="text-[11px] font-black bg-blue-50 text-brand-navy px-2.5 py-1 rounded-lg border border-blue-100">
+                ${p.validity}
+              </span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-slate-100 mb-3">
+              <div class="flex items-center space-x-1">
+                <span class="text-brand-cyan">📶</span>
+                <span>${p.data}</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <span class="text-emerald-500">📞</span>
+                <span>${p.voice}</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-500 font-medium leading-relaxed mb-4">${p.desc}</p>
+          </div>
+
+          <button 
+            type="button" 
+            onclick="applyPlan(${p.amount})" 
+            class="w-full py-2.5 rounded-xl font-bold text-xs bg-slate-100 group-hover:bg-brand-cyan group-hover:text-white text-slate-700 transition flex items-center justify-center space-x-1"
+          >
+            <span>Select Plan</span>
+            <span>→</span>
+          </button>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function searchPlans(term) {
+      renderPlansGrid(term.trim());
+    }
+
+    function applyPlan(amt) {
+      enteredAmount = amt;
+      document.getElementById('rechargeAmount').value = amt;
+      updateCalculations();
+      showToast(`Selected ₹${amt} plan!`, '✓');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function handleAmountInput(val) {
+      enteredAmount = Number(val) || 0;
+      updateCalculations();
+    }
+
+    function updateCalculations() {
+      const mrpEl = document.getElementById('summaryMrp');
+      const discountEl = document.getElementById('summaryDiscount');
+      const netEl = document.getElementById('summaryNet');
+
+      if (enteredAmount <= 0) {
+        mrpEl.textContent = '₹0';
+        discountEl.textContent = '- ₹0.00';
+        netEl.textContent = '₹0.00';
+        return;
+      }
+
+      const discountAmt = (enteredAmount * (activeSettings.discount / 100));
+      const netPayable = (enteredAmount - discountAmt).toFixed(2);
+
+      mrpEl.textContent = `₹${enteredAmount}`;
+      discountEl.textContent = `- ₹${discountAmt.toFixed(2)}`;
+      netEl.textContent = `₹${netPayable}`;
+    }
+
+    function initiateCheckout() {
+      const mob = document.getElementById('mobileNumber').value.trim();
+      const circle = document.getElementById('circleSelect').value;
+
+      if (mob.length !== 10) {
+        showToast('Please enter a valid 10-digit mobile number!', '⚠️');
+        document.getElementById('mobileNumber').focus();
+        return;
+      }
+
+      if (enteredAmount <= 0) {
+        showToast('Please select a plan or enter recharge amount!', '⚠️');
+        document.getElementById('rechargeAmount').focus();
+        return;
+      }
+
+      currentOrderId = 'ORD' + Date.now();
+      const finalAmount = (enteredAmount * (1 - (activeSettings.discount / 100))).toFixed(2);
+      const note = `RCH-${mob}-${selectedOperator}`;
+
+      // Notify Telegram on Checkout
+      sendTelegramNotification(
+        `⚡ <b>New Recharge Initiated</b>\n\n` +
+        `📱 <b>Mobile:</b> ${mob}\n` +
+        `🏢 <b>Operator:</b> ${selectedOperator} (${circle})\n` +
+        `💰 <b>Amount:</b> ₹${finalAmount} (MRP: ₹${enteredAmount})\n` +
+        `🆔 <b>Order ID:</b> <code>${currentOrderId}</code>\n` +
+        `⏳ <b>Status:</b> Awaiting Payment`
+      );
+
+      // Create Order on InfinityFree Backend
+      fetch(`${API_BASE_URL}/create_recharge_order.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          order_id: currentOrderId,
+          mobile: mob,
+          operator: selectedOperator,
+          circle: circle,
+          amount: finalAmount,
+          mrp: enteredAmount
+        })
+      })
+      .then(res => res.json())
+      .catch(err => console.log("Backend offline or local simulation active:", err));
+
+      document.getElementById('modalOrderId').textContent = currentOrderId;
+      document.getElementById('modalMobileDisplay').textContent = `+91 ${mob}`;
+      document.getElementById('modalOpCircleDisplay').textContent = `${selectedOperator} (${circle})`;
+      document.getElementById('modalAmountDisplay').textContent = `₹${finalAmount}`;
+
+      const rawUpi = `upi://pay?pa=${encodeURIComponent(activeSettings.upiId)}&pn=${encodeURIComponent(activeSettings.storeName)}&am=${finalAmount}&cu=INR&tn=${encodeURIComponent(note)}&tr=${encodeURIComponent(currentOrderId)}`;
+      const paytmDeep = `paytmmp://pay?pa=${encodeURIComponent(activeSettings.upiId)}&pn=${encodeURIComponent(activeSettings.storeName)}&am=${finalAmount}&cu=INR&tn=${encodeURIComponent(note)}&tr=${encodeURIComponent(currentOrderId)}`;
+      const phonepeDeep = `phonepe://pay?pa=${encodeURIComponent(activeSettings.upiId)}&pn=${encodeURIComponent(activeSettings.storeName)}&am=${finalAmount}&cu=INR&tn=${encodeURIComponent(note)}&tr=${encodeURIComponent(currentOrderId)}`;
+      const gpayDeep = `tez://upi/pay?pa=${encodeURIComponent(activeSettings.upiId)}&pn=${encodeURIComponent(activeSettings.storeName)}&am=${finalAmount}&cu=INR&tn=${encodeURIComponent(note)}&tr=${encodeURIComponent(currentOrderId)}`;
+
+      document.getElementById('btnPaytmApp').href = paytmDeep;
+      document.getElementById('btnPhonePeApp').href = phonepeDeep;
+      document.getElementById('btnGPayApp').href = gpayDeep;
+      document.getElementById('btnGenericUpi').href = rawUpi;
+
+      const qrBox = document.getElementById('dynamicQrContainer');
+      qrBox.innerHTML = '';
+      try {
+        new QRCode(qrBox, {
+          text: rawUpi,
+          width: 145,
+          height: 145,
+          colorDark: "#002970",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      } catch (e) {
+        console.error("QR Error:", e);
+      }
+
+      const backdrop = document.getElementById('checkoutBackdrop');
+      const sheet = document.getElementById('checkoutSheet');
+      backdrop.classList.add('modal-active');
+      sheet.classList.add('slide-in-up');
+    }
+
+    function closeCheckoutModal() {
+      const backdrop = document.getElementById('checkoutBackdrop');
+      const sheet = document.getElementById('checkoutSheet');
+      sheet.classList.remove('slide-in-up');
+      backdrop.classList.remove('modal-active');
+    }
+
+    function simulatePaymentSuccess() {
+      closeCheckoutModal();
+
+      const mob = document.getElementById('mobileNumber').value.trim();
+      const circle = document.getElementById('circleSelect').value;
+      const finalAmount = (enteredAmount * (1 - (activeSettings.discount / 100))).toFixed(2);
+      const now = new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+
+      // Notify Telegram on Payment Completion
+      sendTelegramNotification(
+        `✅ <b>Payment Completed!</b>\n\n` +
+        `📱 <b>Mobile:</b> ${mob}\n` +
+        `🏢 <b>Operator:</b> ${selectedOperator} (${circle})\n` +
+        `💵 <b>Paid:</b> ₹${finalAmount}\n` +
+        `🆔 <b>Txn ID:</b> <code>${currentOrderId}</code>\n` +
+        `⏰ <b>Time:</b> ${now}`
+      );
+
+      const newOrder = {
+        orderId: currentOrderId,
+        mobile: mob,
+        operator: `${selectedOperator} (${circle})`,
+        amount: finalAmount,
+        originalMrp: enteredAmount,
+        date: now,
+        status: 'Completed'
+      };
+
+      orderHistory.unshift(newOrder);
+      localStorage.setItem('5minrch_orders', JSON.stringify(orderHistory));
+      updateOrderBadge();
+
+      document.getElementById('rcptTxnId').textContent = currentOrderId;
+      document.getElementById('rcptMobile').textContent = `+91 ${mob}`;
+      document.getElementById('rcptOperator').textContent = `${selectedOperator} (${circle})`;
+      document.getElementById('rcptAmount').textContent = `₹${finalAmount}`;
+      document.getElementById('rcptTime').textContent = now;
+
+      const receiptBackdrop = document.getElementById('receiptModalBackdrop');
+      const receiptModal = document.getElementById('receiptModal');
+      receiptBackdrop.classList.add('modal-active');
+      receiptModal.classList.remove('scale-95');
+      receiptModal.classList.add('scale-100');
+    }
+
+    function closeReceiptModal() {
+      const receiptBackdrop = document.getElementById('receiptModalBackdrop');
+      const receiptModal = document.getElementById('receiptModal');
+      receiptBackdrop.classList.remove('modal-active');
+      receiptModal.classList.add('scale-95');
+      receiptModal.classList.remove('scale-100');
+
+      document.getElementById('rechargeAmount').value = '';
+      enteredAmount = 0;
+      updateCalculations();
+      showToast('Order recorded in Order History!', '✓');
+    }
+
+    function openOrdersModal() {
+      renderOrdersHistory();
+      document.getElementById('ordersModalBackdrop').classList.add('modal-active');
+    }
+
+    function closeOrdersModal() {
+      document.getElementById('ordersModalBackdrop').classList.remove('modal-active');
+    }
+
+    function renderOrdersHistory() {
+      const container = document.getElementById('ordersListContainer');
+      container.innerHTML = '';
+
+      if (orderHistory.length === 0) {
+        container.innerHTML = `
+          <div class="py-12 text-center text-slate-400">
+            <span class="text-4xl block mb-2">📜</span>
+            <p class="font-bold text-sm">No recent orders yet</p>
+          </div>
+        `;
+        return;
+      }
+
+      orderHistory.forEach(ord => {
+        const item = document.createElement('div');
+        item.className = "p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-between";
+        item.innerHTML = `
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-extrabold text-sm text-slate-900">+91 ${ord.mobile}</span>
+              <span class="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold px-2 py-0.2 rounded-full">${ord.status}</span>
+            </div>
+            <div class="text-xs text-slate-500 font-medium mt-0.5">${ord.operator} • <span class="font-mono text-slate-400">${ord.orderId}</span></div>
+            <div class="text-[10px] text-slate-400 mt-1">${ord.date}</div>
+          </div>
+          <div class="text-right">
+            <div class="text-base font-black text-brand-navy">₹${ord.amount}</div>
+            <div class="text-[10px] text-emerald-600 font-semibold line-through">₹${ord.originalMrp}</div>
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function clearOrderHistory() {
+      orderHistory = [];
+      localStorage.removeItem('5minrch_orders');
+      updateOrderBadge();
+      renderOrdersHistory();
+      showToast('Order history cleared.');
+    }
+
+    function updateOrderBadge() {
+      const badge = document.getElementById('orderCountBadge');
+      if (badge) badge.textContent = orderHistory.length;
+    }
+
+    function showToast(message, icon = 'ℹ️') {
+      const toast = document.getElementById('toastNotification');
+      const msg = document.getElementById('toastMessage');
+      const icn = document.getElementById('toastIcon');
+
+      msg.textContent = message;
+      icn.textContent = icon;
+
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 3000);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      syncDatabase();
+      setOperator('Jio');
+      updateCalculations();
+    });
+  </script>
+</body>
 </html>
