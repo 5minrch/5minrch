@@ -1040,10 +1040,10 @@
       updateCalculations();
     });
   </script> 
- <script>
-// JSONP Callback Handler - 100% Bypasses InfinityFree CORS Block
-function onMaintenanceStatus(data) {
-  const box = document.getElementById("maintenanceOverlay");
+<script>
+// Global Callback for JSONP
+window.onMaintenanceStatus = function(data) {
+  var box = document.getElementById("maintenanceOverlay");
   if (!box) return;
 
   if (data && data.settings && data.settings.maintenance === "1") {
@@ -1053,20 +1053,20 @@ function onMaintenanceStatus(data) {
     box.style.display = "none";
     document.body.style.overflow = "auto";
   }
-}
+};
 
 function pollMaintenance() {
-  const oldScript = document.getElementById("maint-poll-script");
-  if (oldScript) oldScript.remove();
+  var old = document.getElementById("maint-poll-script");
+  if (old) old.remove();
 
-  const script = document.createElement("script");
-  script.id = "maint-poll-script";
-  script.src = "https://5minrch-api.infinityfreeapp.com/admin_api.php?callback=onMaintenanceStatus&t=" + Date.now();
-  document.body.appendChild(script);
+  var s = document.createElement("script");
+  s.id = "maint-poll-script";
+  s.src = "https://5minrch-api.infinityfreeapp.com/admin_api.php?callback=onMaintenanceStatus&t=" + Date.now();
+  document.body.appendChild(s);
 }
 
-// Har 3 second me check
 pollMaintenance();
-setInterval(pollMaintenance, 3000);</script>
+setInterval(pollMaintenance, 3000);
+</script>
 </body>
 </html>
