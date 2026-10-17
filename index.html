@@ -41,7 +41,17 @@
 </head>
 
 <body class="text-slate-800 min-h-screen flex flex-col justify-between selection:bg-brand-cyan selection:text-white">
-
+<!-- MAINTENANCE OVERLAY SCREEN -->
+<div id="maintenanceOverlay" style="position: fixed; inset: 0; z-index: 99999; background: rgba(10, 15, 25, 0.96); display: none; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 20px; font-family: sans-serif;">
+  <div style="font-size: 50px; margin-bottom: 15px;">🛠️</div>
+  <h1 style="color: white; font-size: 26px; font-weight: bold; margin: 0;">Store Under Maintenance</h1>
+  <p style="color: #94a3b8; font-size: 14px; max-width: 420px; margin-top: 10px; line-height: 1.5;">
+    Server upgrade chal raha hai. Naye recharge orders abhi temporarily band hain. Hum jaldi wapas shuru karenge!
+  </p>
+  <div style="margin-top: 20px; padding: 6px 14px; background: #1e293b; border-radius: 20px; font-size: 12px; color: #fbbf24; font-weight: bold; border: 1px solid #334155;">
+    ● Orders Paused by Admin
+  </div>
+</div>
   <!-- TOP BANNER -->
   <aside class="bg-gradient-to-r from-brand-navy via-[#003882] to-brand-navy text-white text-[11px] sm:text-xs py-1.5 px-4 text-center font-semibold tracking-wide border-b border-blue-900/40">
     <div class="max-w-6xl mx-auto flex items-center justify-center space-x-2">
@@ -1029,6 +1039,27 @@
       setOperator('Jio');
       updateCalculations();
     });
-  </script>
+  </script> 
+  <script>
+// Instant Maintenance Checker (Har 3 sec me check karega)
+async function checkMaintenanceStatus() {
+  try {
+    const res = await fetch("https://5minrch-api.infinityfreeapp.com/admin_api.php");
+    const data = await res.json();
+    const box = document.getElementById("maintenanceOverlay");
+    
+    if (box && data && data.settings && data.settings.maintenance === "1") {
+      box.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    } else if (box) {
+      box.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  } catch (e) {}
+}
+
+checkMaintenanceStatus();
+setInterval(checkMaintenanceStatus, 3000);
+</script> 
 </body>
 </html>
