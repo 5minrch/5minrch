@@ -1041,38 +1041,34 @@
     });
   </script> 
  <script>
-// Instant Real-Time Maintenance Enforcer
-async function checkMaintenanceStatus() {
-  try {
-    // ?t= timestamp lagane se browser aur InfinityFree ka cache bypass ho jata hai
-    const res = await fetch("https://5minrch-api.infinityfreeapp.com/admin_api.php?t=" + Date.now());
-    const data = await res.json();
-    const box = document.getElementById("maintenanceOverlay");
+// JSONP Callback Handler - 100% Bypasses InfinityFree CORS Block
+function onMaintenanceStatus(data) {
+  const box = document.getElementById("maintenanceOverlay");
+  if (!box) return;
 
-    if (box && data && data.settings && data.settings.maintenance === "1") {
-      box.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    } else if (box) {
-      box.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-  } catch (e) {
-    // agar direct API block ho toh fallback proxy se instant check karein
-    try {
-      const pRes = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://5minrch-api.infinityfreeapp.com/admin_api.php?t=" + Date.now()));
-      const pData = await pRes.json();
-      const box = document.getElementById("maintenanceOverlay");
-      if (box && pData && pData.settings && pData.settings.maintenance === "1") {
-        box.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      }
-    } catch (err) {}
+  if (data && data.settings && data.settings.maintenance === "1") {
+    box.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  } else {
+    box.style.display = "none";
+    document.body.style.overflow = "auto";
   }
 }
 
-// Har 2.5 second me background check chalega
-checkMaintenanceStatus();
-setInterval(checkMaintenanceStatus, 2500);
+function pollMaintenance() {
+  const oldScript = document.getElementById("maint-poll-script");
+  if (oldScript) oldScript.remove();
+
+  const script = document.createElement("script");
+  script.id = "maint-poll-script";
+  // InfinityFree script tag ko block nahi karta
+  script.src = "https://5minrch-api.infinityfreeapp.com/admin_api.php?callback=onMaintenanceStatus&t=" + Date.now();
+  document.body.appendChild(script);
+}
+
+// Har 3 second me live check karega
+pollMaintenance();
+setInterval(pollMaintenance, 3000);
 </script>
 </body>
 </html>
