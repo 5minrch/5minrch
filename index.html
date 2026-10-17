@@ -1061,14 +1061,12 @@ function pollMaintenance() {
 
   const script = document.createElement("script");
   script.id = "maint-poll-script";
-  // InfinityFree script tag ko block nahi karta
   script.src = "https://5minrch-api.infinityfreeapp.com/admin_api.php?callback=onMaintenanceStatus&t=" + Date.now();
   document.body.appendChild(script);
 }
 
-// Har 3 second me live check karega
+// Har 3 second me check
 pollMaintenance();
-setInterval(pollMaintenance, 3000);
-</script>
+setInterval(pollMaintenance, 3000);</script>
 </body>
 </html>
