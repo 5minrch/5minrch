@@ -1040,14 +1040,15 @@
       updateCalculations();
     });
   </script> 
-  <script>
-// Instant Maintenance Checker (Har 3 sec me check karega)
+ <script>
+// Instant Real-Time Maintenance Enforcer
 async function checkMaintenanceStatus() {
   try {
-    const res = await fetch("https://5minrch-api.infinityfreeapp.com/admin_api.php");
+    // ?t= timestamp lagane se browser aur InfinityFree ka cache bypass ho jata hai
+    const res = await fetch("https://5minrch-api.infinityfreeapp.com/admin_api.php?t=" + Date.now());
     const data = await res.json();
     const box = document.getElementById("maintenanceOverlay");
-    
+
     if (box && data && data.settings && data.settings.maintenance === "1") {
       box.style.display = "flex";
       document.body.style.overflow = "hidden";
@@ -1055,11 +1056,23 @@ async function checkMaintenanceStatus() {
       box.style.display = "none";
       document.body.style.overflow = "auto";
     }
-  } catch (e) {}
+  } catch (e) {
+    // agar direct API block ho toh fallback proxy se instant check karein
+    try {
+      const pRes = await fetch("https://api.allorigins.win/raw?url=" + encodeURIComponent("https://5minrch-api.infinityfreeapp.com/admin_api.php?t=" + Date.now()));
+      const pData = await pRes.json();
+      const box = document.getElementById("maintenanceOverlay");
+      if (box && pData && pData.settings && pData.settings.maintenance === "1") {
+        box.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      }
+    } catch (err) {}
+  }
 }
 
+// Har 2.5 second me background check chalega
 checkMaintenanceStatus();
-setInterval(checkMaintenanceStatus, 3000);
-</script> 
+setInterval(checkMaintenanceStatus, 2500);
+</script>
 </body>
 </html>
